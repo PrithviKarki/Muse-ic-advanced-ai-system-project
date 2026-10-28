@@ -9,3 +9,13 @@ id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
 8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22
 9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78
 10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35
+11,Golden Coast Sunset,Sol Sonora,reggae,peaceful,0.58,82,0.88,0.74,0.45
+12,Moonlight Sonata Flow,Clara Vane,classical,melancholic,0.22,54,0.25,0.20,0.98
+13,Neon Cyberpunk,Overdrive X,edm,euphoric,0.95,128,0.72,0.85,0.02
+14,Rustic Campfire,The Cedar Woods,folk,nostalgic,0.44,96,0.52,0.48,0.88
+15,Velvet Groove,Silk & Brass,r&b,romantic,0.50,88,0.68,0.75,0.38
+16,Concrete Jungle Beat,K-Rhythm,hip hop,confident,0.78,94,0.63,0.82,0.12
+17,Iron Thunder,Skullcrush,metal,aggressive,0.98,168,0.30,0.35,0.01
+18,Copacabana Breeze,Rio Rhythm Club,latin,festive,0.68,108,0.86,0.80,0.52
+19,Midnight Delta Blues,Blind River Sam,blues,sorrowful,0.39,68,0.33,0.42,0.81
+20,Supernova Disco,Funky Odyssey,funk,groovy,0.85,116,0.92,0.90,0.15
