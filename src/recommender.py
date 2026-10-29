@@ -39,10 +39,9 @@ class Recommender:
         self.songs = songs
 
     def recommend(self, user: UserProfile, k: int = 5) -> List[Song]:
-        """Return the top k recommended songs for a user profile sorted by compatibility score."""
-        scored = [(song, score_song(user, song)[0]) for song in self.songs]
-        scored.sort(key=lambda item: item[1], reverse=True)
-        return [song for song, _ in scored[:k]]
+        """Return the top k recommended songs for a user profile sorted by compatibility and diversity."""
+        ranked = recommend_songs(user, self.songs, k=k)
+        return [song for song, _, _ in ranked]
 
     def explain_recommendation(self, user: UserProfile, song: Song) -> str:
         """Generate a human-readable explanation string detailing why a song was recommended."""
@@ -173,16 +172,67 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
 
     return round(final_score, 4), reasons
 
-def recommend_songs(user_prefs: Dict, songs: List[Dict], k: int = 5) -> List[Tuple[Dict, float, str]]:
-    """Score all songs against user preferences and return the top k candidates sorted from highest to lowest score."""
-    scored_candidates: List[Tuple[Dict, float, str]] = []
-
+def recommend_songs(
+    user_prefs: Dict,
+    songs: List[Dict],
+    k: int = 5,
+    artist_penalty: float = 0.15,
+    genre_penalty: float = 0.10,
+) -> List[Tuple[Dict, float, str]]:
+    """Score all songs and iteratively select top k candidates applying artist and genre diversity penalties."""
+    remaining_pool = []
     for song in songs:
-        score, reasons = score_song(user_prefs, song)
-        explanation = ", ".join(reasons) if reasons else "General musical match"
-        scored_candidates.append((song, score, explanation))
+        base_score, base_reasons = score_song(user_prefs, song)
+        remaining_pool.append((song, base_score, list(base_reasons)))
 
-    # Sort descending by score
-    scored_candidates.sort(key=lambda item: item[1], reverse=True)
+    selected_recommendations: List[Tuple[Dict, float, str]] = []
+    artist_counts: Dict[str, int] = {}
+    genre_counts: Dict[str, int] = {}
 
-    return scored_candidates[:k]
+    while remaining_pool and len(selected_recommendations) < k:
+        best_idx = 0
+        best_adjusted_score = -1.0
+        best_adjusted_reasons: List[str] = []
+
+        for idx, (song, base_score, base_reasons) in enumerate(remaining_pool):
+            artist = str(_extract_attr(song, "artist", default="")).strip().lower()
+            genre = str(_extract_attr(song, "genre", default="")).strip().lower()
+
+            adjusted_score = base_score
+            adjusted_reasons = list(base_reasons)
+
+            # Apply artist diversity penalty if this artist is already in the top list
+            prev_artist_count = artist_counts.get(artist, 0)
+            if artist and prev_artist_count > 0:
+                penalty = artist_penalty * prev_artist_count
+                adjusted_score = max(0.0, adjusted_score - penalty)
+                artist_name = _extract_attr(song, "artist", default="")
+                adjusted_reasons.append(f"diversity penalty: repeat artist '{artist_name}' (-{penalty:.2f})")
+
+            # Apply genre saturation penalty if this genre already appears 2+ times in the top list
+            prev_genre_count = genre_counts.get(genre, 0)
+            if genre and prev_genre_count >= 2:
+                penalty = genre_penalty * (prev_genre_count - 1)
+                adjusted_score = max(0.0, adjusted_score - penalty)
+                genre_name = _extract_attr(song, "genre", default="")
+                adjusted_reasons.append(f"diversity penalty: genre '{genre_name}' saturation (-{penalty:.2f})")
+
+            adjusted_score = round(adjusted_score, 4)
+            if adjusted_score > best_adjusted_score:
+                best_adjusted_score = adjusted_score
+                best_idx = idx
+                best_adjusted_reasons = adjusted_reasons
+
+        chosen_song, _, _ = remaining_pool.pop(best_idx)
+        chosen_artist = str(_extract_attr(chosen_song, "artist", default="")).strip().lower()
+        chosen_genre = str(_extract_attr(chosen_song, "genre", default="")).strip().lower()
+
+        if chosen_artist:
+            artist_counts[chosen_artist] = artist_counts.get(chosen_artist, 0) + 1
+        if chosen_genre:
+            genre_counts[chosen_genre] = genre_counts.get(chosen_genre, 0) + 1
+
+        explanation = ", ".join(best_adjusted_reasons) if best_adjusted_reasons else "General musical match"
+        selected_recommendations.append((chosen_song, best_adjusted_score, explanation))
+
+    return selected_recommendations
