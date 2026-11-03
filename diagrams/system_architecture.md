@@ -1,0 +1,27 @@
+# System Architecture Diagram (`system_architecture.mmd`)
+
+Press **`Cmd + Shift + V`** (macOS) or **`Ctrl + Shift + V`** (Windows/Linux) to open the visual preview of this diagram:
+
+```mermaid
+flowchart TD
+    %% 1. INPUT & HUMAN-IN-THE-LOOP
+    HUMAN["👤 Human Listener / Reviewer (Streamlit UI & CLI)"] -->|"Natural Prompt, Weights & Artist Exclusions"| GUARD_IN["🛡️ Input Guardrail (sanitize_user_profile & Σw=1.0)"]
+
+    %% 2. CORE AI PROCESSING & RETRIEVAL
+    GUARD_IN -->|"Validated Request"| PARSER["🧠 Intent Parser (Gemini 2.5 Flash / Local Semantic Parser)"]
+    CATALOG[("🎵 Enriched Song Catalog (songs.csv)")] -->|"Descriptions & Themes"| RETRIEVER["🔍 Vector Retriever (SongKnowledgeIndex Embeddings)"]
+    PARSER -->|"Structured Profile + Semantic Query"| RETRIEVER
+    RETRIEVER -->|"Retrieved Context & Cosine Scores"| SCORER["⚖️ Hybrid Scorer & Ranker (score_song + Diversity Penalties)"]
+
+    %% 3. EVALUATION, TESTING & OUTPUT
+    SCORER -->|"Ranked Top-K Candidates"| EVALUATOR["✅ Output Evaluator (verify_recommendations & Grounding Check)"]
+    EVALUATOR -->|"Verified Context"| RAG_GEN["🤖 RAG Synthesizer (generate_rag_explanation)"]
+    RAG_GEN -->|"Grounded Playlist + AI DJ Explanation"| OUTPUT["🎧 Final Output (Visual Table & Streamlit Cards)"]
+
+    %% 4. HUMAN CHECKING, LOGGING & AUTOMATED TESTING
+    OUTPUT -.->|"Human Inspection & Weight Tuning"| HUMAN
+    EVALUATOR -.->|"Audit Trail & Warnings"| LOGS[("📜 Telemetry Log (logs/muse_ic.log)")]
+    TESTER["🧪 Automated Tester (pytest: test_recommender.py)"] -.->|"Verifies Synonym RAG, Bounds & Zero Hallucination"| SCORER
+    TESTER -.->|"Asserts Guardrails"| EVALUATOR
+```
+

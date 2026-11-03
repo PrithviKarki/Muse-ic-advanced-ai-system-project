@@ -1,250 +1,377 @@
-# 🎵 Muse-ic: Music Recommender Simulation
-
-## Project Summary
-
-**Muse-ic** is an explainable, content-based music recommender simulation built in Python. It evaluates a 20-song catalog across diverse genres and moods against a listener's explicit taste profile (`genre`, `mood`, `energy`, and `likes_acoustic`), using a weighted 100-point scoring rule to rank the top $k$ song matches and explain *why* each track was recommended in plain language.
+# 🎵 Muse-ic 2.0: Hybrid Semantic RAG & Explainable Music Recommender
 
 ---
 
-## How The System Works
+## 1. Title & Project Summary (What It Does & Why It Matters)
 
-### Real-World Systems vs. Our Simulation
-Real-world streaming platforms like Spotify and YouTube Music rely on complex hybrid engines combining collaborative filtering (mining listening habits and co-occurrences across millions of user playlists), deep neural networks analyzing raw audio spectrograms, and natural language processing of music reviews. In contrast, our simulation prioritizes a lightweight, transparent **content-based filtering** approach. Rather than relying on crowd listening histories or black-box embeddings, our version directly compares a song's musical attributes against an individual user's explicit taste preferences. This keeps the recommendation pipeline deterministic, fast, and completely explainable (providing a clear "because" reason for every recommended track).
+**Muse-ic 2.0** is an explainable, hybrid **Retrieval-Augmented Generation (RAG) + Content-Based** music recommendation engine built in Python with both a command-line interface and an interactive **Streamlit Web App**. Given either a free-form natural language prompt (e.g., *"calm rainy night coding music with warm acoustic piano"*) or an explicit listener profile, the system retrieves relevant tracks from an enriched vector knowledge base, scores every candidate across both semantic context and continuous audio telemetry (`energy`, `acousticness`, `valence`, `tempo_bpm`), applies artist/genre diversity re-ranking, and synthesizes a **grounded AI DJ setlist explanation** (powered by **Google Gemini 2.5 Flash** or an offline-ready local RAG synthesizer).
 
-### Simulation Features
-
-Our simulation models the recommendation environment through two core objects:
-
-#### 1. `Song` Features
-Each song in our catalog tracks the following metadata and acoustic attributes:
-* **`id`** (`int`): Unique identifier for the track.
-* **`title`** (`str`): Title of the song.
-* **`artist`** (`str`): Name of the performing artist.
-* **`genre`** (`str`): Primary musical genre (e.g., `pop`, `lofi`, `rock`, `jazz`, `ambient`).
-* **`mood`** (`str`): Intended emotional state or atmosphere (e.g., `happy`, `chill`, `intense`, `relaxed`).
-* **`energy`** (`float`, `0.0`–`1.0`): Perceptual intensity, loudness, and dynamic activity.
-* **`acousticness`** (`float`, `0.0`–`1.0`): Confidence score of organic/acoustic vs. electronic instrumentation.
-* *(Extended acoustic attributes in data)*: **`tempo_bpm`** (speed), **`valence`** (musical positivity), and **`danceability`** (rhythm stability).
-
-#### 2. `UserProfile` Features
-A user's taste profile is represented by their explicit preferences:
-* **`favorite_genre`** (`str`): The primary genre the user is seeking (e.g., `"pop"`).
-* **`favorite_mood`** (`str`): The target mood or vibe for their current listening session (e.g., `"happy"`).
-* **`target_energy`** (`float`, `0.0`–`1.0`): The ideal energy level (e.g., `0.80` for a workout, `0.35` for studying).
-* **`likes_acoustic`** (`bool`): Preference flag indicating whether the user prefers acoustic/organic instruments (`True`) or electronic/synthesized production (`False`).
+### Why It Matters
+Commercial streaming algorithms often operate as opaque "black boxes" that trap listeners in repetitive genre filter bubbles or misinterpret curiosity listens as strong positive preferences. At the same time, purely rule-based recommenders suffer from **"Synonym Blindness"** (failing to recognize that *"chill"*, *"relaxed"*, *"peaceful"*, and *"focused"* describe overlapping musical vibes) while pure LLM chat recommenders frequently hallucinate non-existent songs. **Muse-ic 2.0** bridges this gap: it combines **dense semantic retrieval** with **transparent, mathematically normalized scoring and runtime guardrails**, ensuring every recommendation is 100% explainable, diverse, and strictly grounded in the real catalog.
 
 ---
 
-### Finalized Algorithm Recipe
+## 2. Foundation: Original Project (Modules 1–3)
 
-Our recommender architecture uses a two-stage pipeline: a pointwise **Scoring Rule** followed by a listwise **Ranking Rule**.
+* **Original Project Name:** **Muse-ic: Music Recommender Simulation** (`ai110-module3show-musicrecommendersimulation-starter` — Module 3 Show Project).
+* **Original Goals & Capabilities (2–3 Sentence Summary):**
+  The original Module 3 project was a deterministic, rule-based music recommender simulation that evaluated a 20-song CSV catalog against a user's hardcoded dictionary preferences (`genre`, `mood`, `energy`, and `likes_acoustic`). It used a 4-part weighted linear checklist ($35\%$ exact/substring genre match, $30\%$ exact mood match, $20\%$ energy proximity, and $15\%$ acoustic alignment) combined with iterative artist (`-0.15`) and genre (`-0.10`) diversity penalties to print a top-5 ASCII summary table. While transparent and fast, the baseline system relied on brittle exact-string matching, ignored rich musical context (`description`, `themes`, `valence`, `tempo_bpm`), could not parse natural-language requests, and lacked runtime weight/input guardrails.
+
+---
+
+## 3. Architecture Overview
+
+The diagram below illustrates how data flows through **Muse-ic 2.0** (`Input → Process → Output`), how the core AI components interact, and where both **automated testing** and **human-in-the-loop review** verify AI behavior (source file: [`diagrams/system_architecture.mmd`](diagrams/system_architecture.mmd)):
 
 ```mermaid
 flowchart TD
-    UP["User Profile"] --> SCORE["Scoring Rule (score_song)<br/>0.35·Genre + 0.30·Mood + 0.20·Energy + 0.15·Acoustic"]
-    CAT[("Song Catalog (songs.csv)")] --> SCORE
-    SCORE --> POOL["Scored Candidates Pool (Score in 0.0 - 1.0)"]
-    POOL --> RANK["Ranking & Diversity Rule (recommend_songs)<br/>Iterative Top-K + Artist/Genre Penalties"]
-    RANK --> TOPK["Visual Summary Table + Explanations"]
+    %% 1. INPUT & HUMAN-IN-THE-LOOP
+    HUMAN["👤 Human Listener / Reviewer (Streamlit UI & CLI)"] -->|"Natural Prompt, Weights & Artist Exclusions"| GUARD_IN["🛡️ Input Guardrail (sanitize_user_profile & Σw=1.0)"]
+
+    %% 2. CORE AI PROCESSING & RETRIEVAL
+    GUARD_IN -->|"Validated Request"| PARSER["🧠 Intent Parser (Gemini 2.5 Flash / Local Semantic Parser)"]
+    CATALOG[("🎵 Enriched Song Catalog (songs.csv)")] -->|"Descriptions & Themes"| RETRIEVER["🔍 Vector Retriever (SongKnowledgeIndex Embeddings)"]
+    PARSER -->|"Structured Profile + Semantic Query"| RETRIEVER
+    RETRIEVER -->|"Retrieved Context & Cosine Scores"| SCORER["⚖️ Hybrid Scorer & Ranker (score_song + Diversity Penalties)"]
+
+    %% 3. EVALUATION, TESTING & OUTPUT
+    SCORER -->|"Ranked Top-K Candidates"| EVALUATOR["✅ Output Evaluator (verify_recommendations & Grounding Check)"]
+    EVALUATOR -->|"Verified Context"| RAG_GEN["🤖 RAG Synthesizer (generate_rag_explanation)"]
+    RAG_GEN -->|"Grounded Playlist + AI DJ Explanation"| OUTPUT["🎧 Final Output (Visual Table & Streamlit Cards)"]
+
+    %% 4. HUMAN CHECKING, LOGGING & AUTOMATED TESTING
+    OUTPUT -.->|"Human Inspection & Weight Tuning"| HUMAN
+    EVALUATOR -.->|"Audit Trail & Warnings"| LOGS[("📜 Telemetry Log (logs/muse_ic.log)")]
+    TESTER["🧪 Automated Tester (pytest: test_recommender.py)"] -.->|"Verifies Synonym RAG, Bounds & Zero Hallucination"| SCORER
+    TESTER -.->|"Asserts Guardrails"| EVALUATOR
 ```
 
-#### 1. Pointwise Scoring Rule (`score_song`)
-Each song is scored on a normalized scale from `0.0` to `1.0` using a convex combination of four sub-scores:
-
-$$\text{Final Score} = (0.35 \times S_{\text{genre}}) + (0.30 \times S_{\text{mood}}) + (0.20 \times S_{\text{energy}}) + (0.15 \times S_{\text{acoustic}})$$
-
-* **Genre Compatibility ($S_{\text{genre}}$, Weight: $35\%$):**
-  * $1.0$ if `song.genre == user.favorite_genre`.
-  * $0.5$ if `user.favorite_genre` is a substring of `song.genre` (e.g., `"pop"` in `"indie pop"`).
-  * $0.0$ otherwise.
-* **Mood Compatibility ($S_{\text{mood}}$, Weight: $30\%$):**
-  * $1.0$ if `song.mood == user.favorite_mood`, else $0.0$.
-* **Energy Proximity ($S_{\text{energy}}$, Weight: $20\%$):**
-  * $1.0 - |\text{song.energy} - \text{user.target\_energy}|$. Near-perfect matches ($\Delta \le 0.15$) trigger an explanation tag.
-* **Acoustic Alignment ($S_{\text{acoustic}}$, Weight: $15\%$):**
-  * $\text{song.acousticness}$ if `user.likes_acoustic == True`.
-  * $1.0 - \text{song.acousticness}$ if `user.likes_acoustic == False`.
-* **Explanation Generation:** Generates human-readable reason clauses (e.g., *"genre match 'lofi' (+0.35)"*) appended as a `List[str]`.
-
-#### 2. Listwise Ranking & Diversity Rule (`recommend_songs` — Challenge 3)
-1. Iterates through the catalog and scores each track via `score_song`.
-2. Selects the top $k$ items (default $k=5$) **iteratively one slot at a time** while tracking `artist_counts` and `genre_counts` already placed in the recommendation list:
-   * **Repeat Artist Penalty (`-0.15`):** Subtracted if the candidate's artist already appears in the top list, preventing a single artist (like `LoRoom`) from dominating the results.
-   * **Genre Saturation Penalty (`-0.10`):** Subtracted if the candidate's genre already appears 2 or more times in the top list, encouraging stylistic variety.
-3. Appends any applied diversity penalties directly into the song's `explanation` string and renders the results in a multi-line **Visual Summary Table** (`format_recommendations_table` — Challenge 4).
+### Component Walkthrough (`Input → Process → Output`)
+1. **Input & Guardrail Layer ([`src/guardrails.py`](src/guardrails.py)):**
+   * Accepts a natural-language prompt or explicit profile from the human listener, strips prompt-injection patterns (`sanitize_query_text`), clamps continuous audio targets (`energy` $\in [0.0, 1.0]$, `tempo_bpm` $\in [40, 220]$), and normalizes custom scoring weights so $\sum w_i = 1.0000$ (`validate_and_normalize_weights`).
+2. **Intent Parser ([`src/rag_engine.py`](src/rag_engine.py)):**
+   * `parse_natural_language_request()` translates free-form requests (e.g., *"calm rainy night coding music"*) into structured audio targets (`genre`, `mood`, `target_energy`, `likes_acoustic`, `target_valence`) using **Google Gemini 2.5 Flash** when `GEMINI_API_KEY` is configured or a deterministic local semantic parser when offline.
+3. **Specialized Vector Retriever ([`src/rag_engine.py`](src/rag_engine.py)):**
+   * `SongKnowledgeIndex` indexes all 30 tracks in [`data/songs.csv`](data/songs.csv) (combining `title`, `artist`, `genre`, `mood`, audio profile tags, `description`, and `themes`) into a **15-dimensional Specialized Musical Concept Space** hybridized with IDF-weighted lexical vectors, returning cosine similarity scores and matched concept tags for any query.
+4. **Hybrid Scorer & Diversity Ranker ([`src/recommender.py`](src/recommender.py)):**
+   * `score_song()` evaluates each track using a normalized 5-component formula:
+     $$\text{Final Score} = 0.25 S_{\text{genre}} + 0.20 S_{\text{mood}} + 0.20 S_{\text{energy/audio}} + 0.15 S_{\text{acoustic}} + 0.20 S_{\text{semantic\_rag}}$$
+   * Incorporates semantic mood synonym clusters (`MOOD_SYNONYM_CLUSTERS`) and genre affinity clusters (`GENRE_AFFINITY_CLUSTERS`) before `recommend_songs()` iteratively selects the top $k$ tracks with repeat-artist (`-0.15`) and genre-saturation (`-0.10`) penalties.
+5. **Output Evaluator, RAG Synthesizer & Human/Test Loops:**
+   * `verify_recommendations()` confirms every track exists in [`data/songs.csv`](data/songs.csv) (zero-hallucination check) and logs audit events to [`logs/muse_ic.log`](logs/muse_ic.log).
+   * `generate_rag_explanation()` synthesizes the retrieved song descriptions and mathematical telemetry into an AI DJ setlist breakdown for human inspection in the CLI or Streamlit UI.
 
 ---
 
-### Potential Biases & Limitations
+## 4. Setup Instructions
 
-1. **Filter Bubble & High-Weight Categorical Exclusion:**
-   Because genre ($35\%$) and mood ($30\%$) make up $65\%$ of the total score, songs from complementary genres (e.g., ambient or jazz for a lofi study listener) are heavily penalized even when their acoustic features match the user's intent.
-2. **Catalog Representation & Starvation:**
-   In a small 20-song dataset, many genres (metal, blues, reggae) have only 1–2 tracks. If a user selects one of these genres and asks for $k=5$, the system suffers from catalog starvation, causing recommendations #3–#5 to have drastically lower scores and feel disjointed.
-3. **Acoustic Binarization Bias:**
-   Modeling acoustic preference as a boolean (`likes_acoustic`) oversimplifies modern hybrid production (e.g., lofi tracks that layer vintage acoustic piano chords over synthetic 808 drum loops).
-4. **Zero Serendipity / Exploration:**
-   The algorithm is purely exploitative—it only serves what matches the explicit profile. It has no mechanism to introduce fresh or unexpected musical discoveries.
+Follow these steps to run the application and test suite reproducibly on macOS, Linux, or Windows:
 
----
+### Step 1: Clone & Enter the Project Directory
+```bash
+cd ai110-module3show-musicrecommendersimulation-starter
+```
 
-## Getting Started
+### Step 2: Create and Activate a Virtual Environment
+```bash
+python3 -m venv .venv
+source .venv/bin/activate      # macOS / Linux
+# .venv\Scripts\activate       # Windows
+```
 
-### Setup
-
-1. Create a virtual environment (optional but recommended):
-
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate      # Mac or Linux
-   .venv\Scripts\activate         # Windows
-
-2. Install dependencies
-
+### Step 3: Install Required Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Run the app:
-
+### Step 4: (Optional) Configure Google Gemini API Key
+**Muse-ic 2.0 runs 100% out-of-the-box without an API key** using its built-in Local Semantic RAG Engine. To optionally enable live **Google Gemini 2.5 Flash** query parsing and DJ synthesis:
 ```bash
-python -m src.main
+cp .env.example .env
+# Edit .env and paste your Google AI Studio key: GEMINI_API_KEY=AIzaSy...
+# (Or paste your key directly into the Streamlit Web App sidebar)
 ```
 
-### Running Tests
+### Step 5: Run the Application (CLI or Streamlit Web App)
+* **Run a Natural-Language Semantic RAG Query (CLI):**
+  ```bash
+  python -m src.main --query "calm rainy night coding music with warm acoustic piano"
+  ```
+* **Run All 6 Standard & Adversarial Evaluation Profiles (CLI):**
+  ```bash
+  python -m src.main
+  ```
+* **Launch the Interactive Streamlit Web App:**
+  ```bash
+  streamlit run src/app.py
+  ```
 
-Run the starter tests with:
-
+### Step 6: Run the Automated Test Suite & Evaluation Scorecard
 ```bash
-pytest
-```
+# Run all 13 pytest unit & integration tests:
+pytest -v
 
-You can add more tests in `tests/test_recommender.py`.
+# Run the 8-scenario Evaluation Benchmark Harness (prints Pass/Fail & Confidence Scorecard):
+python -m src.evaluate
+```
 
 ---
 
-## Sample Recommendation Output
+## 5. Sample Interactions (Inputs & Resulting AI Outputs)
 
-Below is the **Visual Summary Table** output (Challenge 4) with **Diversity & Fairness Penalties** active (Challenge 3) when running `python -m src.main`:
+Below are **three real interactions** demonstrating natural-language Semantic RAG curation, high-energy electronic synthesis, and adversarial out-of-distribution synonym rescue.
+
+### Interaction 1: Activity-Based Natural Language RAG Query (Late-Night Coding)
+* **Input Command:**
+  ```bash
+  python -m src.main --query "calm rainy night coding music with warm acoustic piano"
+  ```
+* **Resulting AI Output:**
+  ```text
+  ======================================================================================================================
+  👤 PROFILE: AI DJ Intent: calm rainy night coding music with warm acoustic
+     Preferences -> Genre: lofi | Mood: chill | Target Energy: 0.32 | Likes Acoustic: True
+     Semantic RAG Query -> "calm rainy night coding music with warm acoustic piano"
+     Guardrails -> Passed: True | Low-Confidence Alert: False | RAG Synthesis: Local Grounded RAG Synthesizer (Offline-Ready)
+  ======================================================================================================================
+
+  🎧 Top 5 Recommendations Summary Table:
+
+  +------+-----------------------------------+----------------------+--------+--------------+---------------------------------------------------------+
+  | Rank | Song (Artist)                     | Genre / Mood         | Energy | Score        | Reasons (Why Recommended)                               |
+  +======+===================================+======================+========+==============+=========================================================+
+  | #1   | Library Rain (Paper Lanterns)     | lofi / chill         | 0.35   | 0.90 (89.5%) | • genre match 'lofi' (+0.25)                            |
+  |      |                                   |                      |        |              | • mood match 'chill' (+0.20)                            |
+  |      |                                   |                      |        |              | • energy match (0.35 near target 0.32) (+0.17)          |
+  |      |                                   |                      |        |              | • acoustic sound match (+0.13)                          |
+  |      |                                   |                      |        |              | • RAG semantic context [calm/night/acoustic] (+0.15)    |
+  +------+-----------------------------------+----------------------+--------+--------------+---------------------------------------------------------+
+  | #2   | Midnight Coding (LoRoom)          | lofi / chill         | 0.42   | 0.88 (88.0%) | • genre match 'lofi' (+0.25)                            |
+  |      |                                   |                      |        |              | • mood match 'chill' (+0.20)                            |
+  |      |                                   |                      |        |              | • energy match (0.42 near target 0.32) (+0.17)          |
+  |      |                                   |                      |        |              | • acoustic sound match (+0.11)                          |
+  |      |                                   |                      |        |              | • RAG semantic context [calm/night/coding] (+0.16)      |
+  +------+-----------------------------------+----------------------+--------+--------------+---------------------------------------------------------+
+  | #3   | Afterhours Espresso (Slow Stereo) | jazz / chill         | 0.34   | 0.78 (77.6%) | • semantic genre affinity 'jazz' (~'lofi') (+0.12)      |
+  |      |                                   |                      |        |              | • mood match 'chill' (+0.20)                            |
+  |      |                                   |                      |        |              | • energy match (0.34 near target 0.32) (+0.17)          |
+  |      |                                   |                      |        |              | • acoustic sound match (+0.14)                          |
+  |      |                                   |                      |        |              | • RAG semantic context [night/acoustic/piano] (+0.15)   |
+  +------+-----------------------------------+----------------------+--------+--------------+---------------------------------------------------------+
+
+  🤖 Grounded RAG AI DJ Synthesis:
+  ----------------------------------------------------------------------------------------------------------------------
+  **🎧 Grounded RAG Curation for _calm rainy night coding music with warm acoustic piano_:** Retrieved and ranked **5 catalog tracks** by combining dense semantic vector retrieval over song descriptions/themes with multi-attribute audio telemetry. Anchored by **"Library Rain"** by *Paper Lanterns* (89.5% match), this sequence balances vibe alignment with artist and genre diversity:
+
+  - **#1 "Library Rain" — Paper Lanterns** (`89.5%`): Delicate acoustic piano and fingerpicked guitar accompanied by gentle rain ambiance and soft brush drums for quiet reading and peaceful reflection. *[Telemetry: genre match 'lofi' (+0.25), mood match 'chill' (+0.20), energy match (0.35 near target 0.32) (+0.17), acoustic sound match (+0.13), RAG semantic context [calm/night/acoustic] (+0.15)]*
+  - **#2 "Midnight Coding" — LoRoom** (`88.0%`): Warm Rhodes electric piano chords layered over dusty vinyl crackle, mellow boom-bap percussion, and a steady bassline crafted for deep late-night programming sessions. *[Telemetry: genre match 'lofi' (+0.25), mood match 'chill' (+0.20), energy match (0.42 near target 0.32) (+0.17), acoustic sound match (+0.11), RAG semantic context [calm/night/coding] (+0.16)]*
+  - **#3 "Afterhours Espresso" — Slow Stereo** (`77.6%`): Cool-jazz piano chords and whispered brushwork over a walking acoustic bassline for tranquil late-night lounging and quiet conversation. *[Telemetry: semantic genre affinity 'jazz' (~'lofi') (+0.12), mood match 'chill' (+0.20), energy match (0.34 near target 0.32) (+0.17), acoustic sound match (+0.14), RAG semantic context [night/acoustic/piano] (+0.15)]*
+  ```
+
+---
+
+### Interaction 2: High-Energy Atmosphere Query (80s Cyberpunk Highway Night Drive)
+* **Input Command:**
+  ```bash
+  python -m src.main --query "high energy 80s neon cyberpunk synthwave highway night drive"
+  ```
+* **Resulting AI Output:**
+  ```text
+  ======================================================================================================================
+  👤 PROFILE: AI DJ Intent: high energy 80s neon cyberpunk synthwave highway
+     Preferences -> Genre: synthwave | Mood: moody | Target Energy: 0.86 | Likes Acoustic: False
+     Semantic RAG Query -> "high energy 80s neon cyberpunk synthwave highway night drive"
+     Guardrails -> Passed: True | Low-Confidence Alert: False | RAG Synthesis: Local Grounded RAG Synthesizer (Offline-Ready)
+  ======================================================================================================================
+
+  +------+--------------------------------+---------------------+--------+--------------+-----------------------------------------------------------+
+  | Rank | Song (Artist)                  | Genre / Mood        | Energy | Score        | Reasons (Why Recommended)                                 |
+  +======+================================+=====================+========+==============+===========================================================+
+  | #1   | Night Drive Loop (Neon Echo)   | synthwave / moody   | 0.75   | 0.91 (91.3%) | • genre match 'synthwave' (+0.25)                         |
+  |      |                                |                     |        |              | • mood match 'moody' (+0.20)                              |
+  |      |                                |                     |        |              | • energy match (0.75 near target 0.86) (+0.18)            |
+  |      |                                |                     |        |              | • electronic/non-acoustic match (+0.12)                   |
+  |      |                                |                     |        |              | • RAG semantic context [high/80s/neon] (+0.17)            |
+  +------+--------------------------------+---------------------+--------+--------------+-----------------------------------------------------------+
+  | #2   | Cybernetic Pulse (Overdrive X) | synthwave / intense | 0.89   | 0.77 (77.4%) | • genre match 'synthwave' (+0.25)                         |
+  |      |                                |                     |        |              | • semantic mood synonym 'intense' (~'moody') (+0.09)      |
+  |      |                                |                     |        |              | • energy match (0.89 near target 0.86) (+0.18)            |
+  |      |                                |                     |        |              | • electronic/non-acoustic match (+0.14)                   |
+  |      |                                |                     |        |              | • RAG semantic context [high/cyberpunk/synthwave] (+0.12) |
+  +------+--------------------------------+---------------------+--------+--------------+-----------------------------------------------------------+
+  ```
+
+---
+
+### Interaction 3: Adversarial Out-of-Distribution Synonym Rescue
+In Module 3, asking for `"deathcore polka"` and `"existential dread"` scored $\le 32.8\%$ because neither string appeared in the CSV. In **Muse-ic 2.0**, Semantic Mood Synonyms and RAG theme retrieval automatically connect `"existential dread"` to `"sorrowful"` blues and `"melancholic"` classical/lofi tracks:
+* **Input Command:**
+  ```bash
+  python -m src.main out_of_distribution
+  ```
+* **Resulting AI Output:**
+  ```text
+  ======================================================================================================================
+  👤 PROFILE: Adversarial: Unknown Genre/Mood (Zero-Match Trap)
+     Preferences -> Genre: deathcore polka | Mood: existential dread | Target Energy: 0.50 | Likes Acoustic: True
+     Semantic RAG Query -> "existential dread somber late night acoustic introspection"
+     Guardrails -> Passed: True | Low-Confidence Alert: False | RAG Synthesis: Local Grounded RAG Synthesizer (Offline-Ready)
+  ======================================================================================================================
+
+  +------+----------------------------------------+-------------------------+--------+--------------+----------------------------------------------------------------------+
+  | Rank | Song (Artist)                          | Genre / Mood            | Energy | Score        | Reasons (Why Recommended)                                            |
+  +======+========================================+=========================+========+==============+======================================================================+
+  | #1   | Midnight Delta Blues (Blind River Sam) | blues / sorrowful       | 0.39   | 0.56 (56.0%) | • semantic mood synonym 'sorrowful' (~'existential dread') (+0.13)   |
+  |      |                                        |                         |        |              | • energy match (0.39 near target 0.50) (+0.18)                       |
+  |      |                                        |                         |        |              | • acoustic sound match (+0.12)                                       |
+  |      |                                        |                         |        |              | • RAG semantic context [existential/dread/late] (+0.13)              |
+  +------+----------------------------------------+-------------------------+--------+--------------+----------------------------------------------------------------------+
+  | #2   | Moonlight Sonata Flow (Clara Vane)     | classical / melancholic | 0.22   | 0.56 (55.8%) | • semantic mood synonym 'melancholic' (~'existential dread') (+0.14) |
+  |      |                                        |                         |        |              | • acoustic sound match (+0.15)                                       |
+  |      |                                        |                         |        |              | • RAG semantic context [existential/dread/somber] (+0.13)            |
+  +------+----------------------------------------+-------------------------+--------+--------------+----------------------------------------------------------------------+
+  | #3   | Rainy Windowpane (Paper Lanterns)      | lofi / melancholic      | 0.31   | 0.55 (55.0%) | • semantic mood synonym 'melancholic' (~'existential dread') (+0.14) |
+  |      |                                        |                         |        |              | • acoustic sound match (+0.13)                                       |
+  |      |                                        |                         |        |              | • RAG semantic context [night/acoustic/introspection] (+0.12)        |
+  +------+----------------------------------------+-------------------------+--------+--------------+----------------------------------------------------------------------+
+  ```
+
+---
+
+## 6. Stretch Goal: Multi-Source & Custom-Document RAG Enhancement
+
+To achieve the **RAG Enhancement Stretch Goal**, we extended `SongKnowledgeIndex` in [`src/rag_engine.py`](src/rag_engine.py) (`load_external_knowledge_sources` and `retrieve_multi_source_context`) from a single-CSV retriever into a **3-Source Knowledge Fusion Engine** (plus interactive `.md`/`.txt` custom document uploads in the Streamlit Web App):
+
+1. **Source 1 — Structured CSV Telemetry & Track Descriptions ([`data/songs.csv`](data/songs.csv)):** Track audio features (`energy`, `acousticness`, `valence`, `tempo_bpm`), `description`, and `themes`.
+2. **Source 2 — JSON Musicology & Artist Lore Knowledge Base ([`data/musicology_guides.json`](data/musicology_guides.json)):** Artist biographies, signature production techniques (e.g., *Paper Lanterns*' Pacific Northwest rain foley and felt-damped pianos), and psychoacoustic activity guides (e.g., why `60–85 BPM` non-vocal tracks prevent working-memory interference during coding).
+3. **Source 3 — Custom Markdown Listener Notes & Live User Uploads ([`data/custom_listener_notes.md`](data/custom_listener_notes.md) + Streamlit File Uploader):** Personal study/exam/workout curation rules that dynamically re-index the vector store at runtime via `SongKnowledgeIndex.update_custom_notes()`.
+
+### Before vs. After Multi-Source RAG Comparison
+* **Test Prompt:** `"pomodoro exam week debugging session with felt piano and rain foley"`
+* **Before (Single-Source `songs.csv` Only):**
+  * Neither `"pomodoro"`, `"exam week"`, `"debugging"`, `"felt piano"`, nor `"rain foley"` appeared in `songs.csv`.
+  * *Library Rain* scored **89.5%** (`+0.15` RAG score), and the AI DJ output only repeated the CSV description without explaining *why* the track's tempo and instrumentation aid debugging or citing artist production lore.
+* **After (3-Source RAG: `songs.csv` + `musicology_guides.json` + `custom_listener_notes.md`):**
+  * `SongKnowledgeIndex` matched `[pomodoro/exam/week]` across the fused artist lore and custom listener notes, boosting *Library Rain* to **95.3%** (`+0.18` RAG score) and *Midnight Coding* to **88.6%** (`+0.14` RAG score).
+  * The synthesized AI DJ response actively cites the retrieved **Psychoacoustic Guide**, **Custom Listener Note**, and **Artist Lore**:
+  ```text
+  **🎧 Multi-Source RAG Curation for _pomodoro exam week debugging session with felt piano and rain foley_:**
+  Retrieved and ranked 5 catalog tracks across 3 knowledge sources (songs.csv, musicology_guides.json, and custom_listener_notes.md).
+  Anchored by "Library Rain" by Paper Lanterns (95.3% match):
+
+  > 🧠 Retrieved Musicology Insight (musicology_guides.json — Cognitive Flow & Coding Acoustics Guide):
+  > psychoacoustic research shows that instrumental tracks between 60–85 BPM with high acoustic warmth
+  > (felt piano, Rhodes, or rain foley) and absence of sharp vocal transients prevent verbal working-memory
+  > interference during coding and reading.
+
+  > 📝 Retrieved Custom Curation Note (custom_listener_notes.md):
+  > Pomodoro & Exam Week Note: For exam week, debugging sessions, and late-night Python coding, prioritize
+  > tracks by Paper Lanterns (Library Rain, Rainy Windowpane) and LoRoom (Midnight Coding, Focus Flow)...
+
+  - #1 "Library Rain" — Paper Lanterns (95.3%): Delicate acoustic piano and fingerpicked guitar...
+    (Artist Lore: Acoustic lofi duo known for field-recording real Pacific Northwest rainstorms and
+    layering them beneath felt-damped upright pianos.)
+    [Telemetry: genre match 'lofi' (+0.25), mood match 'chill' (+0.20), energy match (+0.20),
+    acoustic sound match (+0.13), RAG semantic context [pomodoro/exam/week] (+0.18)]
+  ```
+
+---
+
+## 6b. Stretch Goal: Fine-Tuning & Model Specialization (Few-Shot Patterns, Synthetic Datasets & Constrained Tone/Style)
+
+To satisfy the **Fine-Tuning or Specialization Stretch Goal**, [`src/rag_engine.py`](src/rag_engine.py) implements three specialization layers and demonstrates measurable improvements over the unspecialized baseline:
+
+1. **Synthetic Domain Datasets ([`data/songs.csv`](data/songs.csv) & [`data/musicology_guides.json`](data/musicology_guides.json)):**
+   * A curated 30-track synthetic dataset enriched with acoustic instrumentation descriptions, activity themes, artist production lore, and 4 psychoacoustic listening guides.
+2. **Few-Shot Intent & Style Exemplars (`FEW_SHOT_INTENT_EXAMPLES` & `SPECIALIZED_DJ_STYLES` in [`src/rag_engine.py`](src/rag_engine.py)):**
+   * Injects 3 structured input$\to$JSON exemplars into `parse_natural_language_request()` and persona-specific few-shot exemplars into `generate_rag_explanation()`.
+3. **Constrained Tone/Style Modes (`dj_style` selector in CLI & Streamlit Sidebar):**
+   * **`"musicologist"` (Default Specialized Style):** Enforces analytical psychoacoustic terminology and `🔬 [Acoustic Telemetry: BPM | Energy]` tags.
+   * **`"late_night_radio"` (Constrained Persona):** Enforces a poetic midnight FM radio host voice with `🎙️ [Crossfade Cue BPM]` markers.
+   * **`"hype_coach"` (Constrained Persona):** Enforces a high-adrenaline athletic trainer voice with `⚡ [Cadence Zone: BPM | Energy]` markers.
+   * **`"baseline"` (Unspecialized Baseline):** Outputs a plain, unstyled checklist for direct side-by-side comparison.
+
+### Measurable Output Difference: Baseline vs. Specialized Model
+
+| Evaluation Dimension | Unspecialized Module 3 Baseline | Specialized Model (Muse-ic 2.0) | Measurable Delta |
+| :--- | :--- | :--- | :--- |
+| **Adversarial OOD Query (`"deathcore polka"` / `"existential dread"`)** | Top-1: *Rustic Campfire* (`32.8%`) — 0 genre/mood points | Top-1: *Midnight Delta Blues* (`70.1%`) — rescued via Synonym Graph + Agentic Pass #2 | **`+37.3%` Top-1 Score Lift** |
+| **Synonym Mood Query (`"chill"` user evaluating `"relaxed"` jazz)** | Mood Sub-Score: `0.00 / 0.30` (`0%` exact string mismatch) | Mood Sub-Score: `0.68 / 0.20` (`85%` semantic cluster similarity) | **`+68%` Mood Recall Lift** |
+| **Pomodoro / Debugging Query (`"pomodoro exam week debugging..."`)** | Cannot parse free text; requires manual dict input | Top-1: *Library Rain* (`95.3%`) citing `musicology_guides.json` & `custom_listener_notes.md` | **3 Data Sources Fused** |
+| **Explanation Style (`dj_style` Constrained Output)** | `1. Library Rain by Paper Lanterns (Score: 0.95) - genre match...` | `🔬 [Acoustic Telemetry: 72 BPM | Energy 0.35]` + Psychoacoustic Guide + Artist Lore | **100% Domain-Constrained Format** |
+
+---
+
+## 7. Design Decisions & Engineering Trade-Offs
+
+1. **Dual-Mode RAG Architecture (Google Gemini 2.5 Flash + Deterministic Local Fallback):**
+   * *Why we built it this way:* Projects that rely exclusively on external LLM APIs break immediately if a grader, recruiter, or CI pipeline runs the code without an API key or hits a rate limit.
+   * *Trade-off:* Writing both a Gemini 2.5 Flash REST client (`_call_gemini_api`) and a deterministic local semantic parser/synthesizer required extra engineering upfront, but guaranteed **100% zero-config reproducibility** and sub-millisecond offline fallback.
+2. **Specialized Musical Concept Space + TF-IDF Hybrid Embeddings (`SongKnowledgeIndex`):**
+   * *Why we built it this way:* Full deep-learning audio/text embedding libraries (`PyTorch` + `sentence-transformers`) require downloading hundreds of megabytes of model weights on first run.
+   * *Trade-off:* By combining a **15-dimensional domain-specific musical concept vector** with **IDF-weighted lexical cosine similarity** and **mood/genre synonym graphs**, our vector index runs in $<5\text{ ms}$ with zero external weight downloads while still accurately capturing domain relationships (`"chill"` $\leftrightarrow$ `"relaxed"`, `"coding"` $\leftrightarrow$ `"focused"`). The trade-off is that our taxonomy is tailored specifically to musical concepts rather than open-domain encyclopedic text.
+3. **Hybrid 5-Factor Scoring ($80\%$ Structured/Semantic + $20\%$ RAG Context) vs. Pure Vector Search:**
+   * *Why we built it this way:* If a recommender ranks songs purely by text description similarity, a quiet acoustic song whose description mentions *"driving rain"* could be recommended for a *"high-energy highway driving"* prompt.
+   * *Trade-off:* Keeping explicit weights on continuous audio telemetry (`energy`, `acousticness`, `valence`, `tempo_bpm`) alongside the $20\%$ Semantic RAG score prevents acoustic mismatch ("genre/energy drift") while still allowing text descriptions to break ties and rescue synonyms.
+4. **Runtime Weight Normalization Guardrail (`validate_and_normalize_weights`):**
+   * *Why we built it this way:* In Module 3 Experiment 1, manually adjusting weights caused the weight sum to hit `1.025`, pushing song scores over $100\%$ (`1.004`). Adding an automatic $\sum w_i = 1.0000$ normalization guardrail in [`src/guardrails.py`](src/guardrails.py) allows users to freely drag weight sliders in the Streamlit UI without ever corrupting the $[0.0, 1.0]$ probability scale.
+
+---
+
+## 8. Testing Summary & Evaluation Harness (What Worked, What Didn't & What We Learned)
+
+### A. Automated Evaluation Benchmark Scorecard ([`src/evaluate.py`](src/evaluate.py))
+Running `python -m src.evaluate` (or `python -m src.main --eval`) executes our **Test Harness & Evaluation Script Stretch Goal** across 8 predefined benchmark inputs and prints a pass/fail and confidence scorecard:
 
 ```text
-======================================================================================================================
-👤 PROFILE: High-Energy Pop Workout
-   Preferences -> Genre: pop | Mood: happy | Target Energy: 0.85 | Likes Acoustic: False
-======================================================================================================================
-
-🎧 Top 5 Recommendations Summary Table:
-
-+------+---------------------------------+-------------------+--------+--------------+------------------------------------------------+
-| Rank | Song (Artist)                   | Genre / Mood      | Energy | Score        | Reasons (Why Recommended)                      |
-+======+=================================+===================+========+==============+================================================+
-| #1   | Sunrise City (Neon Echo)        | pop / happy       | 0.82   | 0.97 (96.7%) | • genre match 'pop' (+0.35)                    |
-|      |                                 |                   |        |              | • mood match 'happy' (+0.30)                   |
-|      |                                 |                   |        |              | • energy match (0.82 near target 0.85) (+0.19) |
-|      |                                 |                   |        |              | • electronic/non-acoustic match (+0.12)        |
-+------+---------------------------------+-------------------+--------+--------------+------------------------------------------------+
-| #2   | Rooftop Lights (Indigo Parade)  | indie pop / happy | 0.76   | 0.75 (75.4%) | • related genre 'indie pop' (+0.17)            |
-|      |                                 |                   |        |              | • mood match 'happy' (+0.30)                   |
-|      |                                 |                   |        |              | • energy match (0.76 near target 0.85) (+0.18) |
-|      |                                 |                   |        |              | • electronic/non-acoustic match (+0.10)        |
-+------+---------------------------------+-------------------+--------+--------------+------------------------------------------------+
-| #3   | Gym Hero (Max Pulse)            | pop / intense     | 0.93   | 0.68 (67.7%) | • genre match 'pop' (+0.35)                    |
-|      |                                 |                   |        |              | • energy match (0.93 near target 0.85) (+0.18) |
-|      |                                 |                   |        |              | • electronic/non-acoustic match (+0.14)        |
-+------+---------------------------------+-------------------+--------+--------------+------------------------------------------------+
-| #4   | Supernova Disco (Funky Odyssey) | funk / groovy     | 0.85   | 0.33 (32.8%) | • energy match (0.85 near target 0.85) (+0.20) |
-|      |                                 |                   |        |              | • electronic/non-acoustic match (+0.13)        |
-+------+---------------------------------+-------------------+--------+--------------+------------------------------------------------+
-| #5   | Neon Cyberpunk (Overdrive X)    | edm / euphoric    | 0.95   | 0.33 (32.7%) | • energy match (0.95 near target 0.85) (+0.18) |
-|      |                                 |                   |        |              | • electronic/non-acoustic match (+0.15)        |
-+------+---------------------------------+-------------------+--------+--------------+------------------------------------------------+
-
-======================================================================================================================
-👤 PROFILE: Late-Night Chill Lofi Study
-   Preferences -> Genre: lofi | Mood: chill | Target Energy: 0.35 | Likes Acoustic: True
-======================================================================================================================
-
-🎧 Top 5 Recommendations Summary Table:
-
-+------+-----------------------------------+-----------------+--------+--------------+------------------------------------------------------+
-| Rank | Song (Artist)                     | Genre / Mood    | Energy | Score        | Reasons (Why Recommended)                            |
-+======+===================================+=================+========+==============+======================================================+
-| #1   | Library Rain (Paper Lanterns)     | lofi / chill    | 0.35   | 0.98 (97.9%) | • genre match 'lofi' (+0.35)                         |
-|      |                                   |                 |        |              | • mood match 'chill' (+0.30)                         |
-|      |                                   |                 |        |              | • energy match (0.35 near target 0.35) (+0.20)       |
-|      |                                   |                 |        |              | • acoustic sound match (+0.13)                       |
-+------+-----------------------------------+-----------------+--------+--------------+------------------------------------------------------+
-| #2   | Midnight Coding (LoRoom)          | lofi / chill    | 0.42   | 0.94 (94.2%) | • genre match 'lofi' (+0.35)                         |
-|      |                                   |                 |        |              | • mood match 'chill' (+0.30)                         |
-|      |                                   |                 |        |              | • energy match (0.42 near target 0.35) (+0.19)       |
-|      |                                   |                 |        |              | • acoustic sound match (+0.11)                       |
-+------+-----------------------------------+-----------------+--------+--------------+------------------------------------------------------+
-| #3   | Spacewalk Thoughts (Orbit Bloom)  | ambient / chill | 0.28   | 0.62 (62.4%) | • mood match 'chill' (+0.30)                         |
-|      |                                   |                 |        |              | • energy match (0.28 near target 0.35) (+0.19)       |
-|      |                                   |                 |        |              | • acoustic sound match (+0.14)                       |
-+------+-----------------------------------+-----------------+--------+--------------+------------------------------------------------------+
-| #4   | Focus Flow (LoRoom)               | lofi / focused  | 0.40   | 0.41 (40.7%) | • genre match 'lofi' (+0.35)                         |
-|      |                                   |                 |        |              | • energy match (0.40 near target 0.35) (+0.19)       |
-|      |                                   |                 |        |              | • acoustic sound match (+0.12)                       |
-|      |                                   |                 |        |              | • diversity penalty: repeat artist 'LoRoom' (-0.15)  |
-|      |                                   |                 |        |              | • diversity penalty: genre 'lofi' saturation (-0.10) |
-+------+-----------------------------------+-----------------+--------+--------------+------------------------------------------------------+
-| #5   | Coffee Shop Stories (Slow Stereo) | jazz / relaxed  | 0.37   | 0.33 (33.0%) | • energy match (0.37 near target 0.35) (+0.20)       |
-|      |                                   |                 |        |              | • acoustic sound match (+0.13)                       |
-+------+-----------------------------------+-----------------+--------+--------------+------------------------------------------------------+
+==================================================================================================================================
+       🧪 MUSE-IC 2.0 AUTOMATED EVALUATION HARNESS & CONFIDENCE SCORECARD
+       Catalog: 30 Enriched Songs | RAG Sources: 3 Active
+==================================================================================================================================
++-----+----------------------------------------+------------------------------------+------------+-----------+-------------------+--------+
+| ID  | Scenario Name                          | Top-1 Recommended Track            | Top-1 Conf | Mean Conf | Agent / Guardrail | Status |
++=====+========================================+====================================+============+===========+===================+========+
+| S1  | High-Energy Pop Workout                | Electric Carnival (pop)            |     92.2%  |    77.3%  | Pass #1 Verified  | PASS   |
+| S2  | Late-Night Chill Lofi Study            | Library Rain (lofi)                |     94.7%  |    80.7%  | Pass #1 Verified  | PASS   |
+| S3  | Deep Intense Rock / Metal              | Storm Runner (rock)                |     93.9%  |    76.2%  | Pass #1 Verified  | PASS   |
+| S4  | Adversarial: OOD Zero-Match Trap       | Midnight Delta Blues (blues)       |     70.1%  |    57.2%  | Agent Pass #2     | PASS   |
+| S5  | Adversarial: Max-Energy Classical      | Moonlight Sonata Flow (classical)  |     55.3%  |    49.4%  | Agent Pass #2     | PASS   |
+| S6  | Adversarial: Zero-Bound Minimalist     | Spacewalk Thoughts (ambient)       |     91.1%  |    70.7%  | Pass #1 Verified  | PASS   |
+| S7  | Multi-Source Pomodoro & Debugging      | Library Rain (lofi)                |     95.3%  |    80.3%  | Pass #1 Verified  | PASS   |
+| S8  | Guardrail: Injection & Weight Overflow | Electric Carnival (pop)            |     91.0%  |    75.3%  | Guardrail Clamped | PASS   |
++-----+----------------------------------------+------------------------------------+------------+-----------+-------------------+--------+
+🏆 OVERALL SUMMARY: 8/8 Scenarios Passed (100.0%) | Avg Top-1 Confidence: 85.5% | Avg Top-5 Confidence: 70.9% | Hallucinations: 0
+==================================================================================================================================
 ```
 
----
+### B. Automated Unit & Integration Test Suite ([`tests/test_recommender.py`](tests/test_recommender.py))
+We expanded [`tests/test_recommender.py`](tests/test_recommender.py) from 2 starter assertions to **13 automated unit and integration tests** covering the full Multi-Source RAG, Agentic Workflow, Model Specialization, Evaluation Harness, and Guardrail pipeline:
 
-## Experiments You Tried
+| Test Case | What It Verifies | Status |
+| :--- | :--- | :---: |
+| `test_recommend_returns_songs_sorted_by_score` | Baseline top-$k$ compatibility sorting | ✅ Pass |
+| `test_explain_recommendation_returns_non_empty_string` | Non-empty human-readable reason generation | ✅ Pass |
+| `test_semantic_synonym_matching_breaks_filter_bubble` | `"chill"` listener awards $\ge 0.80$ mood similarity to `"relaxed"` jazz tracks | ✅ Pass |
+| `test_semantic_rag_retrieval_matches_descriptions_and_themes` | `SongKnowledgeIndex` retrieves rainy piano coding tracks above workout pop | ✅ Pass |
+| `test_natural_language_request_parsing_and_rag_pipeline` | End-to-end free-text prompt $\to$ grounded explanation with zero hallucinated titles | ✅ Pass |
+| `test_multi_source_rag_fuses_json_guides_and_custom_notes` | **Stretch Goal #1:** Multi-Source RAG retrieves across `songs.csv`, `musicology_guides.json`, and `custom_listener_notes.md` | ✅ Pass |
+| `test_agentic_workflow_self_correction_and_trace_logging` | **Stretch Goal #2:** 4-step Agentic Workflow detects OOD genre, triggers Tool Call #2 self-correction (`56.6% -> 70.1%`), and logs traces to `logs/agent_reasoning_traces.log` | ✅ Pass |
+| `test_specialized_model_few_shot_styles_and_measurable_baseline_lift` | **Stretch Goal #3:** Verifies few-shot constrained tone/style modes (`musicologist`, `late_night_radio`, `hype_coach`) measurably differ from `baseline` | ✅ Pass |
+| `test_evaluation_harness_runs_all_scenarios_with_100_percent_pass_rate` | **Stretch Goal #4:** Runs `src/evaluate.py` across all 8 benchmark scenarios and asserts `100.0%` pass rate | ✅ Pass |
+| `test_weight_normalization_guardrail_prevents_overflow` | Unnormalized weights ($\sum w_i = 1.275$) auto-normalize to $1.0000$ and clamp score $\le 1.0$ | ✅ Pass |
+| `test_input_sanitization_clamps_out_of_bounds_energy_and_blocks_injection` | Clamps `energy=1.75` $\to$ `1.00` and strips `"Ignore all previous instructions..."` | ✅ Pass |
+| `test_ignored_artists_filter_excludes_disliked_artist` | Excludes disliked/guest-mode artists (`ignored_artists=["LoRoom"]`) from top-$k$ | ✅ Pass |
+| `test_structured_logger_writes_log_entries` | Confirms telemetry events are persisted to `logs/muse_ic.log` | ✅ Pass |
 
-### Experiment 1: Effect of Halving Genre Weight ($0.35 \to 0.175$) & Doubling Energy Weight ($0.20 \to 0.40$)
-
-When we shifted weight away from the categorical **genre** label and doubled the importance of continuous **energy**, four key behaviors emerged:
-
-1. **Breaking the "Genre Filter Bubble" (Cross-Genre Discovery):**
-   In the baseline model, genre ($0.35$) acted as a strict gatekeeper that kept non-matching genres out of the top tiers. When genre weight was cut in half ($0.175$), songs from adjacent genres with matching vibes were able to climb the rankings. For example, in the *Chill Lofi* profile, **Spacewalk Thoughts** (`ambient`, `chill`, score $0.81$) overtook **Focus Flow** (`lofi`, `focused`, score $0.67$) for the #3 spot because matching the `"chill"` mood and low energy outweighed having the exact `"lofi"` label.
-
-2. **Higher Sensitivity to Numeric Proximity:**
-   Doubling the energy weight ($0.40$) turned small differences in energy into the primary tie-breaker. In the *High-Energy Pop* profile (target energy $0.85$), **Storm Runner** (`rock`, energy $0.91$, $\Delta = 0.06$) knocked **Neon Cyberpunk** (`edm`, energy $0.95$, $\Delta = 0.10$) out of the #5 spot solely because its energy was $0.04$ closer to the user's target.
-
-3. **Risk of "Genre Drift" on Conflicting Profiles:**
-   In our adversarial *Max-Energy Classical* test (`classical`, `melancholic`, target energy $0.98$), the lead held by #1 **Moonlight Sonata Flow** (`classical`, energy $0.22$) over #2 **Iron Thunder** (`metal`, energy $0.98$) shrank from **$35.3\%$** down to just **$2.5\%$** ($0.574$ vs. $0.549$). This shows the trade-off of over-weighting numeric audio features: if energy is weighted too heavily, a user asking for energetic classical music will be recommended heavy metal instead.
-
-4. **Mathematical Normalization Constraint:**
-   Removing $0.175$ from genre while adding $0.20$ to energy increased the total weight sum from $1.00$ to **$1.025$**. Consequently, near-perfect tracks like **Library Rain** scored **`1.004`** ($100.4\%$). This confirmed that any changes to individual weights require re-normalizing the total score ($\text{Score} / \sum w_i$) to preserve a strict $[0.0, 1.0]$ probability scale.
-
-### Experiment 2: Adding Artist & Genre Diversity Penalties (Challenge 3)
-
-In our baseline recommender, the *Chill Lofi Study* profile ranked **Focus Flow** (`LoRoom`, `lofi`) at #3 (`0.657`), which meant the artist `LoRoom` appeared twice in the Top 3 and all three top slots were 100% `lofi`. When we added iterative diversity re-ranking (`-0.15` for repeating an artist already in the top list, and `-0.10` when a genre appears 2+ times):
-* **Spacewalk Thoughts** (`Orbit Bloom`, `ambient`, score `0.624`) automatically moved up from #4 to **#3**, introducing a fresh artist and a complementary genre (`ambient`) into the Top 3.
-* **Focus Flow** shifted to **#4** (`0.407`), with its summary table row explicitly logging `• diversity penalty: repeat artist 'LoRoom' (-0.15)` and `• diversity penalty: genre 'lofi' saturation (-0.10)`.
+### What Didn't Work Initially (And How We Fixed It)
+1. **ASCII Table Comma-Splitting Bug:** Initially, `score_song` formatted matched RAG keywords with commas (`RAG semantic context [rainy, night, acoustic]`). Because `format_recommendations_table` in [`src/main.py`](src/main.py) splits explanation clauses on `", "`, the ASCII table broke a single RAG reason across three separate bullet lines. Switching the delimiter inside brackets to slashes (`[calm/night/acoustic]`) fixed the table rendering immediately.
+2. **Natural-Language Mood Priority Conflict:** In our first test of *"calm rainy night coding music"*, the word `"rainy"` matched the `"melancholic"` keyword list before `"calm"` or `"coding"` could match `"chill"`. We re-ordered the intent parser rules so `"melancholic"` only triggers on explicitly somber words (`sad`, `sorrow`, `existential`, `dread`), allowing rainy study prompts to properly target `"chill"`.
+3. **API Token Format Handling:** When testing `.env` configuration with an OAuth-style token (`AQ...`) instead of an `AIzaSy...` AI Studio key, we verified that `_call_gemini_api` cleanly catches `HTTPError`/`URLError`, logs a warning to `logs/muse_ic.log`, and falls back to the local synthesizer without crashing.
 
 ---
 
-## Limitations and Risks
+## 8. Reflection
 
-* **Synonym Blindness Filter Bubble:** Because `genre` ($35\%$) and `mood` ($30\%$) rely on exact string matching, songs with closely related moods (like `"chill"`, `"relaxed"`, `"focused"`, and `"peaceful"`) lose $30\%$ to $65\%$ of their potential score if the exact word does not match.
-* **Small Catalog Starvation:** Our catalog has 20 songs, and 14 genres only have 1 song each. When a user picks a single-song genre (like `rock` or `classical`), recommendations #2 through #5 drop sharply in score.
-* **Symmetric Energy Gap Penalty:** Using `1.0 - abs(song_energy - target_energy)` treats too-loud and too-quiet songs equally, even though a study listener is much more disrupted by a loud song than a quiet one.
-* **Missing Musical Context:** The model does not understand lyrics, language, era/release year, or whether a user finished a song out of genuine enjoyment versus mere curiosity.
+Elevating **Muse-ic** from a 20-song rule checklist into a hybrid **Semantic RAG** application taught me that the most reliable AI systems do not replace deterministic software engineering with an LLM—they **combine semantic AI retrieval with strict mathematical guardrails**. Seeing how dense concept retrieval and mood synonym graphs immediately solved our Module 3 *"Synonym Blindness"* and *"Unknown Genre"* failure modes showed me where embeddings shine, while building input/output guardrails proved that constraining AI outputs (normalizing weights, clamping ranges, and verifying that every cited song exists in `data/songs.csv`) is what makes an AI feature trustworthy in production.
 
----
-
-## Reflection
-
-Read the full [**Model Card**](model_card.md) for our detailed evaluation.
-
-### Key Takeaways from Building **Muse-ic**
-
-* **Biggest Learning Moment (Spotify vs. YouTube Music):**
-  Building this simulation helped me understand *why* I get the specific song recommendations I see on Spotify versus YouTube Music—and why **YouTube Music's subscription is the superior choice for me**. While Spotify often locks listeners into repetitive genre and playlist filter bubbles, YouTube Music combines explicit thumbs-up/down feedback with broader listening context across videos and tracks, giving me much better variety and control.
-* **How AI Tools Helped (And When to Double-Check):**
-  AI tools helped us design the weighted scoring recipe, expand `data/songs.csv` to 20 diverse songs, fix module path issues, and build stress-test user profiles. However, we had to double-check the math during our weight-tuning experiment: halving the genre weight ($0.35 \to 0.175$) and doubling the energy weight ($0.20 \to 0.40$) made the weights sum to **$1.025$** instead of $1.00$, pushing top song scores past $100\%$ ($1.004$).
-* **How Simple Rules Feel "Smart"—and How Habits Pollute Recommendations:**
-  It was surprising how a simple 100-point checklist immediately "felt" like a real recommender, which also revealed how fragile implicit tracking signals are in real apps. I sometimes listen to a bad song I don't even like all the way to the end just to hear the full track—and because streaming platforms treat a 100% completion rate as a strong positive signal, that habit actually messes up my recommendations! Similarly, letting friends or family play songs they like on my account feeds conflicting preferences into my taste profile and skews my algorithm.
-* **What I Would Try Next:**
-  If I extended this project, I would import my own real playlist data and connect **Muse-ic** to a larger music catalog to discover newer songs that match my taste, while adding an explicit dislike or "ignore this listen" feature so curiosity listens and other people's songs don't mess up my profile.
-
-
-
+> 📄 **Responsible AI & Collaboration Reflection:** For the full graded reflection—including how we collaborated with AI, one AI suggestion we accepted, one AI suggestion we revised/rejected, and a detailed analysis of system limitations and biases—see [**`model_card.md`**](model_card.md).
