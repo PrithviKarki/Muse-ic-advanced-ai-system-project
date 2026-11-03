@@ -1,0 +1,858 @@
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 16:49:48 | Profile: AI DJ Intent: pomodoro exam week debugging session with felt p
+Query / Intent: pomodoro exam week debugging session with felt piano and rain foley
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 95.3%, Top-5 Mean Score = 80.3%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (95.3%) and Mean Score (80.3%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG Synthesizer (3 Data Sources).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 16:49:48 | Profile: Adversarial: Unknown Genre/Mood (Zero-Match Trap)
+Query / Intent: existential dread somber late night acoustic introspection
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='deathcore polka' (0 exact tracks in catalog), mood='existential dread', energy=0.50 (genre avg energy=0.50, gap=0.00).
+    • Decision    : Flagged potential OOD/Contradiction risk for Critic inspection after Pass #1.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Late-Night Introspection & Catharsis Guide'. Pass #1 Top-1 Score = 56.6%, Top-5 Mean Score = 47.9%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & SELF-CORRECTION (TOOL CALL #2)] Tool: `adaptive_weight_rebalancer + recommend_songs (Pass 2)`
+    • Thought     : Critic flagged Pass #1: Out-of-distribution genre 'deathcore polka' has 0 exact catalog tracks, penalizing all candidates by 25%. Rebalancing weights to prioritize Semantic RAG & viable audio features.
+    • Observation : Re-ran `recommend_songs` with adaptive weights (genre=0.05, mood=0.25, energy=0.20, rag=0.35). Top-1 Score shifted 56.6% -> 70.1% (Mean 47.9% -> 57.2%).
+    • Decision    : SELF_CORRECTED: Adopted Pass #2 adaptive ranking.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Midnight Delta Blues' via Local Grounded Multi-Source RAG Synthesizer (3 Data Sources).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 16:49:48 | Profile: Adversarial: The Contradiction (Max Energy Classical)
+Query / Intent: dramatic melancholic classical piano and high intensity orchestral power
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='classical' (2 exact tracks in catalog), mood='melancholic', energy=0.98 (genre avg energy=0.23, gap=0.74).
+    • Decision    : Flagged potential OOD/Contradiction risk for Critic inspection after Pass #1.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Late-Night Introspection & Catharsis Guide'. Pass #1 Top-1 Score = 58.0%, Top-5 Mean Score = 46.7%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & SELF-CORRECTION (TOOL CALL #2)] Tool: `adaptive_weight_rebalancer + recommend_songs (Pass 2)`
+    • Thought     : Critic flagged Pass #1: Genre-Energy contradiction detected (target energy 0.98 vs 'classical' catalog average 0.23). Rebalancing weights to prioritize Semantic RAG & viable audio features.
+    • Observation : Re-ran `recommend_songs` with adaptive weights (genre=0.20, mood=0.20, energy=0.30, rag=0.20). Top-1 Score shifted 58.0% -> 55.3% (Mean 46.7% -> 49.4%).
+    • Decision    : SELF_CORRECTED: Adopted Pass #2 adaptive ranking.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Moonlight Sonata Flow' via Local Grounded Multi-Source RAG Synthesizer (3 Data Sources).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 16:49:48 | Profile: Adversarial: Unknown Genre/Mood (Zero-Match Trap)
+Query / Intent: existential dread somber late night acoustic introspection
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='deathcore polka' (0 exact tracks in catalog), mood='existential dread', energy=0.50 (genre avg energy=0.50, gap=0.00).
+    • Decision    : Flagged potential OOD/Contradiction risk for Critic inspection after Pass #1.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Late-Night Introspection & Catharsis Guide'. Pass #1 Top-1 Score = 56.6%, Top-5 Mean Score = 47.9%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & SELF-CORRECTION (TOOL CALL #2)] Tool: `adaptive_weight_rebalancer + recommend_songs (Pass 2)`
+    • Thought     : Critic flagged Pass #1: Out-of-distribution genre 'deathcore polka' has 0 exact catalog tracks, penalizing all candidates by 25%. Rebalancing weights to prioritize Semantic RAG & viable audio features.
+    • Observation : Re-ran `recommend_songs` with adaptive weights (genre=0.05, mood=0.25, energy=0.20, rag=0.35). Top-1 Score shifted 56.6% -> 70.1% (Mean 47.9% -> 57.2%).
+    • Decision    : SELF_CORRECTED: Adopted Pass #2 adaptive ranking.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Midnight Delta Blues' via Local Grounded Multi-Source RAG Synthesizer (3 Data Sources).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 16:49:48 | Profile: AI DJ Intent: pomodoro exam week debugging session with felt p
+Query / Intent: pomodoro exam week debugging session with felt piano and rain foley
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 4 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 95.5%, Top-5 Mean Score = 80.3%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (95.5%) and Mean Score (80.3%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG Synthesizer (3 Data Sources).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 16:49:48 | Profile: AI DJ Intent: I need calm rainy night coding music with warm a
+Query / Intent: I need calm rainy night coding music with warm acoustic piano
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 91.2%, Top-5 Mean Score = 78.8%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (91.2%) and Mean Score (78.8%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG Synthesizer (3 Data Sources).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 16:49:48 | Profile: AI DJ Intent: upbeat morning workout pop
+Query / Intent: upbeat morning workout pop
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='pop' (1 exact tracks in catalog), mood='intense', energy=0.86 (genre avg energy=0.80, gap=0.06).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-2 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Peak Workout & Cardio Cadence Guide'. Pass #1 Top-1 Score = 74.2%, Top-2 Mean Score = 37.4%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (74.2%) and Mean Score (37.4%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Test Pop Track' via Local Grounded Multi-Source RAG Synthesizer (3 Data Sources).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:00:44 | Profile: Adversarial: Unknown Genre/Mood (Zero-Match Trap)
+Query / Intent: existential dread somber late night acoustic introspection
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='deathcore polka' (0 exact tracks in catalog), mood='existential dread', energy=0.50 (genre avg energy=0.50, gap=0.00).
+    • Decision    : Flagged potential OOD/Contradiction risk for Critic inspection after Pass #1.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Late-Night Introspection & Catharsis Guide'. Pass #1 Top-1 Score = 56.6%, Top-5 Mean Score = 47.9%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & SELF-CORRECTION (TOOL CALL #2)] Tool: `adaptive_weight_rebalancer + recommend_songs (Pass 2)`
+    • Thought     : Critic flagged Pass #1: Out-of-distribution genre 'deathcore polka' has 0 exact catalog tracks, penalizing all candidates by 25%. Rebalancing weights to prioritize Semantic RAG & viable audio features.
+    • Observation : Re-ran `recommend_songs` with adaptive weights (genre=0.05, mood=0.25, energy=0.20, rag=0.35). Top-1 Score shifted 56.6% -> 70.1% (Mean 47.9% -> 57.2%).
+    • Decision    : SELF_CORRECTED: Adopted Pass #2 adaptive ranking.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Midnight Delta Blues' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:00:44 | Profile: AI DJ Intent: pomodoro exam week debugging session with felt p
+Query / Intent: pomodoro exam week debugging session with felt piano and rain foley
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 4 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 95.5%, Top-5 Mean Score = 80.3%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (95.5%) and Mean Score (80.3%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:00:44 | Profile: AI DJ Intent: I need calm rainy night coding music with warm a
+Query / Intent: I need calm rainy night coding music with warm acoustic piano
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 91.2%, Top-5 Mean Score = 78.8%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (91.2%) and Mean Score (78.8%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:00:44 | Profile: AI DJ Intent: late night rainy coding session with warm acoust
+Query / Intent: late night rainy coding session with warm acoustic piano
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-3 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 90.8%, Top-3 Mean Score = 84.8%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (90.8%) and Mean Score (84.8%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:00:44 | Profile: AI DJ Intent: late night rainy coding session with warm acoust
+Query / Intent: late night rainy coding session with warm acoustic piano
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-3 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 90.8%, Top-3 Mean Score = 84.8%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (90.8%) and Mean Score (84.8%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG (Late-Night FM Radio Host (Constrained Persona)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:00:45 | Profile: AI DJ Intent: late night rainy coding session with warm acoust
+Query / Intent: late night rainy coding session with warm acoustic piano
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-3 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 90.8%, Top-3 Mean Score = 84.8%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (90.8%) and Mean Score (84.8%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG (High-Intensity Athletic Coach (Constrained Persona)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:00:45 | Profile: AI DJ Intent: late night rainy coding session with warm acoust
+Query / Intent: late night rainy coding session with warm acoustic piano
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-3 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 90.8%, Top-3 Mean Score = 84.8%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (90.8%) and Mean Score (84.8%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Baseline Unspecialized Output.
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:00:45 | Profile: AI DJ Intent: upbeat morning workout pop
+Query / Intent: upbeat morning workout pop
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='pop' (1 exact tracks in catalog), mood='intense', energy=0.86 (genre avg energy=0.80, gap=0.06).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-2 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Peak Workout & Cardio Cadence Guide'. Pass #1 Top-1 Score = 74.2%, Top-2 Mean Score = 37.4%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (74.2%) and Mean Score (37.4%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Test Pop Track' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: High-Energy Pop Workout
+Query / Intent: upbeat high energy pop workout cardio anthem
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='pop' (3 exact tracks in catalog), mood='happy', energy=0.85 (genre avg energy=0.87, gap=0.02).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Peak Workout & Cardio Cadence Guide'. Pass #1 Top-1 Score = 92.2%, Top-5 Mean Score = 77.3%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (92.2%) and Mean Score (77.3%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Electric Carnival' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: Late-Night Chill Lofi Study
+Query / Intent: late night chill lofi study coding beats with warm piano and rain
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.35 (genre avg energy=0.37, gap=0.02).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 94.7%, Top-5 Mean Score = 80.7%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (94.7%) and Mean Score (80.7%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: Deep Intense Rock / Metal
+Query / Intent: intense heavy rock and metal adrenaline workout
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='rock' (2 exact tracks in catalog), mood='intense', energy=0.92 (genre avg energy=0.93, gap=0.01).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Peak Workout & Cardio Cadence Guide'. Pass #1 Top-1 Score = 93.9%, Top-5 Mean Score = 76.2%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (93.9%) and Mean Score (76.2%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Storm Runner' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: Adversarial: Unknown Genre/Mood
+Query / Intent: existential dread somber late night acoustic introspection
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='deathcore polka' (0 exact tracks in catalog), mood='existential dread', energy=0.50 (genre avg energy=0.50, gap=0.00).
+    • Decision    : Flagged potential OOD/Contradiction risk for Critic inspection after Pass #1.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Late-Night Introspection & Catharsis Guide'. Pass #1 Top-1 Score = 56.6%, Top-5 Mean Score = 47.9%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & SELF-CORRECTION (TOOL CALL #2)] Tool: `adaptive_weight_rebalancer + recommend_songs (Pass 2)`
+    • Thought     : Critic flagged Pass #1: Out-of-distribution genre 'deathcore polka' has 0 exact catalog tracks, penalizing all candidates by 25%. Rebalancing weights to prioritize Semantic RAG & viable audio features.
+    • Observation : Re-ran `recommend_songs` with adaptive weights (genre=0.05, mood=0.25, energy=0.20, rag=0.35). Top-1 Score shifted 56.6% -> 70.1% (Mean 47.9% -> 57.2%).
+    • Decision    : SELF_CORRECTED: Adopted Pass #2 adaptive ranking.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Midnight Delta Blues' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: Adversarial: The Contradiction
+Query / Intent: dramatic melancholic classical piano and high intensity orchestral power
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='classical' (2 exact tracks in catalog), mood='melancholic', energy=0.98 (genre avg energy=0.23, gap=0.74).
+    • Decision    : Flagged potential OOD/Contradiction risk for Critic inspection after Pass #1.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Late-Night Introspection & Catharsis Guide'. Pass #1 Top-1 Score = 58.0%, Top-5 Mean Score = 46.7%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & SELF-CORRECTION (TOOL CALL #2)] Tool: `adaptive_weight_rebalancer + recommend_songs (Pass 2)`
+    • Thought     : Critic flagged Pass #1: Genre-Energy contradiction detected (target energy 0.98 vs 'classical' catalog average 0.23). Rebalancing weights to prioritize Semantic RAG & viable audio features.
+    • Observation : Re-ran `recommend_songs` with adaptive weights (genre=0.20, mood=0.20, energy=0.30, rag=0.20). Top-1 Score shifted 58.0% -> 55.3% (Mean 46.7% -> 49.4%).
+    • Decision    : SELF_CORRECTED: Adopted Pass #2 adaptive ranking.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Moonlight Sonata Flow' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: Adversarial: Zero-Bound Minimalist
+Query / Intent: weightless ambient meditation sleep stargazing zero energy calm
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='ambient' (2 exact tracks in catalog), mood='chill', energy=0.00 (genre avg energy=0.23, gap=0.23).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'General Acoustic Profile'. Pass #1 Top-1 Score = 91.1%, Top-5 Mean Score = 70.7%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (91.1%) and Mean Score (70.7%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Spacewalk Thoughts' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: AI DJ Intent: pomodoro exam week debugging session with felt p
+Query / Intent: pomodoro exam week debugging session with felt piano and rain foley
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 95.3%, Top-5 Mean Score = 80.3%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (95.3%) and Mean Score (80.3%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: Guardrail Stress Test
+Query / Intent: and ; play happy pop workout
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='pop' (3 exact tracks in catalog), mood='happy', energy=1.00 (genre avg energy=0.87, gap=0.13).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.28, mood=0.22, energy=0.22, rag=0.17).
+    • Observation : Matched Musicology Guide: 'Peak Workout & Cardio Cadence Guide'. Pass #1 Top-1 Score = 91.0%, Top-5 Mean Score = 75.3%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (91.0%) and Mean Score (75.3%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Electric Carnival' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: Adversarial: Unknown Genre/Mood (Zero-Match Trap)
+Query / Intent: existential dread somber late night acoustic introspection
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='deathcore polka' (0 exact tracks in catalog), mood='existential dread', energy=0.50 (genre avg energy=0.50, gap=0.00).
+    • Decision    : Flagged potential OOD/Contradiction risk for Critic inspection after Pass #1.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Late-Night Introspection & Catharsis Guide'. Pass #1 Top-1 Score = 56.6%, Top-5 Mean Score = 47.9%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & SELF-CORRECTION (TOOL CALL #2)] Tool: `adaptive_weight_rebalancer + recommend_songs (Pass 2)`
+    • Thought     : Critic flagged Pass #1: Out-of-distribution genre 'deathcore polka' has 0 exact catalog tracks, penalizing all candidates by 25%. Rebalancing weights to prioritize Semantic RAG & viable audio features.
+    • Observation : Re-ran `recommend_songs` with adaptive weights (genre=0.05, mood=0.25, energy=0.20, rag=0.35). Top-1 Score shifted 56.6% -> 70.1% (Mean 47.9% -> 57.2%).
+    • Decision    : SELF_CORRECTED: Adopted Pass #2 adaptive ranking.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Midnight Delta Blues' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: High-Energy Pop Workout
+Query / Intent: upbeat high energy pop workout cardio anthem
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='pop' (3 exact tracks in catalog), mood='happy', energy=0.85 (genre avg energy=0.87, gap=0.02).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Peak Workout & Cardio Cadence Guide'. Pass #1 Top-1 Score = 92.2%, Top-5 Mean Score = 77.3%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (92.2%) and Mean Score (77.3%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Electric Carnival' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: Late-Night Chill Lofi Study
+Query / Intent: late night chill lofi study coding beats with warm piano and rain
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.35 (genre avg energy=0.37, gap=0.02).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 94.7%, Top-5 Mean Score = 80.7%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (94.7%) and Mean Score (80.7%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: Deep Intense Rock / Metal
+Query / Intent: intense heavy rock and metal adrenaline workout
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='rock' (2 exact tracks in catalog), mood='intense', energy=0.92 (genre avg energy=0.93, gap=0.01).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Peak Workout & Cardio Cadence Guide'. Pass #1 Top-1 Score = 93.9%, Top-5 Mean Score = 76.2%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (93.9%) and Mean Score (76.2%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Storm Runner' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: Adversarial: Unknown Genre/Mood
+Query / Intent: existential dread somber late night acoustic introspection
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='deathcore polka' (0 exact tracks in catalog), mood='existential dread', energy=0.50 (genre avg energy=0.50, gap=0.00).
+    • Decision    : Flagged potential OOD/Contradiction risk for Critic inspection after Pass #1.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Late-Night Introspection & Catharsis Guide'. Pass #1 Top-1 Score = 56.6%, Top-5 Mean Score = 47.9%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & SELF-CORRECTION (TOOL CALL #2)] Tool: `adaptive_weight_rebalancer + recommend_songs (Pass 2)`
+    • Thought     : Critic flagged Pass #1: Out-of-distribution genre 'deathcore polka' has 0 exact catalog tracks, penalizing all candidates by 25%. Rebalancing weights to prioritize Semantic RAG & viable audio features.
+    • Observation : Re-ran `recommend_songs` with adaptive weights (genre=0.05, mood=0.25, energy=0.20, rag=0.35). Top-1 Score shifted 56.6% -> 70.1% (Mean 47.9% -> 57.2%).
+    • Decision    : SELF_CORRECTED: Adopted Pass #2 adaptive ranking.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Midnight Delta Blues' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: Adversarial: The Contradiction
+Query / Intent: dramatic melancholic classical piano and high intensity orchestral power
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='classical' (2 exact tracks in catalog), mood='melancholic', energy=0.98 (genre avg energy=0.23, gap=0.74).
+    • Decision    : Flagged potential OOD/Contradiction risk for Critic inspection after Pass #1.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Late-Night Introspection & Catharsis Guide'. Pass #1 Top-1 Score = 58.0%, Top-5 Mean Score = 46.7%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & SELF-CORRECTION (TOOL CALL #2)] Tool: `adaptive_weight_rebalancer + recommend_songs (Pass 2)`
+    • Thought     : Critic flagged Pass #1: Genre-Energy contradiction detected (target energy 0.98 vs 'classical' catalog average 0.23). Rebalancing weights to prioritize Semantic RAG & viable audio features.
+    • Observation : Re-ran `recommend_songs` with adaptive weights (genre=0.20, mood=0.20, energy=0.30, rag=0.20). Top-1 Score shifted 58.0% -> 55.3% (Mean 46.7% -> 49.4%).
+    • Decision    : SELF_CORRECTED: Adopted Pass #2 adaptive ranking.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Moonlight Sonata Flow' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: Adversarial: Zero-Bound Minimalist
+Query / Intent: weightless ambient meditation sleep stargazing zero energy calm
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='ambient' (2 exact tracks in catalog), mood='chill', energy=0.00 (genre avg energy=0.23, gap=0.23).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'General Acoustic Profile'. Pass #1 Top-1 Score = 91.1%, Top-5 Mean Score = 70.7%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (91.1%) and Mean Score (70.7%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Spacewalk Thoughts' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: AI DJ Intent: pomodoro exam week debugging session with felt p
+Query / Intent: pomodoro exam week debugging session with felt piano and rain foley
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 95.3%, Top-5 Mean Score = 80.3%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (95.3%) and Mean Score (80.3%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: Guardrail Stress Test
+Query / Intent: and ; play happy pop workout
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='pop' (3 exact tracks in catalog), mood='happy', energy=1.00 (genre avg energy=0.87, gap=0.13).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.28, mood=0.22, energy=0.22, rag=0.17).
+    • Observation : Matched Musicology Guide: 'Peak Workout & Cardio Cadence Guide'. Pass #1 Top-1 Score = 91.0%, Top-5 Mean Score = 75.3%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (91.0%) and Mean Score (75.3%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Electric Carnival' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: AI DJ Intent: pomodoro exam week debugging session with felt p
+Query / Intent: pomodoro exam week debugging session with felt piano and rain foley
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 4 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 95.5%, Top-5 Mean Score = 80.3%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (95.5%) and Mean Score (80.3%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: AI DJ Intent: I need calm rainy night coding music with warm a
+Query / Intent: I need calm rainy night coding music with warm acoustic piano
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-5 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 91.2%, Top-5 Mean Score = 78.8%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (91.2%) and Mean Score (78.8%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: AI DJ Intent: late night rainy coding session with warm acoust
+Query / Intent: late night rainy coding session with warm acoustic piano
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-3 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 90.8%, Top-3 Mean Score = 84.8%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (90.8%) and Mean Score (84.8%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: AI DJ Intent: late night rainy coding session with warm acoust
+Query / Intent: late night rainy coding session with warm acoustic piano
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-3 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 90.8%, Top-3 Mean Score = 84.8%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (90.8%) and Mean Score (84.8%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG (Late-Night FM Radio Host (Constrained Persona)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: AI DJ Intent: late night rainy coding session with warm acoust
+Query / Intent: late night rainy coding session with warm acoustic piano
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-3 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 90.8%, Top-3 Mean Score = 84.8%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (90.8%) and Mean Score (84.8%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Local Grounded Multi-Source RAG (High-Intensity Athletic Coach (Constrained Persona)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: AI DJ Intent: late night rainy coding session with warm acoust
+Query / Intent: late night rainy coding session with warm acoustic piano
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='lofi' (4 exact tracks in catalog), mood='chill', energy=0.32 (genre avg energy=0.37, gap=0.05).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-3 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Cognitive Flow & Coding Acoustics Guide'. Pass #1 Top-1 Score = 90.8%, Top-3 Mean Score = 84.8%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (90.8%) and Mean Score (84.8%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Library Rain' via Baseline Unspecialized Output.
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
+================================================================================================
+AGENTIC WORKFLOW TRACE | 2026-11-03 17:04:59 | Profile: AI DJ Intent: upbeat morning workout pop
+Query / Intent: upbeat morning workout pop
+------------------------------------------------------------------------------------------------
+  [Step 1 | PLAN & GUARDRAILS] Tool: `parse_natural_language_request + sanitize_user_profile`
+    • Thought     : Extract structured listener constraints and audit catalog coverage before scoring.
+    • Observation : Parsed target genre='pop' (1 exact tracks in catalog), mood='intense', energy=0.86 (genre avg energy=0.80, gap=0.06).
+    • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+  [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: `SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs`
+    • Thought     : Retrieve across 3 data sources and rank top-2 using baseline weights (genre=0.25, mood=0.20, energy=0.20, rag=0.20).
+    • Observation : Matched Musicology Guide: 'Peak Workout & Cardio Cadence Guide'. Pass #1 Top-1 Score = 74.2%, Top-2 Mean Score = 37.4%.
+    • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+  [Step 3 | CRITIQUE & DECISION NODE] Tool: `verify_candidate_confidence`
+    • Thought     : Verify whether Pass #1 top score and genre/energy alignment meet quality thresholds (>= 65.0%).
+    • Observation : Pass #1 Top-1 Score (74.2%) and Mean Score (37.4%) satisfy quality and diversity invariants.
+    • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+  [Step 4 | VERIFY & SYNTHESIZE] Tool: `verify_recommendations + generate_rag_explanation`
+    • Thought     : Confirm zero hallucinated titles against catalog and synthesize multi-source AI DJ setlist commentary.
+    • Observation : Guardrail passed=True; anchored explanation on #1 'Test Pop Track' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+    • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+================================================================================================
+
