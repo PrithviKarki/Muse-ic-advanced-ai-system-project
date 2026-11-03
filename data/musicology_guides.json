@@ -1,0 +1,80 @@
+{
+  "artist_profiles": {
+    "Paper Lanterns": {
+      "bio": "Acoustic lofi duo known for field-recording real Pacific Northwest rainstorms and layering them beneath felt-damped upright pianos.",
+      "signature_sound": "felt piano, rain foley, fingerpicked acoustic guitar, tape warmth",
+      "recommended_moments": "pomodoro study blocks, rainy night reading, debugging complex code, journaling"
+    },
+    "LoRoom": {
+      "bio": "Instrumental beatmaker blending 1970s Rhodes electric piano harmony with dusty MPC boom-bap drums engineered specifically for non-distracting cognitive flow.",
+      "signature_sound": "Rhodes electric piano, vinyl crackle, muted trumpet, boom-bap swing",
+      "recommended_moments": "late-night software engineering, deep work sprints, exam preparation, flow state"
+    },
+    "Neon Echo": {
+      "bio": "Analog synth collective combining vintage Roland Juno-106 arpeggios with punchy gated-reverb drums for high-momentum motion.",
+      "signature_sound": "analog arpeggios, gated snare, retro 80s synth bass, shimmering leads",
+      "recommended_moments": "highway night driving, morning 5K runs, cyberpunk gaming sessions"
+    },
+    "Slow Stereo": {
+      "bio": "Acoustic jazz trio recording live-to-tape in an intimate espresso bar setting with upright bass, brushed snare, and warm tenor sax.",
+      "signature_sound": "upright bass, brushed drums, warm saxophone, cool-jazz piano",
+      "recommended_moments": "Sunday morning coffee, cozy cafe reading, rainy afternoon unwinding, dinner hosting"
+    },
+    "Orbit Bloom": {
+      "bio": "Ambient sound designer creating beatless, weightless harmonic textures using acoustic harp, glass marimba, and slow analog tape loops.",
+      "signature_sound": "harmonic pads, harp harmonics, glass marimba, beatless drone",
+      "recommended_moments": "meditation, sleep onset, stargazing, decompressing from anxiety or screen fatigue"
+    },
+    "Clara Vane": {
+      "bio": "Concert pianist and chamber composer specializing in expressive minor-key nocturnes and intimate solo cello/piano arrangements.",
+      "signature_sound": "concert grand piano, solo cello, rubato phrasing, chamber strings",
+      "recommended_moments": "emotional introspection, classical study, late-night existential reflection, quiet solitude"
+    },
+    "Voltline": {
+      "bio": "High-octane stadium rock band pairing drop-tuned overdriven guitars with rapid 150-160 BPM double-kick percussion.",
+      "signature_sound": "overdriven guitar riffs, double-kick drums, stadium rock anthem",
+      "recommended_moments": "heavy weightlifting, sprint intervals, high-adrenaline sports motivation"
+    },
+    "Overdrive X": {
+      "bio": "Electronic producer crafting high-BPM festival progressive house and industrial darksynth for peak-intensity movement.",
+      "signature_sound": "sub-bass drops, darksynth arpeggios, laser synths, 128-136 BPM drive",
+      "recommended_moments": "HIIT cardio workouts, competitive gaming, rave and festival energy"
+    },
+    "Blind River Sam": {
+      "bio": "Delta blues guitarist using vintage resonator slide guitar and raw acoustic storytelling to channel midnight heartache.",
+      "signature_sound": "bottleneck slide guitar, acoustic resonator, raw blues phrasing",
+      "recommended_moments": "late-night existential dread, sorrowful reflection, vintage acoustic listening"
+    }
+  },
+  "activity_guides": [
+    {
+      "id": "guide_coding_study",
+      "title": "Cognitive Flow & Coding Acoustics Guide",
+      "keywords": ["coding", "programming", "study", "studying", "focus", "pomodoro", "reading", "library", "rain", "homework", "deep work"],
+      "genre_recommendations": ["lofi", "ambient", "jazz", "classical"],
+      "insight": " psychoacoustic research shows that instrumental tracks between 60–85 BPM with high acoustic warmth (felt piano, Rhodes, or rain foley) and absence of sharp vocal transients prevent verbal working-memory interference during coding and reading."
+    },
+    {
+      "id": "guide_night_drive",
+      "title": "Night Drive & Retro Synthwave Guide",
+      "keywords": ["night drive", "highway", "cyberpunk", "80s", "neon", "synthwave", "gaming", "retro"],
+      "genre_recommendations": ["synthwave", "edm", "indie pop"],
+      "insight": "Steady 110–136 BPM arpeggiated basslines and gated-reverb percussion provide rhythmic optic-flow synchronization ideal for sustained alertness during highway night drives and fast-paced gaming."
+    },
+    {
+      "id": "guide_workout_hiit",
+      "title": "Peak Workout & Cardio Cadence Guide",
+      "keywords": ["workout", "gym", "cardio", "running", "sprint", "hiit", "powerlifting", "weightlifting", "intense", "adrenaline"],
+      "genre_recommendations": ["pop", "rock", "metal", "edm", "hip hop"],
+      "insight": "Tracks with energy above 0.80 and tempos between 125–170 BPM synchronize with running stride cadence and recruit motor-cortex arousal during heavy resistance training."
+    },
+    {
+      "id": "guide_introspection_melancholy",
+      "title": "Late-Night Introspection & Catharsis Guide",
+      "keywords": ["existential", "dread", "melancholic", "sad", "sorrowful", "lonely", "heartache", "somber", "introspection"],
+      "genre_recommendations": ["classical", "blues", "lofi", "ambient"],
+      "insight": "Low-valence, high-acousticness arrangements (solo grand piano, weeping slide guitar, and slow minor-key progressions below 75 BPM) support emotional catharsis and quiet midnight reflection."
+    }
+  ]
+}
+

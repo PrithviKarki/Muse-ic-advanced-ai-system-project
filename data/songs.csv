@@ -1,21 +1,31 @@
-id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
-1,Sunrise City,Neon Echo,pop,happy,0.82,118,0.84,0.79,0.18
-2,Midnight Coding,LoRoom,lofi,chill,0.42,78,0.56,0.62,0.71
-3,Storm Runner,Voltline,rock,intense,0.91,152,0.48,0.66,0.10
-4,Library Rain,Paper Lanterns,lofi,chill,0.35,72,0.60,0.58,0.86
-5,Gym Hero,Max Pulse,pop,intense,0.93,132,0.77,0.88,0.05
-6,Spacewalk Thoughts,Orbit Bloom,ambient,chill,0.28,60,0.65,0.41,0.92
-7,Coffee Shop Stories,Slow Stereo,jazz,relaxed,0.37,90,0.71,0.54,0.89
-8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22
-9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78
-10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35
-11,Golden Coast Sunset,Sol Sonora,reggae,peaceful,0.58,82,0.88,0.74,0.45
-12,Moonlight Sonata Flow,Clara Vane,classical,melancholic,0.22,54,0.25,0.20,0.98
-13,Neon Cyberpunk,Overdrive X,edm,euphoric,0.95,128,0.72,0.85,0.02
-14,Rustic Campfire,The Cedar Woods,folk,nostalgic,0.44,96,0.52,0.48,0.88
-15,Velvet Groove,Silk & Brass,r&b,romantic,0.50,88,0.68,0.75,0.38
-16,Concrete Jungle Beat,K-Rhythm,hip hop,confident,0.78,94,0.63,0.82,0.12
-17,Iron Thunder,Skullcrush,metal,aggressive,0.98,168,0.30,0.35,0.01
-18,Copacabana Breeze,Rio Rhythm Club,latin,festive,0.68,108,0.86,0.80,0.52
-19,Midnight Delta Blues,Blind River Sam,blues,sorrowful,0.39,68,0.33,0.42,0.81
-20,Supernova Disco,Funky Odyssey,funk,groovy,0.85,116,0.92,0.90,0.15
+id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness,description,themes
+1,Sunrise City,Neon Echo,pop,happy,0.82,118,0.84,0.79,0.18,"Bright shimmering synth-pop anthem with punchy four-on-the-floor drums, uplifting vocal hooks, and glittering arpeggios built for morning runs and sunny road trips.","workout, morning commute, cardio, upbeat, summer, celebration, energetic, pop anthem"
+2,Midnight Coding,LoRoom,lofi,chill,0.42,78,0.56,0.62,0.71,"Warm Rhodes electric piano chords layered over dusty vinyl crackle, mellow boom-bap percussion, and a steady bassline crafted for deep late-night programming sessions.","coding, studying, focus, late night, calm, relaxed, homework, instrumental beats"
+3,Storm Runner,Voltline,rock,intense,0.91,152,0.48,0.66,0.10,"High-voltage stadium rock driven by overdriven electric guitars, thunderous double-kick drums, and a soaring adrenaline-fueled chorus.","workout, weightlifting, running, adrenaline, action, intense rock, high energy, power"
+4,Library Rain,Paper Lanterns,lofi,chill,0.35,72,0.60,0.58,0.86,"Delicate acoustic piano and fingerpicked guitar accompanied by gentle rain ambiance and soft brush drums for quiet reading and peaceful reflection.","reading, rain, library, study, peaceful, calm, acoustic lofi, relaxed, quiet night"
+5,Gym Hero,Max Pulse,pop,intense,0.93,132,0.77,0.88,0.05,"Explosive electro-pop workout banger with driving synth bass, high-tempo claps, and relentless stadium energy to push through peak cardio sets.","gym, HIIT, sprint, workout, fitness, motivation, electronic pop, intense energy"
+6,Spacewalk Thoughts,Orbit Bloom,ambient,chill,0.28,60,0.65,0.41,0.92,"Weightless atmospheric pads, resonant acoustic harp harmonics, and slow-breathing tape textures evoking zero-gravity stargazing and meditation.","meditation, sleep, stargazing, mindfulness, calm, peaceful, ambient drone, relaxation, deep focus"
+7,Coffee Shop Stories,Slow Stereo,jazz,relaxed,0.37,90,0.71,0.54,0.89,"Intimate upright bass, warm brushed snare, and velvet saxophone melodies reminiscent of a cozy rainy afternoon inside a neighborhood espresso bar.","coffee shop, cafe, reading, relaxed, chill, warm acoustic, jazz trio, Sunday morning, peaceful"
+8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22,"Retro-futuristic 80s analog synthesizers, gated reverb snares, and pulsing arpeggiated basslines tailored for neon-lit highway night drives.","night drive, cyberpunk, retro 80s, gaming, coding, moody, dark synth, focus, electronic"
+9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78,"Crisp jazzy guitar loops and muted trumpet phrases over steady, unobtrusive head-nodding beats engineered to sustain unbroken mental flow.","deep work, studying, productivity, focused, chill, concentration, lofi hip hop, calm"
+10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35,"Breezy jangle guitars, infectious handclaps, and joyful indie-pop harmonies capturing golden-hour gatherings with friends on a city rooftop.","party, friends, sunset, happy, feel-good, indie dance, upbeat, cheerful"
+11,Golden Coast Sunset,Sol Sonora,reggae,peaceful,0.58,82,0.88,0.74,0.45,"Laid-back offbeat skank guitar, warm dub bass, and sun-soaked percussion bringing effortless coastal serenity and positive beach vibrations.","beach, sunset, vacation, peaceful, relaxed, chill, sunny, positive vibes, tropical"
+12,Moonlight Sonata Flow,Clara Vane,classical,melancholic,0.22,54,0.25,0.20,0.98,"Solo grand piano performance rich with expressive rubato, somber minor-key harmonies, and intimate concert-hall resonance for emotional introspection.","classical piano, melancholic, sad, existential dread, quiet study, reading, emotional, night, acoustic"
+13,Neon Cyberpunk,Overdrive X,edm,euphoric,0.95,128,0.72,0.85,0.02,"Massive festival progressive house drop with laser-sharp lead synths, pounding sub-bass, and euphoric build-ups built for peak-hour dancing.","rave, festival, gaming, workout, euphoric, high energy, electronic dance, party, adrenaline"
+14,Rustic Campfire,The Cedar Woods,folk,nostalgic,0.44,96,0.52,0.48,0.88,"Earthy acoustic strumming, plaintive harmonica, and warm twin-fiddle harmonies telling stories of autumn trails and mountain campfires.","campfire, hiking, autumn, nostalgic, acoustic folk, storytelling, warm, relaxed, road trip"
+15,Velvet Groove,Silk & Brass,r&b,romantic,0.50,88,0.68,0.75,0.38,"Silky neo-soul electric organ, pocket bass grooves, and lush vocal harmonies creating a smooth late-evening lounge atmosphere.","date night, lounge, romantic, smooth, groove, chill evening, soulful, r&b"
+16,Concrete Jungle Beat,K-Rhythm,hip hop,confident,0.78,94,0.63,0.82,0.12,"Hard-hitting 808 drums, crisp hi-hat rolls, and brass sample stabs delivering swagger, street-ready confidence, and gym motivation.","workout, basketball, swagger, confident, hip hop beats, urban, energy, hustle"
+17,Iron Thunder,Skullcrush,metal,aggressive,0.98,168,0.30,0.35,0.01,"Relentless thrash metal riffing, blistering blast beats, and raw distortion engineered for maximum intensity and heavy powerlifting.","heavy metal, powerlifting, rage, aggressive, intense, extreme workout, headbanging, dark"
+18,Copacabana Breeze,Rio Rhythm Club,latin,festive,0.68,108,0.86,0.80,0.52,"Vibrant nylon-string bossa-nova guitar blended with lively samba percussion and bright brass accents for festive social gatherings.","dancing, party, summer, festive, happy, latin groove, cooking, social"
+19,Midnight Delta Blues,Blind River Sam,blues,sorrowful,0.39,68,0.33,0.42,0.81,"Weeping bottleneck slide guitar and raw soulful blues phrasing echoing lonely midnight crossroads and deep heartache.","blues, sorrowful, melancholic, existential dread, late night, rainy night, vintage acoustic, soulful"
+20,Supernova Disco,Funky Odyssey,funk,groovy,0.85,116,0.92,0.90,0.15,"Slap bass fireworks,wah-wah rhythm guitar, and dazzling disco strings that turn any room into a high-spirit dancefloor.","disco, dance party, groovy, happy, upbeat, cardio, retro funk, celebration"
+21,Starlight Nocturne,Clara Vane,classical,peaceful,0.25,62,0.45,0.22,0.96,"Gentle chamber strings and solo cello weaving a serene, contemplative nocturne ideal for deep reading, calm focus, and winding down.","classical, peaceful, study, sleep, calm, acoustic strings, serene, relaxation"
+22,Afterhours Espresso,Slow Stereo,jazz,chill,0.34,84,0.64,0.52,0.91,"Cool-jazz piano chords and whispered brushwork over a walking acoustic bassline for tranquil late-night lounging and quiet conversation.","jazz, chill, relaxed, study, lounge, acoustic piano, night, peaceful"
+23,Cybernetic Pulse,Overdrive X,synthwave,intense,0.89,136,0.44,0.76,0.08,"Dark darksynth arpeggios and industrial electronic drums driving a high-stakes sci-fi action atmosphere for intense gaming and coding sprints.","cyberpunk, gaming, coding sprint, intense, synthwave, dark electronic, workout, fast"
+24,Mountain Pine Dawn,The Cedar Woods,folk,peaceful,0.36,86,0.68,0.46,0.93,"Fingerstyle acoustic guitar and soft mandolin echoes capturing the crisp stillness of sunrise over misty forest peaks.","morning, nature, peaceful, calm, acoustic folk, relaxed, meditation, coffee"
+25,Apex Predator,Voltline,rock,aggressive,0.94,160,0.38,0.58,0.06,"Fierce hard-rock anthem with drop-tuned riffs and explosive drum fills built for high-intensity training and competitive sports.","rock, aggressive, intense, gym, running, workout, adrenaline, heavy"
+26,Cloud Nine Drift,Orbit Bloom,ambient,peaceful,0.18,52,0.58,0.25,0.95,"Warm analog tape loops and acoustic glass marimba resonances floating in a tranquil, beatless soundscape for anxiety relief and deep rest.","ambient, sleep, anxiety relief, peaceful, chill, zero energy, meditation, calm"
+27,Subway Cypher,K-Rhythm,hip hop,focused,0.68,92,0.58,0.78,0.24,"Boom-bap jazz-hop instrumental with dusty soul samples and crisp snare hits that lock you into a steady, productive creative rhythm.","hip hop, focused, coding, creative work, study beats, chill groove, head-nod"
+28,Electric Carnival,Rio Rhythm Club,pop,happy,0.86,126,0.91,0.87,0.14," High-energy dance-pop fusion with tropical percussion and euphoric synth brass hooks designed for joyful movement.","pop, happy, dance, workout, party, summer, energetic, electronic"
+29,Obsidian Rift,Skullcrush,metal,intense,0.96,174,0.26,0.32,0.02,"Symphonic extreme metal combining blistering guitar tremolos with dramatic orchestral tension and apocalyptic atmosphere.","metal, intense, aggressive, existential dread, dark, heavy workout, extreme"
+30,Rainy Windowpane,Paper Lanterns,lofi,melancholic,0.31,70,0.38,0.50,0.88,"Wistful detuned piano notes and distant thunder textures over a slow lofi heartbeat for quiet reflection on rainy nights.","lofi, melancholic, sad, rainy night, chill, acoustic piano, introspection, study"
