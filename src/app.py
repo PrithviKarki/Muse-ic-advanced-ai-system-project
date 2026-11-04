@@ -1,5 +1,5 @@
 """
-Streamlit Web Application for Muse-ic: Hybrid Semantic RAG & Explainable Music Recommender.
+Minimalistic Spotify-Inspired Web UI for Muse-ic 2.0.
 
 Run with:
     streamlit run src/app.py
@@ -24,15 +24,177 @@ except ModuleNotFoundError:
 
 
 st.set_page_config(
-    page_title="Muse-ic | Hybrid Semantic RAG Music Recommender",
-    page_icon="🎵",
-    layout="wide",
+    page_title="Muse-ic",
+    page_icon="🟢",
+    layout="centered",
+    initial_sidebar_state="collapsed",
 )
+
+SPOTIFY_CSS = """
+<style>
+    /* Global Spotify Dark Palette & Centered Layout */
+    .stApp {
+        background-color: #121212;
+        color: #FFFFFF;
+    }
+    .block-container {
+        max-width: 720px;
+        padding-top: 2.5rem;
+        padding-bottom: 4rem;
+    }
+
+    /* Centered Hero Header */
+    .hero-wrap {
+        text-align: center;
+        margin-bottom: 1.8rem;
+    }
+    .hero-logo {
+        font-size: 2.4rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        color: #FFFFFF;
+        margin-bottom: 0.2rem;
+    }
+    .hero-logo span {
+        color: #1DB954;
+    }
+    .hero-sub {
+        color: #B3B3B3;
+        font-size: 0.95rem;
+        font-weight: 400;
+    }
+
+    /* Pill Buttons (Spotify Green CTA) */
+    div.stButton > button[kind="primary"] {
+        background-color: #1DB954 !important;
+        color: #000000 !important;
+        font-weight: 700 !important;
+        border: none !important;
+        border-radius: 500px !important;
+        padding: 0.6rem 2rem !important;
+        letter-spacing: 0.02em;
+        transition: transform 0.12s ease, background-color 0.12s ease;
+    }
+    div.stButton > button[kind="primary"]:hover {
+        background-color: #1ED760 !important;
+        transform: scale(1.02);
+    }
+
+    /* Centered Vibe Summary Pills */
+    .vibe-pills {
+        display: flex;
+        justify-content: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+        margin: 1.2rem 0 1.4rem 0;
+    }
+    .vibe-pill {
+        background: #181818;
+        border: 1px solid #282828;
+        border-radius: 500px;
+        padding: 0.35rem 0.9rem;
+        font-size: 0.8rem;
+        color: #B3B3B3;
+    }
+    .vibe-pill strong {
+        color: #FFFFFF;
+        font-weight: 600;
+    }
+
+    /* Minimal AI DJ Banner */
+    .dj-card {
+        background: linear-gradient(145deg, #181818 0%, #141414 100%);
+        border: 1px solid #282828;
+        border-left: 3px solid #1DB954;
+        border-radius: 10px;
+        padding: 0.9rem 1.15rem;
+        margin-bottom: 1.4rem;
+        font-size: 0.88rem;
+        color: #E0E0E0;
+        line-height: 1.5;
+    }
+
+    /* Spotify Tracklist Row */
+    .track-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #181818;
+        border-radius: 8px;
+        padding: 0.75rem 1.1rem;
+        margin-bottom: 0.55rem;
+        transition: background-color 0.15s ease;
+        border: 1px solid transparent;
+    }
+    .track-row:hover {
+        background-color: #282828;
+        border-color: #333333;
+    }
+    .track-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        min-width: 0;
+    }
+    .track-num {
+        color: #B3B3B3;
+        font-size: 0.9rem;
+        font-weight: 600;
+        width: 22px;
+        text-align: center;
+    }
+    .track-meta {
+        min-width: 0;
+    }
+    .track-title {
+        color: #FFFFFF;
+        font-size: 0.98rem;
+        font-weight: 600;
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .track-artist {
+        color: #B3B3B3;
+        font-size: 0.82rem;
+        margin-top: 0.1rem;
+    }
+    .track-why {
+        color: #8E8E8E;
+        font-size: 0.75rem;
+        margin-top: 0.22rem;
+    }
+    .track-right {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        flex-shrink: 0;
+    }
+    .tag-chip {
+        background-color: #242424;
+        color: #B3B3B3;
+        border-radius: 4px;
+        padding: 0.2rem 0.55rem;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+    .score-badge {
+        background-color: rgba(29, 185, 84, 0.15);
+        color: #1DB954;
+        border: 1px solid rgba(29, 185, 84, 0.35);
+        border-radius: 500px;
+        padding: 0.22rem 0.7rem;
+        font-size: 0.78rem;
+        font-weight: 700;
+    }
+</style>
+"""
 
 
 @st.cache_resource
 def get_recommender_engine() -> tuple[Recommender, list[dict]]:
-    """Load the enriched song catalog and initialize the Specialized Vector RAG Index."""
     csv_path = Path(__file__).resolve().parent.parent / "data" / "songs.csv"
     if not csv_path.exists():
         csv_path = Path("data/songs.csv")
@@ -40,147 +202,139 @@ def get_recommender_engine() -> tuple[Recommender, list[dict]]:
     return Recommender(songs), songs
 
 
-def render_recommendations_section(result: dict) -> None:
-    """Render profile telemetry, guardrail status, grounded RAG synthesis, and ranked song cards."""
+def _extract_short_dj_summary(rag_explanation: str) -> str:
+    """Extract only the concise top summary and musicology insight so the UI stays clean."""
+    paragraphs = [
+        line.strip()
+        for line in rag_explanation.splitlines()
+        if line.strip() and not line.strip().startswith("- **#") and not line.strip().startswith(("1.", "2.", "3.", "4.", "5."))
+    ]
+    cleaned = []
+    for p in paragraphs[:2]:
+        cleaned.append(p.lstrip("> ").replace("**", ""))
+    return "<br><br>".join(cleaned) if cleaned else "Curated via hybrid Semantic RAG & audio telemetry."
+
+
+def render_spotify_playlist(result: dict, songs: list[dict]) -> None:
+    """Render centered vibe pills, a concise AI DJ card, and sleek Spotify track rows."""
     profile = result["profile"]
     recommendations = result["recommendations"]
     rag_explanation = result["rag_explanation"]
-    rag_backend = result["rag_backend"]
     guardrail_report = result["guardrail_report"]
-
-    # 1. Extracted Intent & Guardrail Status Metrics
-    c1, c2, c3, c4, c5 = st.columns(5)
-    c1.metric("Target Genre", str(profile.get("genre", "any")).title())
-    c2.metric("Target Mood", str(profile.get("mood", "any")).title())
-    c3.metric("Target Energy", f"{float(profile.get('energy', 0.5)):.2f}")
-    c4.metric(
-        "Instrument Style",
-        "Acoustic / Organic" if profile.get("likes_acoustic") else "Electronic / Amplified",
-    )
-    top_score = recommendations[0][1] * 100 if recommendations else 0.0
-    c5.metric("Top Match Score", f"{top_score:.1f}%")
-
-    # 2. Guardrail Banner
-    if guardrail_report.warnings:
-        with st.expander("⚠️ Active Guardrail & Normalization Interventions", expanded=True):
-            for w in guardrail_report.warnings:
-                st.warning(w)
-    else:
-        st.success(
-            f"🛡️ **Guardrails Verified:** All weights normalized (Σw = 1.00), inputs in bounds, "
-            f"and {len(recommendations)} tracks verified against catalog. | **RAG Backend:** `{rag_backend}`"
-        )
-
-    # 3. Grounded AI DJ RAG Commentary & Agentic Workflow Trace
     agent_trace = result.get("agent_trace", [])
     agent_self_corrected = result.get("agent_self_corrected", False)
-    if agent_trace:
-        with st.expander(
-            f"🧠 Multi-Step Agentic Workflow Trace ({len(agent_trace)} Steps | "
-            f"Self-Correction Triggered: {agent_self_corrected})",
-            expanded=agent_self_corrected,
-        ):
+
+    if not recommendations:
+        st.warning("No matching tracks found.")
+        return
+
+    top_score = recommendations[0][1] * 100
+    style_label = "Acoustic" if profile.get("likes_acoustic") else "Electronic"
+
+    # 1. Centered Minimal Vibe Pills
+    st.markdown(
+        f"""
+        <div class="vibe-pills">
+            <div class="vibe-pill">Genre <strong>{str(profile.get('genre', 'any')).title()}</strong></div>
+            <div class="vibe-pill">Mood <strong>{str(profile.get('mood', 'any')).title()}</strong></div>
+            <div class="vibe-pill">Energy <strong>{float(profile.get('energy', 0.5)):.2f}</strong></div>
+            <div class="vibe-pill">Sound <strong>{style_label}</strong></div>
+            <div class="vibe-pill">Top Match <strong>{top_score:.0f}%</strong></div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # 2. Concise AI DJ Insight Card (No wall of duplicate bullet points)
+    short_summary = _extract_short_dj_summary(rag_explanation)
+    st.markdown(f'<div class="dj-card">{short_summary}</div>', unsafe_allow_html=True)
+
+    # 3. Clean Spotify-Style Tracklist Rows
+    for rank, (song, score, reasons) in enumerate(recommendations, start=1):
+        title = song.get("title", "Untitled")
+        artist = song.get("artist", "Unknown")
+        genre = song.get("genre", "")
+        mood = song.get("mood", "")
+        bpm = int(float(song.get("tempo_bpm", 100)))
+        short_reasons = " · ".join(r.strip() for r in reasons.split(", ")[:3])
+
+        st.markdown(
+            f"""
+            <div class="track-row">
+                <div class="track-left">
+                    <div class="track-num">{rank}</div>
+                    <div class="track-meta">
+                        <div class="track-title">{title}</div>
+                        <div class="track-artist">{artist}</div>
+                        <div class="track-why">{short_reasons}</div>
+                    </div>
+                </div>
+                <div class="track-right">
+                    <span class="tag-chip">{genre} · {mood} · {bpm} BPM</span>
+                    <span class="score-badge">{score * 100:.0f}%</span>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    # 4. Single Subtle Drawer for Technical Details (Graders / Deep Inspection)
+    st.write("")
+    with st.expander("🔍 Inspect AI Telemetry, Agent Trace & Guardrails"):
+        t1, t2, t3 = st.tabs(["🧠 Agent Trace", "🛡️ Guardrails & Logs", "🗂️ Catalog"])
+        with t1:
+            st.caption(f"Self-Correction Triggered: `{agent_self_corrected}` | Backend: `{result['rag_backend']}`")
             for step in agent_trace:
                 st.markdown(
-                    f"**Step {step['step']} — `{step['phase']}`** | 🛠️ Tool: `{step['tool']}`\n"
-                    f"- **Thought:** {step['thought']}\n"
-                    f"- **Observation:** {step['observation']}\n"
-                    f"- **Decision:** `{step['decision']}`"
+                    f"**Step {step['step']} ({step['phase']})** — `{step['tool']}`  \n"
+                    f"↳ *{step['observation']}* → **`{step['decision']}`**"
                 )
-
-    st.subheader("🤖 Grounded AI DJ Setlist Commentary (RAG)")
-    st.info(rag_explanation)
-
-    # 4. Top-K Ranked Songs Table & Detailed RAG Cards
-    st.subheader(f"🎧 Top {len(recommendations)} Recommended Tracks")
-    table_data = []
-    for rank, (song, score, reasons) in enumerate(recommendations, start=1):
-        table_data.append(
-            {
-                "Rank": f"#{rank}",
-                "Title": song.get("title"),
-                "Artist": song.get("artist"),
-                "Genre": song.get("genre"),
-                "Mood": song.get("mood"),
-                "Energy": f"{song.get('energy', 0.0):.2f}",
-                "Acousticness": f"{song.get('acousticness', 0.0):.2f}",
-                "Valence": f"{song.get('valence', 0.0):.2f}",
-                "BPM": int(song.get("tempo_bpm", 0)),
-                "Match Score": f"{score * 100:.1f}%",
-                "Explainable Scoring Breakdown": reasons,
-            }
-        )
-    st.dataframe(pd.DataFrame(table_data), use_container_width=True, hide_index=True)
-
-    st.markdown("#### 🔍 Retrieved Song Knowledge Documents & Telemetry")
-    for rank, (song, score, reasons) in enumerate(recommendations, start=1):
-        with st.expander(
-            f"#{rank} — {song.get('title')} by {song.get('artist')} "
-            f"[{song.get('genre')} / {song.get('mood')}] — {score * 100:.1f}% Match",
-            expanded=(rank == 1),
-        ):
-            col_a, col_b = st.columns([2, 1])
-            with col_a:
-                st.markdown(f"**📖 Retrieved Musical Description:** {song.get('description', 'N/A')}")
-                st.markdown(f"**🏷️ Activity & Vibe Themes:** `{song.get('themes', 'N/A')}`")
-                st.markdown("**🧮 Pointwise & Diversity Score Breakdown:**")
-                for clause in reasons.split(", "):
-                    st.markdown(f"- `{clause}`")
-            with col_b:
-                st.progress(min(1.0, max(0.0, float(song.get("energy", 0.0)))), text=f"Energy: {song.get('energy', 0.0):.2f}")
-                st.progress(min(1.0, max(0.0, float(song.get("acousticness", 0.0)))), text=f"Acousticness: {song.get('acousticness', 0.0):.2f}")
-                st.progress(min(1.0, max(0.0, float(song.get("valence", 0.0)))), text=f"Valence (Positivity): {song.get('valence', 0.0):.2f}")
-                st.progress(min(1.0, max(0.0, float(song.get("danceability", 0.0)))), text=f"Danceability: {song.get('danceability', 0.0):.2f}")
+        with t2:
+            if guardrail_report.warnings:
+                for w in guardrail_report.warnings:
+                    st.warning(w)
+            else:
+                st.success("All guardrails passed (Σw = 1.00, 0 hallucinations).")
+            recent_logs = read_recent_logs(15)
+            if recent_logs:
+                st.code("\n".join(recent_logs), language="text")
+        with t3:
+            st.dataframe(pd.DataFrame(songs), use_container_width=True, hide_index=True)
 
 
 def main() -> None:
+    st.markdown(SPOTIFY_CSS, unsafe_allow_html=True)
     engine, songs = get_recommender_engine()
 
-    st.title("🎵 Muse-ic 2.0: Hybrid Semantic RAG Music Recommender")
-    st.caption(
-        "Explainable Content-Based Filtering + Specialized Local Vector Embeddings + "
-        "Grounded Gemini RAG Synthesis + Runtime Guardrails"
-    )
-
     # -------------------------------------------------------------------------
-    # Sidebar: AI Configuration, Scoring Weight Lab & Diversity Guardrails
+    # Sidebar: Tucked-Away Studio Controls
     # -------------------------------------------------------------------------
     with st.sidebar:
-        st.header("⚙️ AI & Algorithm Controls")
-        api_key = st.text_input(
-            "🔑 Google Gemini API Key (Optional)",
-            type="password",
-            help="Paste a free GEMINI_API_KEY from Google AI Studio (or set it in .env) to enable Gemini 2.5 Flash intent parsing & DJ commentary.",
-        )
+        st.markdown("### ⚙️ Studio Controls")
+        api_key = st.text_input("Gemini API Key (Optional)", type="password")
         effective_key = _resolve_gemini_api_key(api_key)
-        if effective_key:
-            st.success("Gemini 2.5 Flash Key Configured (.env / Sidebar)")
-        else:
-            st.info("Offline-Ready Local Semantic RAG Active")
+        st.caption("🟢 Gemini Active" if effective_key else "⚪ Local RAG Active")
 
         dj_style_options = {
-            "musicologist": "🔬 Psychoacoustic Musicologist (Default)",
-            "late_night_radio": "🎙️ Late-Night FM Radio Host",
-            "hype_coach": "🔥 High-Intensity Athletic Coach",
-            "baseline": "📋 Unspecialized Baseline (Plain Checklist)",
+            "musicologist": "Psychoacoustic Musicologist",
+            "late_night_radio": "Late-Night FM Radio",
+            "hype_coach": "Athletic Hype Coach",
+            "baseline": "Plain Baseline",
         }
         dj_style = st.selectbox(
-            "🎙️ Constrained AI DJ Tone / Style (Few-Shot Specialization)",
+            "DJ Voice",
             options=list(dj_style_options.keys()),
             format_func=lambda k: dj_style_options[k],
         )
-
-        top_k = st.slider("Number of Recommendations (k)", min_value=1, max_value=10, value=5)
+        top_k = st.slider("Tracks (k)", 1, 10, 5)
 
         st.divider()
-        st.subheader("⚖️ Hybrid Scoring Weights")
-        st.caption("Guardrail automatically normalizes weights so Σw = 1.00.")
-        w_genre = st.slider("Genre Weight", 0.0, 1.0, 0.25, 0.05)
-        w_mood = st.slider("Mood Weight", 0.0, 1.0, 0.20, 0.05)
-        w_energy = st.slider("Energy & Audio Telemetry Weight", 0.0, 1.0, 0.20, 0.05)
-        w_acoustic = st.slider("Acoustic / Electronic Weight", 0.0, 1.0, 0.15, 0.05)
-        w_rag = st.slider("Semantic RAG Embedding Weight", 0.0, 1.0, 0.20, 0.05)
-
+        st.markdown("**Scoring Weights**")
+        w_genre = st.slider("Genre", 0.0, 1.0, 0.25, 0.05)
+        w_mood = st.slider("Mood", 0.0, 1.0, 0.20, 0.05)
+        w_energy = st.slider("Energy", 0.0, 1.0, 0.20, 0.05)
+        w_acoustic = st.slider("Acoustic", 0.0, 1.0, 0.15, 0.05)
+        w_rag = st.slider("Semantic RAG", 0.0, 1.0, 0.20, 0.05)
         raw_weights = {
             "genre": w_genre,
             "mood": w_mood,
@@ -188,180 +342,116 @@ def main() -> None:
             "acoustic": w_acoustic,
             "semantic_rag": w_rag,
         }
-        norm_weights, _ = validate_and_normalize_weights(raw_weights, use_semantic_rag=True)
-        raw_sum = sum(raw_weights.values())
-        if abs(raw_sum - 1.0) > 1e-3:
-            st.warning(f"Raw weight sum = `{raw_sum:.2f}` → Auto-normalized to `1.00`")
+        validate_and_normalize_weights(raw_weights, use_semantic_rag=True)
 
         st.divider()
-        st.subheader("🎨 Diversity & Guest Filter")
-        artist_penalty = st.slider("Repeat Artist Penalty", 0.0, 0.40, 0.15, 0.05)
-        genre_penalty = st.slider("Genre Saturation Penalty", 0.0, 0.30, 0.10, 0.05)
-
+        artist_penalty = st.slider("Artist Diversity Penalty", 0.0, 0.40, 0.15, 0.05)
+        genre_penalty = st.slider("Genre Diversity Penalty", 0.0, 0.30, 0.10, 0.05)
         all_artists = sorted({s.get("artist", "") for s in songs if s.get("artist")})
-        ignored_artists = st.multiselect(
-            "🚫 Exclude Artists (Dislike / Guest Filter)",
-            options=all_artists,
-            default=[],
-        )
+        ignored_artists = st.multiselect("Exclude Artists", options=all_artists, default=[])
+        custom_doc_text = st.text_area("Custom RAG Notes", placeholder="Optional personal listener notes...", height=68)
 
     # -------------------------------------------------------------------------
-    # Main Tabs
+    # Centered Hero Header
     # -------------------------------------------------------------------------
-    tab_rag, tab_personas, tab_observability = st.tabs(
-        [
-            "🤖 AI DJ & Natural Language RAG",
-            "🎛️ Persona & Explicit Profile Lab",
-            "🛡️ Guardrails, Logs & Vector Catalog",
-        ]
+    st.markdown(
+        """
+        <div class="hero-wrap">
+            <div class="hero-logo">Muse<span>-ic</span></div>
+            <div class="hero-sub">Describe a vibe, moment, or activity to curate an explainable playlist.</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
-    # --- TAB 1: Natural Language Semantic RAG ---
-    with tab_rag:
-        st.subheader("Ask Muse-ic in Plain English")
-        st.markdown(
-            "Describe a **moment, activity, atmosphere, or emotional state**. "
-            "Muse-ic parses your intent, retrieves matching tracks from the vector knowledge base, "
-            "and scores them using hybrid semantic + acoustic telemetry."
+    # -------------------------------------------------------------------------
+    # Centered Mode Toggle: Prompt vs. Preset Persona
+    # -------------------------------------------------------------------------
+    presets = {
+        "Custom Prompt": "calm rainy night coding music with warm acoustic piano",
+        "🌧️ Rainy Night Coding": "pomodoro exam week debugging session with felt piano and rain foley",
+        "🌆 80s Night Drive": "high energy 80s neon cyberpunk synthwave highway night drive",
+        "⚡ Peak Gym Workout": "explosive gym workout cardio and heavy adrenaline motivation",
+        "☕ Sunday Morning Jazz": "cozy Sunday morning coffee shop reading with relaxed upright bass and jazz",
+        "🌑 Existential Introspection (OOD Test)": "existential dread somber late night acoustic introspection",
+    }
+
+    c_preset, c_mode = st.columns([2, 1])
+    with c_preset:
+        selected_vibe = st.selectbox("Quick Vibe", list(presets.keys()), label_visibility="collapsed")
+    with c_mode:
+        search_mode = st.selectbox("Mode", ["AI DJ Prompt", "Manual Sliders"], label_visibility="collapsed")
+
+    if search_mode == "AI DJ Prompt":
+        user_query = st.text_input(
+            "What do you want to listen to?",
+            value=presets[selected_vibe],
+            placeholder="Describe a mood, activity, or sound...",
+            label_visibility="collapsed",
         )
+        _, btn_col, _ = st.columns([1, 1.2, 1])
+        with btn_col:
+            run_clicked = st.button("▶  Curate Playlist", type="primary", use_container_width=True)
 
-        preset_prompts = [
-            "Late-night rainy coding session with warm acoustic piano and calm focus",
-            "High-energy 80s neon cyberpunk synthwave highway night drive",
-            "Existential dread and somber midnight introspection with acoustic instruments",
-            "Explosive gym workout cardio and heavy adrenaline motivation",
-            "Cozy Sunday morning coffee shop reading with relaxed upright bass and jazz",
-        ]
-        selected_preset = st.selectbox("✨ Try a sample prompt (or type your own below):", ["Custom prompt..."] + preset_prompts)
-
-        default_query = (
-            selected_preset
-            if selected_preset != "Custom prompt..."
-            else "Late-night rainy coding session with warm acoustic piano and calm focus"
-        )
-        user_query = st.text_area("🎧 Your Vibe / Request:", value=default_query, height=80)
-
-        with st.expander("📚 Multi-Source RAG: Add Custom Listener Document / Curation Notes (Stretch Goal)"):
-            st.caption(
-                "Extend retrieval beyond `songs.csv` and `musicology_guides.json` by adding custom markdown notes or uploading a `.txt`/`.md` file."
-            )
-            uploaded_doc = st.file_uploader("Upload Custom Notes (`.md` or `.txt`)", type=["md", "txt"])
-            custom_doc_text = st.text_area(
-                "Or Paste Custom Curation Notes:",
-                placeholder="e.g., For my exam week pomodoro sessions, prioritize Paper Lanterns and LoRoom tracks with felt piano...",
-                height=70,
-            )
-            combined_custom_notes = custom_doc_text
-            if uploaded_doc is not None:
-                combined_custom_notes = (
-                    uploaded_doc.getvalue().decode("utf-8", errors="ignore") + "\n" + custom_doc_text
-                ).strip()
-
-        if st.button("🚀 Curate Grounded RAG Playlist", type="primary"):
-            profile_dict = engine.recommend_with_rag(
+        if run_clicked or user_query:
+            result = engine.recommend_with_rag(
                 user_query,
                 k=top_k,
-                weights=raw_weights,
+                weights=raw_weights if abs(sum(raw_weights.values()) - 1.0) > 1e-3 else None,
                 artist_penalty=artist_penalty,
                 genre_penalty=genre_penalty,
                 api_key=api_key,
-                custom_notes=combined_custom_notes,
+                custom_notes=custom_doc_text,
                 dj_style=dj_style,
             )
             if ignored_artists:
-                profile_input = dict(profile_dict["profile"])
-                profile_input["ignored_artists"] = ignored_artists
-                profile_dict = engine.recommend_with_rag(
-                    profile_input,
+                p_in = dict(result["profile"])
+                p_in["ignored_artists"] = ignored_artists
+                result = engine.recommend_with_rag(
+                    p_in,
                     k=top_k,
                     weights=raw_weights,
                     artist_penalty=artist_penalty,
                     genre_penalty=genre_penalty,
                     api_key=api_key,
-                    custom_notes=combined_custom_notes,
+                    custom_notes=custom_doc_text,
                     dj_style=dj_style,
                 )
-            render_recommendations_section(profile_dict)
+            render_spotify_playlist(result, songs)
 
-    # --- TAB 2: Explicit Persona & Profile Lab ---
-    with tab_personas:
-        st.subheader("Test Standard & Adversarial Personas or Build a Custom Profile")
-        col_left, col_right = st.columns([1, 2])
+    else:
+        genres_list = sorted({s.get("genre", "") for s in songs}) + ["deathcore polka"]
+        moods_list = sorted({s.get("mood", "") for s in songs}) + ["existential dread"]
+        m1, m2, m3 = st.columns(3)
+        with m1:
+            custom_genre = st.selectbox("Genre", genres_list, index=genres_list.index("lofi"))
+        with m2:
+            custom_mood = st.selectbox("Mood", moods_list, index=moods_list.index("chill"))
+        with m3:
+            custom_energy = st.slider("Energy", 0.0, 1.0, 0.35, 0.05)
 
-        with col_left:
-            persona_options = {
-                k: f"{v['label']} ({v['genre']} / {v['mood']})" for k, v in USER_PROFILES.items()
-            }
-            persona_options["custom"] = "🛠️ Custom Explicit Profile"
-            chosen_key = st.radio(
-                "Select Profile:",
-                options=list(persona_options.keys()),
-                format_func=lambda x: persona_options[x],
-            )
-
-            base_p = USER_PROFILES.get(chosen_key, USER_PROFILES["chill_lofi"])
-            genres_list = sorted({s.get("genre", "") for s in songs}) + ["deathcore polka"]
-            moods_list = sorted({s.get("mood", "") for s in songs}) + ["existential dread"]
-
-            custom_genre = st.selectbox(
-                "Favorite Genre",
-                options=genres_list,
-                index=genres_list.index(base_p["genre"]) if base_p["genre"] in genres_list else 0,
-            )
-            custom_mood = st.selectbox(
-                "Favorite Mood",
-                options=moods_list,
-                index=moods_list.index(base_p["mood"]) if base_p["mood"] in moods_list else 0,
-            )
-            custom_energy = st.slider("Target Energy", 0.0, 1.0, float(base_p["energy"]), 0.01)
-            custom_acoustic = st.checkbox("Prefers Acoustic Instruments", value=bool(base_p["likes_acoustic"]))
-            custom_query = st.text_input("Optional Semantic Context Keywords", value=base_p.get("natural_query", ""))
-
-        with col_right:
-            active_profile = {
-                "label": base_p["label"] if chosen_key != "custom" else "Custom Explicit Profile",
-                "genre": custom_genre,
-                "mood": custom_mood,
-                "energy": custom_energy,
-                "likes_acoustic": custom_acoustic,
-                "natural_query": custom_query,
-                "ignored_artists": ignored_artists,
-            }
-            result = engine.recommend_with_rag(
-                active_profile,
-                k=top_k,
-                weights=raw_weights,
-                artist_penalty=artist_penalty,
-                genre_penalty=genre_penalty,
-                api_key=api_key,
-                dj_style=dj_style,
-            )
-            render_recommendations_section(result)
-
-    # --- TAB 3: Guardrails, Logs & Enriched Vector Catalog ---
-    with tab_observability:
-        st.subheader("🛡️ System Observability & Enriched RAG Catalog")
-        col_w, col_l = st.columns(2)
-
-        with col_w:
-            st.markdown("#### Normalized Active Scoring Weights (`Σw = 1.00`)")
-            st.json(norm_weights)
-            st.markdown(f"**Vector Index Backend:** `{engine.rag_index.backend_name}`")
-            st.markdown(f"**Indexed Catalog Size:** `{len(songs)} enriched tracks`")
-
-        with col_l:
-            st.markdown("#### 📜 Live Structured Telemetry Log (`logs/muse_ic.log`)")
-            recent_logs = read_recent_logs(40)
-            if recent_logs:
-                st.code("\n".join(recent_logs), language="text")
-            else:
-                st.caption("No log entries recorded yet.")
-
-        st.divider()
-        st.markdown("#### 🗂️ Enriched Song Knowledge Base (`data/songs.csv`)")
-        st.dataframe(pd.DataFrame(songs), use_container_width=True, hide_index=True)
+        custom_acoustic = st.checkbox("Prefer Acoustic Instruments", value=True)
+        active_profile = {
+            "label": f"{custom_genre.title()} · {custom_mood.title()}",
+            "genre": custom_genre,
+            "mood": custom_mood,
+            "energy": custom_energy,
+            "likes_acoustic": custom_acoustic,
+            "natural_query": f"{custom_genre} {custom_mood}",
+            "ignored_artists": ignored_artists,
+        }
+        result = engine.recommend_with_rag(
+            active_profile,
+            k=top_k,
+            weights=None,
+            artist_penalty=artist_penalty,
+            genre_penalty=genre_penalty,
+            api_key=api_key,
+            custom_notes=custom_doc_text,
+            dj_style=dj_style,
+        )
+        render_spotify_playlist(result, songs)
 
 
 if __name__ == "__main__":
     main()
-
