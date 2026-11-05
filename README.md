@@ -202,6 +202,39 @@ In Module 3, asking for `"deathcore polka"` and `"existential dread"` scored $\l
 
 ---
 
+### Interaction 3: Rainy-Night Pomodoro & Debugging Query (Multi-Source RAG Grounding)
+* **Input Command:**
+  ```bash
+  python -m src.main --query "pomodoro exam week debugging session with Sade sophisti-pop and Rhodes piano"
+  ```
+* **Resulting AI Output:**
+  ```text
+  ======================================================================================================================
+  👤 PROFILE: AI DJ Intent: pomodoro exam week debugging session with Sade s
+     Preferences -> Genre: sophisti-pop | Mood: chill | Target Energy: 0.34 | Likes Acoustic: True
+     Semantic RAG Query -> "pomodoro exam week debugging session with Sade sophisti-pop and Rhodes piano"
+     Guardrails -> Passed: True | Agent Self-Corrected: False | RAG Synthesis: Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default))
+  ======================================================================================================================
+
+  +------+-------------------------------------------------+-------------------------+--------+--------------+---------------------------------------------------------+
+  | Rank | Song (Artist)                                   | Genre / Mood            | Energy | Score        | Reasons (Why Recommended)                               |
+  +======+=================================================+=========================+========+==============+=========================================================+
+  | #1   | Paradise (Sade Adu)                             | sophisti-pop / chill    | 0.35   | 0.87 (87.0%) | • genre match 'sophisti-pop' (+0.25)                    |
+  |      |                                                 |                         |        |              | • mood match 'chill' (+0.20)                            |
+  |      |                                                 |                         |        |              | • energy match (0.35 near target 0.34) (+0.17)          |
+  |      |                                                 |                         |        |              | • acoustic sound match (+0.12)                          |
+  |      |                                                 |                         |        |              | • RAG semantic context [pomodoro/exam/week] (+0.14)     |
+  +------+-------------------------------------------------+-------------------------+--------+--------------+---------------------------------------------------------+
+  | #2   | Shibuya After Rain（渋谷アフター・レイン） (Japanese City Pop) | city pop / chill        | 0.32   | 0.78 (78.4%) | • semantic genre affinity 'city pop' (~'sophisti-pop')  |
+  |      |                                                 |                         |        |              | • mood match 'chill' (+0.20)                            |
+  |      |                                                 |                         |        |              | • energy match (0.32 near target 0.34) (+0.17)          |
+  |      |                                                 |                         |        |              | • acoustic sound match (+0.13)                          |
+  |      |                                                 |                         |        |              | • RAG semantic context [pomodoro/debugging/piano]       |
+  +------+-------------------------------------------------+-------------------------+--------+--------------+---------------------------------------------------------+
+  ```
+
+---
+
 ## 6. Stretch Goal: Multi-Source & Custom-Document RAG Enhancement
 
 To achieve the **RAG Enhancement Stretch Goal**, we extended `SongKnowledgeIndex` in [`src/rag_engine.py`](src/rag_engine.py) (`load_external_knowledge_sources` and `retrieve_multi_source_context`) from a single-CSV retriever into a **3-Source Knowledge Fusion Engine** (plus interactive `.md`/`.txt` custom document uploads in the Streamlit Web App):
