@@ -123,10 +123,11 @@ SPOTIFY_CSS = """
         justify-content: space-between;
         background-color: #181818;
         border-radius: 8px;
-        padding: 0.75rem 1.1rem;
+        padding: 0.85rem 1.2rem;
         margin-bottom: 0.55rem;
         transition: background-color 0.15s ease;
         border: 1px solid transparent;
+        gap: 1rem;
     }
     .track-row:hover {
         background-color: #282828;
@@ -136,76 +137,57 @@ SPOTIFY_CSS = """
         display: flex;
         align-items: center;
         gap: 1rem;
+        flex: 1;
         min-width: 0;
     }
     .track-num {
         color: #B3B3B3;
-        font-size: 0.9rem;
+        font-size: 0.92rem;
         font-weight: 600;
         width: 22px;
         text-align: center;
+        flex-shrink: 0;
     }
     .track-meta {
+        flex: 1;
         min-width: 0;
     }
     .track-title {
         color: #FFFFFF;
-        font-size: 0.98rem;
+        font-size: 1rem;
         font-weight: 600;
         margin: 0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
     .track-artist {
         color: #B3B3B3;
-        font-size: 0.82rem;
-        margin-top: 0.1rem;
+        font-size: 0.84rem;
+        margin-top: 0.15rem;
     }
     .track-why {
-        color: #8E8E8E;
-        font-size: 0.75rem;
-        margin-top: 0.22rem;
+        color: #1DB954;
+        font-size: 0.76rem;
+        font-weight: 500;
+        margin-top: 0.2rem;
     }
     .track-right {
         display: flex;
         align-items: center;
-        gap: 0.75rem;
         flex-shrink: 0;
     }
-    .tag-chip {
-        background-color: #242424;
-        color: #B3B3B3;
-        border-radius: 4px;
-        padding: 0.2rem 0.55rem;
-        font-size: 0.72rem;
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-    }
-    .score-badge {
-        background-color: rgba(29, 185, 84, 0.15);
-        color: #1DB954;
-        border: 1px solid rgba(29, 185, 84, 0.35);
-        border-radius: 500px;
-        padding: 0.22rem 0.7rem;
-        font-size: 0.78rem;
-        font-weight: 700;
-    }
     .ytm-play-btn {
-        background-color: #242424;
-        color: #1DB954 !important;
-        text-decoration: none !important;
-        border: 1px solid #333333;
-        border-radius: 500px;
-        padding: 0.2rem 0.65rem;
-        font-size: 0.74rem;
-        font-weight: 600;
-        transition: background-color 0.15s ease, border-color 0.15s ease;
-    }
-    .ytm-play-btn:hover {
         background-color: #1DB954;
         color: #000000 !important;
-        border-color: #1DB954;
+        text-decoration: none !important;
+        border-radius: 500px;
+        padding: 0.35rem 0.95rem;
+        font-size: 0.78rem;
+        font-weight: 700;
+        transition: transform 0.12s ease, background-color 0.12s ease;
+    }
+    .ytm-play-btn:hover {
+        background-color: #1ED760;
+        color: #000000 !important;
+        transform: scale(1.04);
     }
 </style>
 """
@@ -272,43 +254,42 @@ def render_spotify_playlist(result: dict, songs: list[dict]) -> None:
     short_summary = _extract_short_dj_summary(rag_explanation)
     st.markdown(f'<div class="dj-card">{short_summary}</div>', unsafe_allow_html=True)
 
-    # 3. Clean Spotify-Style Tracklist Rows
+    # 3. Clean Spotify-Style Tracklist Rows (No raw <span> tags or code-block indentation)
     for rank, (song, score, reasons) in enumerate(recommendations, start=1):
         title = song.get("title", "Untitled")
         artist = song.get("artist", "Unknown")
-        genre = song.get("genre", "")
-        mood = song.get("mood", "")
-        bpm = int(float(song.get("tempo_bpm", 100)))
+        genre = song.get("genre", "").title()
+        mood = song.get("mood", "").title()
         yt_url = song.get("youtube_url", "")
         playlist_tag = song.get("playlist", "")
-        short_reasons = " · ".join(r.strip() for r in reasons.split(", ")[:3])
-        source_badge = f" · 🎵 {playlist_tag}" if playlist_tag else ""
+        subtitle_parts = [artist]
+        if playlist_tag:
+            subtitle_parts.append(playlist_tag)
+        elif genre:
+            subtitle_parts.append(genre)
+        if mood:
+            subtitle_parts.append(mood)
+        subtitle = " · ".join(subtitle_parts)
         play_html = (
             f'<a class="ytm-play-btn" href="{yt_url}" target="_blank" rel="noopener noreferrer">▶ Play</a>'
             if yt_url
             else ""
         )
 
-        st.markdown(
-            f"""
-            <div class="track-row">
-                <div class="track-left">
-                    <div class="track-num">{rank}</div>
-                    <div class="track-meta">
-                        <div class="track-title">{title}</div>
-                        <div class="track-artist">{artist}{source_badge}</div>
-                        <div class="track-why">{short_reasons}</div>
-                    </div>
-                </div>
-                <div class="track-right">
-                    {play_html}
-                    <span class="tag-chip">{genre} · {mood} · {bpm} BPM</span>
-                    <span class="score-badge">{score * 100:.0f}%</span>
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
+        row_html = (
+            f'<div class="track-row">'
+            f'<div class="track-left">'
+            f'<div class="track-num">{rank}</div>'
+            f'<div class="track-meta">'
+            f'<div class="track-title">{title}</div>'
+            f'<div class="track-artist">{subtitle}</div>'
+            f'<div class="track-why">{score * 100:.0f}% Match</div>'
+            f'</div>'
+            f'</div>'
+            f'<div class="track-right">{play_html}</div>'
+            f'</div>'
         )
+        st.markdown(row_html, unsafe_allow_html=True)
 
     # 4. Single Subtle Drawer for Technical Details (Graders / Deep Inspection)
     st.write("")
