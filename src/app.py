@@ -212,18 +212,17 @@ SPOTIFY_CSS = """
 
 
 @st.cache_resource
-def get_recommender_engine(include_ytm: bool = True, playlist_filter: str = "All") -> tuple[Recommender, list[dict], int]:
+def get_recommender_engine(playlist_filter: str = "All") -> tuple[Recommender, list[dict]]:
     csv_path = Path(__file__).resolve().parent.parent / "data" / "songs.csv"
     if not csv_path.exists():
         csv_path = Path("data/songs.csv")
-    base_songs = load_songs(str(csv_path))
-    ytm_songs = build_ytm_catalog(resolve_online=False, max_per_playlist=60) if include_ytm else []
+    all_songs = load_songs(str(csv_path))
     if playlist_filter != "All":
-        ytm_songs = [s for s in ytm_songs if s.get("playlist") == playlist_filter]
-        songs = ytm_songs if ytm_songs else base_songs
+        filtered = [s for s in all_songs if s.get("playlist") == playlist_filter]
+        songs = filtered if filtered else all_songs
     else:
-        songs = base_songs + ytm_songs
-    return Recommender(songs), songs, len(ytm_songs)
+        songs = all_songs
+    return Recommender(songs), songs
 
 
 def _extract_short_dj_summary(rag_explanation: str) -> str:
@@ -343,14 +342,12 @@ def main() -> None:
     # -------------------------------------------------------------------------
     with st.sidebar:
         st.markdown("### ⚙️ Studio Controls")
-        include_ytm = st.toggle("🎵 Include My YouTube Music", value=True)
         playlist_filter = st.selectbox(
             "Filter by YTM Playlist",
             ["All", "Japanese City Pop", "Sophisti-pop", "Nepali favs", "Nepali hype", "Tasteful hindi"],
-            disabled=not include_ytm,
         )
-        engine, songs, ytm_count = get_recommender_engine(include_ytm=include_ytm, playlist_filter=playlist_filter)
-        st.caption(f"📚 Active Catalog: **{len(songs)} tracks** ({ytm_count} from YouTube Music)")
+        engine, songs = get_recommender_engine(playlist_filter=playlist_filter)
+        st.caption(f"🎵 YouTube Music Library: **{len(songs)} tracks**")
 
         st.divider()
         api_key = st.text_input("Gemini API Key (Optional)", type="password")
@@ -466,13 +463,13 @@ def main() -> None:
             render_spotify_playlist(result, songs)
 
     else:
-        genres_list = sorted({s.get("genre", "") for s in songs}) + ["deathcore polka"]
-        moods_list = sorted({s.get("mood", "") for s in songs}) + ["existential dread"]
+        genres_list = sorted({s.get("genre", "") for s in songs if s.get("genre")}) + ["deathcore polka"]
+        moods_list = sorted({s.get("mood", "") for s in songs if s.get("mood")}) + ["existential dread"]
         m1, m2, m3 = st.columns(3)
         with m1:
-            custom_genre = st.selectbox("Genre", genres_list, index=genres_list.index("lofi"))
+            custom_genre = st.selectbox("Genre", genres_list, index=0)
         with m2:
-            custom_mood = st.selectbox("Mood", moods_list, index=moods_list.index("chill"))
+            custom_mood = st.selectbox("Mood", moods_list, index=0)
         with m3:
             custom_energy = st.slider("Energy", 0.0, 1.0, 0.35, 0.05)
 

@@ -1,80 +1,89 @@
 {
   "artist_profiles": {
-    "Paper Lanterns": {
-      "bio": "Acoustic lofi duo known for field-recording real Pacific Northwest rainstorms and layering them beneath felt-damped upright pianos.",
-      "signature_sound": "felt piano, rain foley, fingerpicked acoustic guitar, tape warmth",
-      "recommended_moments": "pomodoro study blocks, rainy night reading, debugging complex code, journaling"
+    "Mariya Takeuchi": {
+      "bio": "Pioneer of 1980s Japanese City Pop whose collaboration with Tatsuro Yamashita defined the nocturnal Tokyo slap-bass and Rhodes synth-funk aesthetic.",
+      "signature_sound": "slap bass, Fender Rhodes, lush brass section, 80s analog synth strings",
+      "recommended_moments": "late-night highway drives, upbeat evening groove, retro 80s nostalgia"
     },
-    "LoRoom": {
-      "bio": "Instrumental beatmaker blending 1970s Rhodes electric piano harmony with dusty MPC boom-bap drums engineered specifically for non-distracting cognitive flow.",
-      "signature_sound": "Rhodes electric piano, vinyl crackle, muted trumpet, boom-bap swing",
-      "recommended_moments": "late-night software engineering, deep work sprints, exam preparation, flow state"
+    "Taeko Ohnuki": {
+      "bio": "Acclaimed Japanese singer-songwriter blending jazz-inflected City Pop sophistication with cinematic nocturnal arrangements.",
+      "signature_sound": "warm electric piano, sweeping strings, moody nocturnal synth pads",
+      "recommended_moments": "4:00 A.M. rainy night reflection, late-night city walks, atmospheric listening"
     },
-    "Neon Echo": {
-      "bio": "Analog synth collective combining vintage Roland Juno-106 arpeggios with punchy gated-reverb drums for high-momentum motion.",
-      "signature_sound": "analog arpeggios, gated snare, retro 80s synth bass, shimmering leads",
-      "recommended_moments": "highway night driving, morning 5K runs, cyberpunk gaming sessions"
+    "Miki Matsubara": {
+      "bio": "Iconic Japanese City Pop vocalist celebrated for fusing jazz-funk horn sections with soaring melodic hooks.",
+      "signature_sound": "disco-funk basslines, brass stabs, electric guitar solos, upbeat groove",
+      "recommended_moments": "energetic night drives, feel-good upbeat sessions, retro party vibes"
     },
-    "Slow Stereo": {
-      "bio": "Acoustic jazz trio recording live-to-tape in an intimate espresso bar setting with upright bass, brushed snare, and warm tenor sax.",
-      "signature_sound": "upright bass, brushed drums, warm saxophone, cool-jazz piano",
-      "recommended_moments": "Sunday morning coffee, cozy cafe reading, rainy afternoon unwinding, dinner hosting"
+    "Sade Adu": {
+      "bio": "Frontwoman of Sade and the defining voice of sophisti-pop, merging cool jazz saxophone, brushed percussion, and velvet soul-pop.",
+      "signature_sound": "tenor saxophone, brushed snare, warm bass, understated electric piano",
+      "recommended_moments": "pomodoro study blocks, late-night coding, espresso lounge reading, date night"
     },
-    "Orbit Bloom": {
-      "bio": "Ambient sound designer creating beatless, weightless harmonic textures using acoustic harp, glass marimba, and slow analog tape loops.",
-      "signature_sound": "harmonic pads, harp harmonics, glass marimba, beatless drone",
-      "recommended_moments": "meditation, sleep onset, stargazing, decompressing from anxiety or screen fatigue"
+    "Grover Washington, Jr.": {
+      "bio": "Foundational smooth jazz and soul-jazz saxophonist renowned for warm Fender Rhodes and lyrical horn interplay.",
+      "signature_sound": "soprano and tenor saxophone, Fender Rhodes electric piano, rain-like percussion",
+      "recommended_moments": "Sunday morning coffee, rainy windowpane focus, romantic evening unwinding"
     },
-    "Clara Vane": {
-      "bio": "Concert pianist and chamber composer specializing in expressive minor-key nocturnes and intimate solo cello/piano arrangements.",
-      "signature_sound": "concert grand piano, solo cello, rubato phrasing, chamber strings",
-      "recommended_moments": "emotional introspection, classical study, late-night existential reflection, quiet solitude"
+    "Sabin Rai": {
+      "bio": "Legendary Nepali pop-rock singer-songwriter known for emotive raspy vocals, unplugged acoustic guitar balladry, and timeless Himalayan anthems.",
+      "signature_sound": "unplugged acoustic guitar, soulful rock vocals, melodic folk-rock phrasing",
+      "recommended_moments": "nostalgic evening listening, acoustic reflection, campfire singalongs"
     },
-    "Voltline": {
-      "bio": "High-octane stadium rock band pairing drop-tuned overdriven guitars with rapid 150-160 BPM double-kick percussion.",
-      "signature_sound": "overdriven guitar riffs, double-kick drums, stadium rock anthem",
-      "recommended_moments": "heavy weightlifting, sprint intervals, high-adrenaline sports motivation"
+    "Bipul Chettri": {
+      "bio": "Himalayan folk-indie singer-songwriter who weaves traditional Nepali पहाडी (hill) melodies with intimate fingerpicked acoustic guitar.",
+      "signature_sound": "fingerstyle acoustic guitar, resonant cello, mountain folk storytelling",
+      "recommended_moments": "peaceful study sessions, rainy night coding, calm meditation, travel"
     },
-    "Overdrive X": {
-      "bio": "Electronic producer crafting high-BPM festival progressive house and industrial darksynth for peak-intensity movement.",
-      "signature_sound": "sub-bass drops, darksynth arpeggios, laser synths, 128-136 BPM drive",
-      "recommended_moments": "HIIT cardio workouts, competitive gaming, rave and festival energy"
+    "Pahenlo Batti Muni": {
+      "bio": "Introspective Kathmandu alternative/indie band crafting deeply poetic, melancholic, and existential Nepali rock ballads.",
+      "signature_sound": "clean reverberant guitar, somber basslines, philosophical Nepali lyricism",
+      "recommended_moments": "late-night existential introspection, quiet solitude, melancholic catharsis"
     },
-    "Blind River Sam": {
-      "bio": "Delta blues guitarist using vintage resonator slide guitar and raw acoustic storytelling to channel midnight heartache.",
-      "signature_sound": "bottleneck slide guitar, acoustic resonator, raw blues phrasing",
-      "recommended_moments": "late-night existential dread, sorrowful reflection, vintage acoustic listening"
+    "VZN": {
+      "bio": "High-energy Nepali hip-hop/R&B hitmaker delivering infectious festival bounce, driving 808 percussion, and hype party anthems.",
+      "signature_sound": "punchy 808 bass, modern trap-pop percussion, high-cadence vocal hooks",
+      "recommended_moments": "peak gym workouts, cardio sprints, pre-game hype, festive parties"
+    },
+    "The Local Train": {
+      "bio": "Acclaimed Hindi indie rock band blending raw acoustic guitar strumming with soaring, emotionally charged Urdu/Hindi poetry.",
+      "signature_sound": "acoustic-electric guitar crescendos, heartfelt Hindi rock vocals, warm bass",
+      "recommended_moments": "late-night heartache, nostalgic long drives, soulful acoustic listening"
+    },
+    "Pritam": {
+      "bio": "Prolific Indian composer blending Sufi folk, acoustic guitar, and lush contemporary Bollywood romance.",
+      "signature_sound": "acoustic guitar, warm orchestral strings, soulful Sufi-pop melodies",
+      "recommended_moments": "romantic evenings, peaceful unwinding, nostalgic Hindi melody sessions"
     }
   },
   "activity_guides": [
     {
       "id": "guide_coding_study",
       "title": "Cognitive Flow & Coding Acoustics Guide",
-      "keywords": ["coding", "programming", "study", "studying", "focus", "pomodoro", "reading", "library", "rain", "homework", "deep work"],
-      "genre_recommendations": ["lofi", "ambient", "jazz", "classical"],
-      "insight": " psychoacoustic research shows that instrumental tracks between 60–85 BPM with high acoustic warmth (felt piano, Rhodes, or rain foley) and absence of sharp vocal transients prevent verbal working-memory interference during coding and reading."
+      "keywords": ["coding", "programming", "study", "studying", "focus", "pomodoro", "reading", "library", "rain", "homework", "deep work", "debugging"],
+      "genre_recommendations": ["sophisti-pop", "nepali indie", "hindi indie"],
+      "insight": "Psychoacoustic research shows that tracks between 70–96 BPM with high acoustic warmth (fingerpicked guitar, Fender Rhodes, or velvet saxophone like Bipul Chettri and Sade Adu) maintain steady cognitive flow during coding and debugging."
     },
     {
       "id": "guide_night_drive",
-      "title": "Night Drive & Retro Synthwave Guide",
-      "keywords": ["night drive", "highway", "cyberpunk", "80s", "neon", "synthwave", "gaming", "retro"],
-      "genre_recommendations": ["synthwave", "edm", "indie pop"],
-      "insight": "Steady 110–136 BPM arpeggiated basslines and gated-reverb percussion provide rhythmic optic-flow synchronization ideal for sustained alertness during highway night drives and fast-paced gaming."
+      "title": "Night Drive & 80s Japanese City Pop Guide",
+      "keywords": ["night drive", "highway", "city pop", "japanese", "tokyo", "80s", "neon", "synthwave", "groovy", "retro"],
+      "genre_recommendations": ["city pop", "sophisti-pop"],
+      "insight": "Steady 105–122 BPM slap-bass grooves and lush Rhodes synth-brass chords (Mariya Takeuchi, Miki Matsubara, Anri) provide rhythmic optic-flow synchronization ideal for nocturnal highway drives."
     },
     {
       "id": "guide_workout_hiit",
-      "title": "Peak Workout & Cardio Cadence Guide",
-      "keywords": ["workout", "gym", "cardio", "running", "sprint", "hiit", "powerlifting", "weightlifting", "intense", "adrenaline"],
-      "genre_recommendations": ["pop", "rock", "metal", "edm", "hip hop"],
-      "insight": "Tracks with energy above 0.80 and tempos between 125–170 BPM synchronize with running stride cadence and recruit motor-cortex arousal during heavy resistance training."
+      "title": "Peak Workout & Nepali Hype Cadence Guide",
+      "keywords": ["workout", "gym", "cardio", "running", "sprint", "hiit", "hype", "party", "intense", "adrenaline"],
+      "genre_recommendations": ["nepali rock", "city pop"],
+      "insight": "Tracks with energy above 0.80 and tempos between 120–145 BPM (VZN, Jamesy, PURPLE) synchronize with running stride cadence and recruit motor-cortex arousal during heavy workouts."
     },
     {
       "id": "guide_introspection_melancholy",
-      "title": "Late-Night Introspection & Catharsis Guide",
-      "keywords": ["existential", "dread", "melancholic", "sad", "sorrowful", "lonely", "heartache", "somber", "introspection"],
-      "genre_recommendations": ["classical", "blues", "lofi", "ambient"],
-      "insight": "Low-valence, high-acousticness arrangements (solo grand piano, weeping slide guitar, and slow minor-key progressions below 75 BPM) support emotional catharsis and quiet midnight reflection."
+      "title": "Late-Night Introspection & Acoustic Catharsis Guide",
+      "keywords": ["existential", "dread", "melancholic", "sad", "sorrowful", "lonely", "heartache", "somber", "introspection", "nepali", "hindi"],
+      "genre_recommendations": ["nepali indie", "hindi indie"],
+      "insight": "Low-valence, high-acousticness arrangements (Pahenlo Batti Muni's Gauthali, The Local Train's Choo Lo, and Bipul Chettri's Deorali Darah) support emotional catharsis and quiet midnight reflection."
     }
   ]
 }
-

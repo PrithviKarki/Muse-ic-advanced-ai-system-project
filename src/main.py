@@ -26,30 +26,30 @@ except ModuleNotFoundError:
 # User Taste Profiles (Standard & Adversarial Edge Cases)
 # -------------------------------------------------------------------------
 USER_PROFILES = {
-    # --- Standard Personas ---
+    # --- Standard Personas (YouTube Music Library) ---
     "high_energy_pop": {
-        "label": "High-Energy Pop Workout",
-        "genre": "pop",
-        "mood": "happy",
-        "energy": 0.85,
+        "label": "Japanese City Pop Night Drive",
+        "genre": "city pop",
+        "mood": "groovy",
+        "energy": 0.78,
         "likes_acoustic": False,
-        "natural_query": "upbeat high energy pop workout cardio anthem",
+        "natural_query": "80s Japanese City Pop night drive groove with Mariya Takeuchi and Miki Matsubara",
     },
     "chill_lofi": {
-        "label": "Late-Night Chill Lofi Study",
-        "genre": "lofi",
-        "mood": "chill",
+        "label": "Nepali Indie & Acoustic Study",
+        "genre": "nepali indie",
+        "mood": "peaceful",
         "energy": 0.35,
         "likes_acoustic": True,
-        "natural_query": "late night chill lofi study coding beats with warm piano and rain",
+        "natural_query": "peaceful Himalayan acoustic guitar study and rainy night coding with Bipul Chettri and Sabin Rai",
     },
     "deep_intense_rock": {
-        "label": "Deep Intense Rock / Metal",
-        "genre": "rock",
+        "label": "Nepali Hype & Workout Anthem",
+        "genre": "nepali rock",
         "mood": "intense",
-        "energy": 0.92,
+        "energy": 0.90,
         "likes_acoustic": False,
-        "natural_query": "intense heavy rock and metal adrenaline workout",
+        "natural_query": "high energy Nepali hype workout and party anthem with VZN and Jamesy",
     },
 
     # --- Adversarial & Edge-Case Personas ---
@@ -59,23 +59,23 @@ USER_PROFILES = {
         "mood": "melancholic",
         "energy": 0.98,
         "likes_acoustic": False,
-        "natural_query": "dramatic melancholic classical piano and high intensity orchestral power",
+        "natural_query": "dramatic melancholic high intensity rock and emotional power",
     },
     "out_of_distribution": {
         "label": "Adversarial: Unknown Genre/Mood (Zero-Match Trap)",
         "genre": "deathcore polka",
         "mood": "existential dread",
-        "energy": 0.50,
+        "energy": 0.38,
         "likes_acoustic": True,
         "natural_query": "existential dread somber late night acoustic introspection",
     },
     "zero_bound": {
         "label": "Adversarial: Zero-Bound Minimalist (Extreme Limits)",
-        "genre": "ambient",
+        "genre": "nepali indie",
         "mood": "chill",
         "energy": 0.00,
         "likes_acoustic": True,
-        "natural_query": "weightless ambient meditation sleep stargazing zero energy calm",
+        "natural_query": "calm peaceful acoustic guitar meditation sleep zero energy",
     },
 }
 

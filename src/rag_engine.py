@@ -80,11 +80,11 @@ GENRE_AFFINITY_CLUSTERS: Dict[str, Dict[str, float]] = {
     "funk": {"funk": 1.0, "pop": 0.70, "r&b": 0.70, "latin": 0.65, "hip hop": 0.65, "indie pop": 0.60},
     "latin": {"latin": 1.0, "reggae": 0.70, "funk": 0.65, "pop": 0.60, "jazz": 0.55},
     "reggae": {"reggae": 1.0, "latin": 0.70, "folk": 0.55, "r&b": 0.55, "lofi": 0.50},
-    "city pop": {"city pop": 1.0, "funk": 0.85, "synthwave": 0.80, "sophisti-pop": 0.80, "pop": 0.75, "indie pop": 0.70},
-    "sophisti-pop": {"sophisti-pop": 1.0, "city pop": 0.80, "jazz": 0.80, "indie pop": 0.75, "r&b": 0.75, "pop": 0.70},
-    "nepali indie": {"nepali indie": 1.0, "folk": 0.80, "indie pop": 0.80, "nepali rock": 0.75, "hindi indie": 0.70},
-    "nepali rock": {"nepali rock": 1.0, "rock": 0.85, "nepali indie": 0.75, "pop": 0.65, "hip hop": 0.60},
-    "hindi indie": {"hindi indie": 1.0, "indie pop": 0.80, "folk": 0.75, "nepali indie": 0.70, "r&b": 0.65},
+    "city pop": {"city pop": 1.0, "funk": 0.85, "synthwave": 0.85, "sophisti-pop": 0.80, "pop": 0.85, "indie pop": 0.75, "edm": 0.70},
+    "sophisti-pop": {"sophisti-pop": 1.0, "city pop": 0.80, "jazz": 0.85, "lofi": 0.80, "ambient": 0.75, "indie pop": 0.75, "r&b": 0.80, "pop": 0.75},
+    "nepali indie": {"nepali indie": 1.0, "folk": 0.85, "lofi": 0.80, "ambient": 0.75, "indie pop": 0.80, "nepali rock": 0.75, "hindi indie": 0.75, "blues": 0.70, "classical": 0.65},
+    "nepali rock": {"nepali rock": 1.0, "rock": 0.90, "metal": 0.80, "nepali indie": 0.75, "pop": 0.70, "hip hop": 0.75, "edm": 0.65},
+    "hindi indie": {"hindi indie": 1.0, "indie pop": 0.80, "folk": 0.80, "nepali indie": 0.75, "r&b": 0.75, "lofi": 0.75, "ambient": 0.75, "blues": 0.70, "classical": 0.65},
 }
 
 MUSICAL_CONCEPT_DIMENSIONS: List[Tuple[str, List[str]]] = [
@@ -144,10 +144,12 @@ def get_semantic_genre_similarity(user_genre: str, song_genre: str) -> float:
         return 0.0
     if ug == sg:
         return 1.0
-    if ug in sg or sg in ug:
-        return 0.75
     if ug in GENRE_AFFINITY_CLUSTERS and sg in GENRE_AFFINITY_CLUSTERS[ug]:
         return GENRE_AFFINITY_CLUSTERS[ug][sg]
+    if sg in GENRE_AFFINITY_CLUSTERS and ug in GENRE_AFFINITY_CLUSTERS[sg]:
+        return GENRE_AFFINITY_CLUSTERS[sg][ug]
+    if ug in sg or sg in ug:
+        return 0.75
     return 0.0
 
 
@@ -463,11 +465,11 @@ SPECIALIZED_DJ_STYLES: Dict[str, Dict[str, str]] = {
         "name": "Psychoacoustic Musicologist (Specialized Default)",
         "instruction": (
             "Write in a precise, analytical psychoacoustic musicologist tone. Cite BPM tempo ranges, "
-            "harmonic timbre (felt piano, Rhodes, sub-bass), and cognitive/physiological entrainment."
+            "harmonic timbre (acoustic guitar, Rhodes, slap bass), and cognitive/physiological entrainment."
         ),
         "few_shot_example": (
-            "Exemplar: '[Psychoacoustic Analysis — 72 BPM Entrainment]: Library Rain (Paper Lanterns) pairs "
-            "high acoustic warmth (0.86) with non-intrusive rain foley to prevent verbal working-memory interference.'"
+            "Exemplar: '[Psychoacoustic Analysis — 76 BPM Entrainment]: Deorali Darah (Bipul Chettri) pairs "
+            "high acoustic warmth (0.90) with delicate fingerpicked guitar to prevent verbal working-memory interference.'"
         ),
     },
     "late_night_radio": {
@@ -477,8 +479,8 @@ SPECIALIZED_DJ_STYLES: Dict[str, Dict[str, str]] = {
             "[Crossfade Transition Cue] markers and evocative nocturnal imagery."
         ),
         "few_shot_example": (
-            "Exemplar: '🎙️ [On-Air 02:00 AM — Crossfade 4s]: Let the rain outside your window melt into the "
-            "dusty Rhodes chords of Paper Lanterns as we ease into Library Rain...'"
+            "Exemplar: '🎙️ [On-Air 02:00 AM — Crossfade 4s]: Let the Tokyo neon melt into the "
+            "velvet Rhodes chords of Mariya Takeuchi as we ease into Plastic Love...'"
         ),
     },
     "hype_coach": {
@@ -488,14 +490,14 @@ SPECIALIZED_DJ_STYLES: Dict[str, Dict[str, str]] = {
             "cadence, BPM pacing, and peak power output with [Cadence Zone] markers."
         ),
         "few_shot_example": (
-            "Exemplar: '🔥 [Cadence Zone: 132 BPM Peak Output]: Lock in your pace with Gym Hero (Max Pulse)—"
-            "0.93 energy electro-synth drive built to push you through your final heavy set!'"
+            "Exemplar: '🔥 [Cadence Zone: 140 BPM Peak Output]: Lock in your pace with BASANTI / HEARTBREAKER (VZN)—"
+            "0.92 energy Nepali hype drive built to push you through your final heavy set!'"
         ),
     },
     "baseline": {
         "name": "Unspecialized Baseline (Plain Checklist)",
         "instruction": "Output a plain, unstyled list of recommended songs and their raw numeric scores without domain persona.",
-        "few_shot_example": "Exemplar: '1. Library Rain by Paper Lanterns (Score: 0.95) - genre match, mood match.'",
+        "few_shot_example": "Exemplar: '1. Deorali Darah by Bipul Chettri (Score: 0.93) - genre match, mood match.'",
     },
 }
 
@@ -634,14 +636,15 @@ def parse_natural_language_request(
 
     # 2. Detect mood
     mood = "chill"
+    text_words = set(_tokenize(text))
     mood_keywords = [
         ("melancholic", ["melancholic", "sad", "sorrow", "existential", "dread", "lonely", "somber", "heartache"]),
         ("chill", ["chill", "rainy", "rain", "late night", "study", "lofi", "pomodoro"]),
         ("focused", ["focus", "focused", "coding", "programming", "productive", "deep work", "concentration", "debugging", "exam"]),
-        ("peaceful", ["peaceful", "sleep", "meditation", "serene", "calm", "tranquil", "nature", "sunrise"]),
-        ("relaxed", ["relaxed", "coffee", "cafe", "sunday", "lounge", "cozy"]),
+        ("peaceful", ["peaceful", "sleep", "meditation", "serene", "calm", "tranquil", "nature", "sunrise", "bipul"]),
+        ("relaxed", ["relaxed", "coffee", "cafe", "sunday", "lounge", "cozy", "sade", "sophisti-pop"]),
         ("aggressive", ["aggressive", "rage", "powerlifting", "heavy", "metal", "extreme"]),
-        ("intense", ["intense", "workout", "gym", "sprint", "hiit", "action", "adrenaline", "fast"]),
+        ("intense", ["intense", "workout", "gym", "sprint", "hiit", "action", "adrenaline", "fast", "hype"]),
         ("euphoric", ["euphoric", "rave", "festival", "ecstatic"]),
         ("groovy", ["groovy", "disco", "funk", "dancefloor", "city pop", "japanese", "mariya", "anri"]),
         ("festive", ["festive", "party", "celebration", "carnival", "latin"]),
@@ -652,7 +655,7 @@ def parse_natural_language_request(
         ("happy", ["happy", "upbeat", "joyful", "cheerful", "sunny", "summer", "morning"]),
     ]
     for m_name, kw_list in mood_keywords:
-        if any(kw in text for kw in kw_list):
+        if any((kw in text_words if " " not in kw else kw in text) for kw in kw_list):
             mood = m_name
             break
 

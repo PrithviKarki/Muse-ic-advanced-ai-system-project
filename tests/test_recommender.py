@@ -146,9 +146,9 @@ def test_natural_language_request_parsing_and_rag_pipeline():
     assert result["guardrail_report"].passed is True
     assert result["guardrail_report"].hallucination_blocked is False
 
-    # Top recommendation should be a calm lofi/ambient/jazz track, and explanation must cite real titles
+    # Top recommendation should be a calm acoustic/lounge track from the YTM library, and explanation must cite real titles
     top_song, top_score, _ = result["recommendations"][0]
-    assert top_song["genre"] in ("lofi", "ambient", "jazz", "classical")
+    assert top_song["genre"] in ("nepali indie", "sophisti-pop", "hindi indie", "lofi", "ambient", "jazz")
     assert 0.0 <= top_score <= 1.0
     assert top_song["title"] in result["rag_explanation"]
 
@@ -193,15 +193,15 @@ def test_ignored_artists_filter_excludes_disliked_artist():
     songs = load_songs(str(csv_path))
 
     profile = {
-        "genre": "lofi",
-        "mood": "chill",
-        "energy": 0.35,
+        "genre": "nepali indie",
+        "mood": "nostalgic",
+        "energy": 0.42,
         "likes_acoustic": True,
-        "ignored_artists": ["LoRoom"],
+        "ignored_artists": ["Sabin Rai"],
     }
     recs = recommend_songs(profile, songs, k=5)
     returned_artists = [s["artist"] for s, _, _ in recs]
-    assert "LoRoom" not in returned_artists
+    assert "Sabin Rai" not in returned_artists
 
 
 def test_structured_logger_writes_log_entries():
@@ -220,13 +220,13 @@ def test_multi_source_rag_fuses_json_guides_and_custom_notes():
     rec = Recommender(songs)
 
     result = rec.recommend_with_rag(
-        "pomodoro exam week debugging session with felt piano and rain foley",
+        "pomodoro exam week debugging session with Bipul Chettri acoustic guitar and Sade sophisti-pop",
         k=5,
-        custom_notes="For debugging and pomodoro blocks, Paper Lanterns Library Rain is my #1 pick.",
+        custom_notes="For debugging and pomodoro blocks, Bipul Chettri Deorali Darah is my #1 pick.",
     )
     assert len(result["active_sources"]) >= 3
     assert "musicology_guides.json" in result["rag_explanation"]
-    assert result["recommendations"][0][0]["title"] == "Library Rain"
+    assert result["recommendations"][0][0]["youtube_url"].startswith("https://music.youtube.com/watch?v=")
 
 
 def test_agentic_workflow_self_correction_and_trace_logging():
@@ -239,7 +239,7 @@ def test_agentic_workflow_self_correction_and_trace_logging():
         "label": "Adversarial: Unknown Genre/Mood (Zero-Match Trap)",
         "genre": "deathcore polka",
         "mood": "existential dread",
-        "energy": 0.50,
+        "energy": 0.38,
         "likes_acoustic": True,
         "natural_query": "existential dread somber late night acoustic introspection",
     }

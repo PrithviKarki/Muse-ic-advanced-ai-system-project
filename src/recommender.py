@@ -369,6 +369,8 @@ def load_songs(csv_path: str) -> List[Dict[str, Any]]:
                 "acousticness": float(row["acousticness"]) if row.get("acousticness") not in (None, "") else 0.0,
                 "description": (row.get("description") or "").strip(),
                 "themes": (row.get("themes") or "").strip(),
+                "youtube_url": (row.get("youtube_url") or "").strip(),
+                "playlist": (row.get("playlist") or "").strip(),
             }
             songs.append(song)
     logger.info(f"Loaded {len(songs)} songs from '{csv_path}'.")
