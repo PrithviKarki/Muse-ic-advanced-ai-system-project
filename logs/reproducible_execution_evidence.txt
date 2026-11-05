@@ -1,0 +1,170 @@
+
+############################################################################
+       🎵 MUSE-IC NATURAL LANGUAGE SEMANTIC RAG QUERY
+       Prompt: "80s Japanese City Pop night drive groove with Mariya Takeuchi and Anri"
+       Catalog loaded: 117 songs from /Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv
+############################################################################
+
+======================================================================================================================
+👤 PROFILE: AI DJ Intent: 80s Japanese City Pop night drive groove with Ma
+   Preferences -> Genre: city pop | Mood: groovy | Target Energy: 0.80 | Likes Acoustic: False
+   Semantic RAG Query -> "80s Japanese City Pop night drive groove with Mariya Takeuchi and Anri"
+   Guardrails -> Passed: True | Agent Self-Corrected: False | RAG Synthesis: Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default))
+======================================================================================================================
+
+🧠 Multi-Step Agentic Workflow Trace (Plan -> Tool Call -> Critique/Decide -> Synthesize):
+   [Step 1 | PLAN & GUARDRAILS] Tool: parse_natural_language_request + sanitize_user_profile
+     • Observation : Parsed target genre='city pop' (10 exact tracks in catalog), mood='groovy', energy=0.80 (genre avg energy=0.67, gap=0.13).
+     • Decision    : Standard catalog coverage confirmed; proceed to Pass #1 retrieval.
+   [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs
+     • Observation : Matched Musicology Guide: 'Night Drive & 80s Japanese City Pop Guide'. Pass #1 Top-1 Score = 88.5%, Top-5 Mean Score = 79.8%.
+     • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+   [Step 3 | CRITIQUE & DECISION NODE] Tool: verify_candidate_confidence
+     • Observation : Pass #1 Top-1 Score (88.5%) and Mean Score (79.8%) satisfy quality and diversity invariants.
+     • Decision    : APPROVED: Retain Pass #1 ranking without weight override.
+   [Step 4 | VERIFY & SYNTHESIZE] Tool: verify_recommendations + generate_rag_explanation
+     • Observation : Guardrail passed=True; anchored explanation on #1 'Plastic Love' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+     • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+
+🎧 Top 5 Recommendations Summary Table:
+
++------+-------------------------------------------+-------------------+--------+--------------+--------------------------------------------------------+
+| Rank | Song (Artist)                             | Genre / Mood      | Energy | Score        | Reasons (Why Recommended)                              |
++======+===========================================+===================+========+==============+========================================================+
+| #1   | Plastic Love (Mariya Takeuchi)            | city pop / groovy | 0.80   | 0.89 (88.5%) | • genre match 'city pop' (+0.25)                       |
+|      |                                           |                   |        |              | • mood match 'groovy' (+0.20)                          |
+|      |                                           |                   |        |              | • energy match (0.80 near target 0.80) (+0.17)         |
+|      |                                           |                   |        |              | • electronic/non-acoustic match (+0.11)                |
+|      |                                           |                   |        |              | • RAG semantic context [80s/japanese/city] (+0.15)     |
++------+-------------------------------------------+-------------------+--------+--------------+--------------------------------------------------------+
+| #2   | 真夜中のドア〜stay with me (Miki Matsubara)      | city pop / happy  | 0.84   | 0.80 (80.3%) | • genre match 'city pop' (+0.25)                       |
+|      |                                           |                   |        |              | • semantic mood synonym 'happy' (~'groovy') (+0.13)    |
+|      |                                           |                   |        |              | • energy match (0.84 near target 0.80) (+0.17)         |
+|      |                                           |                   |        |              | • electronic/non-acoustic match (+0.12)                |
+|      |                                           |                   |        |              | • RAG semantic context [80s/japanese/city] (+0.14)     |
++------+-------------------------------------------+-------------------+--------+--------------+--------------------------------------------------------+
+| #3   | Don't Start Now (Dua Lipa)                | pop / groovy      | 0.79   | 0.79 (78.7%) | • related genre 'pop' (+0.12)                          |
+|      |                                           |                   |        |              | • mood match 'groovy' (+0.20)                          |
+|      |                                           |                   |        |              | • energy match (0.79 near target 0.80) (+0.19)         |
+|      |                                           |                   |        |              | • electronic/non-acoustic match (+0.15)                |
+|      |                                           |                   |        |              | • RAG semantic context [80s/japanese/city] (+0.12)     |
++------+-------------------------------------------+-------------------+--------+--------------+--------------------------------------------------------+
+| #4   | Espresso (Sabrina Carpenter)              | pop / groovy      | 0.76   | 0.77 (77.2%) | • related genre 'pop' (+0.12)                          |
+|      |                                           |                   |        |              | • mood match 'groovy' (+0.20)                          |
+|      |                                           |                   |        |              | • energy match (0.76 near target 0.80) (+0.19)         |
+|      |                                           |                   |        |              | • electronic/non-acoustic match (+0.13)                |
+|      |                                           |                   |        |              | • RAG semantic context [80s/japanese/city] (+0.13)     |
++------+-------------------------------------------+-------------------+--------+--------------+--------------------------------------------------------+
+| #5   | Get Lucky (Daft Punk & Pharrell Williams) | funk / groovy     | 0.81   | 0.74 (74.1%) | • semantic genre affinity 'funk' (~'city pop') (+0.14) |
+|      |                                           |                   |        |              | • mood match 'groovy' (+0.20)                          |
+|      |                                           |                   |        |              | • energy match (0.81 near target 0.80) (+0.17)         |
+|      |                                           |                   |        |              | • electronic/non-acoustic match (+0.14)                |
+|      |                                           |                   |        |              | • RAG semantic context [night/drive/groove] (+0.09)    |
++------+-------------------------------------------+-------------------+--------+--------------+--------------------------------------------------------+
+
+🤖 Grounded RAG AI DJ Synthesis:
+----------------------------------------------------------------------------------------------------------------------
+**🎧 [Psychoacoustic Musicology Curation — _80s Japanese City Pop night drive groove with Mariya Takeuchi and Anri_]:** Retrieved and ranked **5 catalog tracks** across **3 knowledge sources** (`songs.csv`, `musicology_guides.json`, and `custom_listener_notes.md`). Anchored by **"Plastic Love"** by *Mariya Takeuchi* (88.5% match):
+
+> 🧠 **Retrieved Musicology Insight (`musicology_guides.json` — Night Drive & 80s Japanese City Pop Guide):** Steady 105–126 BPM slap-bass grooves and lush Rhodes synth-brass chords (Mariya Takeuchi, Miki Matsubara, Anri) provide rhythmic optic-flow synchronization ideal for nocturnal highway drives.
+
+> 📝 **Retrieved Custom Curation Note (`custom_listener_notes.md`):** Pomodoro & Exam Week Note:** For exam week, debugging sessions, and late-night Python coding, prioritize smooth sophisti-pop and rainy City Pop tracks by **Sade Adu** (*Paradise*, *The Sweetest Taboo*, *Smooth Operator*) and **Japanese City Pop** (*Shibuya After Rain*) because their rain textures and velvet Rhodes piano keep focus steady.
+
+- **#1 "Plastic Love" — Mariya Takeuchi** (`88.5%`) 🔬 `[Acoustic Telemetry: 106 BPM | Energy 0.80]`: [Japanese City Pop] Iconic 1984 Tokyo City Pop masterpiece by Mariya Takeuchi driven by infectious slap-bass funk, shimmering Rhodes chords, and neon night-drive euphoria. *(Artist Lore: Pioneer of 1980s Japanese City Pop whose collaboration with Tatsuro Yamashita defined the nocturnal Tokyo slap-bass and Rhodes synth-funk aesthetic.)* *[Sub-scores: genre match 'city pop' (+0.25), mood match 'groovy' (+0.20), energy match (0.80 near target 0.80) (+0.17), electronic/non-acoustic match (+0.11), RAG semantic context [80s/japanese/city] (+0.15)]*
+- **#2 "真夜中のドア〜stay with me" — Miki Matsubara** (`80.3%`) 🔬 `[Acoustic Telemetry: 114 BPM | Energy 0.84]`: [Japanese City Pop] Soaring disco-funk City Pop classic by Miki Matsubara featuring brassy horn stabs, upbeat groove, and timeless 80s retro sparkle. *(Artist Lore: Iconic Japanese City Pop vocalist celebrated for fusing jazz-funk horn sections with soaring melodic hooks.)* *[Sub-scores: genre match 'city pop' (+0.25), semantic mood synonym 'happy' (~'groovy') (+0.13), energy match (0.84 near target 0.80) (+0.17), electronic/non-acoustic match (+0.12), RAG semantic context [80s/japanese/city] (+0.14)]*
+- **#3 "Don't Start Now" — Dua Lipa** (`78.7%`) 🔬 `[Acoustic Telemetry: 124 BPM | Energy 0.79]`: [Top 100 English] Disco-house pop anthem driven by live cowbell, funky bassline slides, and exuberant strings. *[Sub-scores: related genre 'pop' (+0.12), mood match 'groovy' (+0.20), energy match (0.79 near target 0.80) (+0.19), electronic/non-acoustic match (+0.15), RAG semantic context [80s/japanese/city] (+0.12)]*
+- **#4 "Espresso" — Sabrina Carpenter** (`77.2%`) 🔬 `[Acoustic Telemetry: 104 BPM | Energy 0.76]`: [Top 100 English] Infectious disco-funk pop groove with snappy basslines, sunny synths, and confident upbeat bounce. *[Sub-scores: related genre 'pop' (+0.12), mood match 'groovy' (+0.20), energy match (0.76 near target 0.80) (+0.19), electronic/non-acoustic match (+0.13), RAG semantic context [80s/japanese/city] (+0.13)]*
+- **#5 "Get Lucky" — Daft Punk & Pharrell Williams** (`74.1%`) 🔬 `[Acoustic Telemetry: 116 BPM | Energy 0.81]`: [Top 100 English] Live-recorded disco-funk masterpiece featuring Nile Rodgers' rhythm guitar, vocoders, and warm analog groove. *[Sub-scores: semantic genre affinity 'funk' (~'city pop') (+0.14), mood match 'groovy' (+0.20), energy match (0.81 near target 0.80) (+0.17), electronic/non-acoustic match (+0.14), RAG semantic context [night/drive/groove] (+0.09)]*
+----------------------------------------------------------------------------------------------------------------------
+
+
+################################################################
+       🎵 SINGLE PROFILE TEST: 'out_of_distribution'
+       Catalog loaded: 117 songs from /Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv
+################################################################
+
+======================================================================================================================
+👤 PROFILE: Adversarial: Unknown Genre/Mood (Zero-Match Trap)
+   Preferences -> Genre: deathcore polka | Mood: existential dread | Target Energy: 0.36 | Likes Acoustic: True
+   Semantic RAG Query -> "existential dread somber 4:00 A.M. late night acoustic introspection"
+   Guardrails -> Passed: True | Agent Self-Corrected: True | RAG Synthesis: Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default))
+======================================================================================================================
+
+🧠 Multi-Step Agentic Workflow Trace (Plan -> Tool Call -> Critique/Decide -> Synthesize):
+   [Step 1 | PLAN & GUARDRAILS] Tool: parse_natural_language_request + sanitize_user_profile
+     • Observation : Parsed target genre='deathcore polka' (0 exact tracks in catalog), mood='existential dread', energy=0.36 (genre avg energy=0.36, gap=0.00).
+     • Decision    : Flagged potential OOD/Contradiction risk for Critic inspection after Pass #1.
+   [Step 2 | TOOL CALL #1 (RETRIEVE & RANK PASS 1)] Tool: SongKnowledgeIndex.retrieve_multi_source_context + recommend_songs
+     • Observation : Matched Musicology Guide: 'Late-Night Introspection & 4:00 A.M. Guide'. Pass #1 Top-1 Score = 60.4%, Top-5 Mean Score = 56.4%.
+     • Decision    : Send Pass #1 candidate pool to Critic Decision Node.
+   [Step 3 | CRITIQUE & SELF-CORRECTION (TOOL CALL #2)] Tool: adaptive_weight_rebalancer + recommend_songs (Pass 2)
+     • Observation : Re-ran `recommend_songs` with adaptive weights (genre=0.05, mood=0.25, energy=0.20, rag=0.35). Top-1 Score shifted 60.4% -> 73.5% (Mean 56.4% -> 68.8%).
+     • Decision    : SELF_CORRECTED: Adopted Pass #2 adaptive ranking.
+   [Step 4 | VERIFY & SYNTHESIZE] Tool: verify_recommendations + generate_rag_explanation
+     • Observation : Guardrail passed=True; anchored explanation on #1 'The Night We Met' via Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default)).
+     • Decision    : OUTPUT_READY: Persist reasoning trace to logs/agent_reasoning_traces.log.
+
+🎧 Top 5 Recommendations Summary Table:
+
++------+----------------------------------------+-------------------------+--------+--------------+----------------------------------------------------------------------+
+| Rank | Song (Artist)                          | Genre / Mood            | Energy | Score        | Reasons (Why Recommended)                                            |
++======+========================================+=========================+========+==============+======================================================================+
+| #1   | The Night We Met (Lord Huron)          | folk / sorrowful        | 0.37   | 0.73 (73.5%) | • semantic mood synonym 'sorrowful' (~'existential dread') (+0.16)   |
+|      |                                        |                         |        |              | • energy match (0.37 near target 0.36) (+0.20)                       |
+|      |                                        |                         |        |              | • acoustic sound match (+0.15)                                       |
+|      |                                        |                         |        |              | • RAG semantic context [existential/dread/somber] (+0.23)            |
++------+----------------------------------------+-------------------------+--------+--------------+----------------------------------------------------------------------+
+| #2   | 4:00 A.M. (Taeko Ohnuki)               | city pop / melancholic  | 0.36   | 0.71 (71.3%) | • semantic mood synonym 'melancholic' (~'existential dread') (+0.17) |
+|      |                                        |                         |        |              | • energy match (0.36 near target 0.36) (+0.20)                       |
+|      |                                        |                         |        |              | • acoustic sound match (+0.11)                                       |
+|      |                                        |                         |        |              | • RAG semantic context [existential/dread/somber] (+0.23)            |
++------+----------------------------------------+-------------------------+--------+--------------+----------------------------------------------------------------------+
+| #3   | Skinny Love (Bon Iver)                 | folk / melancholic      | 0.26   | 0.69 (68.9%) | • semantic mood synonym 'melancholic' (~'existential dread') (+0.17) |
+|      |                                        |                         |        |              | • energy match (0.26 near target 0.36) (+0.18)                       |
+|      |                                        |                         |        |              | • acoustic sound match (+0.13)                                       |
+|      |                                        |                         |        |              | • RAG semantic context [somber/night/acoustic] (+0.21)               |
++------+----------------------------------------+-------------------------+--------+--------------+----------------------------------------------------------------------+
+| #4   | Nocturne Op. 9 No. 2 (Frédéric Chopin) | classical / melancholic | 0.06   | 0.66 (65.8%) | • semantic mood synonym 'melancholic' (~'existential dread') (+0.17) |
+|      |                                        |                         |        |              | • acoustic sound match (+0.15)                                       |
+|      |                                        |                         |        |              | • RAG semantic context [somber/late/night] (+0.20)                   |
++------+----------------------------------------+-------------------------+--------+--------------+----------------------------------------------------------------------+
+| #5   | Snowfall (Øneheart & reidenshi)        | ambient / melancholic   | 0.12   | 0.64 (64.4%) | • semantic mood synonym 'melancholic' (~'existential dread') (+0.17) |
+|      |                                        |                         |        |              | • acoustic sound match (+0.14)                                       |
+|      |                                        |                         |        |              | • RAG semantic context [somber/late/night] (+0.18)                   |
++------+----------------------------------------+-------------------------+--------+--------------+----------------------------------------------------------------------+
+
+🤖 Grounded RAG AI DJ Synthesis:
+----------------------------------------------------------------------------------------------------------------------
+**🎧 [Psychoacoustic Musicology Curation — _existential dread somber 4:00 A.M. late night acoustic introspection_]:** Retrieved and ranked **5 catalog tracks** across **3 knowledge sources** (`songs.csv`, `musicology_guides.json`, and `custom_listener_notes.md`). Anchored by **"The Night We Met"** by *Lord Huron* (73.5% match):
+
+> 🧠 **Retrieved Musicology Insight (`musicology_guides.json` — Late-Night Introspection & 4:00 A.M. Guide):** Low-valence, atmospheric nocturnal arrangements (Taeko Ohnuki's 4:00 A.M. and Tomoko Aran's Midnight Pretenders) support emotional catharsis and quiet late-night reflection.
+
+> 📝 **Retrieved Custom Curation Note (`custom_listener_notes.md`):** Pomodoro & Exam Week Note:** For exam week, debugging sessions, and late-night Python coding, prioritize smooth sophisti-pop and rainy City Pop tracks by **Sade Adu** (*Paradise*, *The Sweetest Taboo*, *Smooth Operator*) and **Japanese City Pop** (*Shibuya After Rain*) because their rain textures and velvet Rhodes piano keep focus steady.
+
+- **#1 "The Night We Met" — Lord Huron** (`73.5%`) 🔬 `[Acoustic Telemetry: 87 BPM | Energy 0.37]`: [Top 100 English] Haunting waltz-time indie folk ballad drenched in acoustic guitar reverb and midnight heartache. *[Sub-scores: semantic mood synonym 'sorrowful' (~'existential dread') (+0.16), energy match (0.37 near target 0.36) (+0.20), acoustic sound match (+0.15), RAG semantic context [existential/dread/somber] (+0.23)]*
+- **#2 "4:00 A.M." — Taeko Ohnuki** (`71.3%`) 🔬 `[Acoustic Telemetry: 78 BPM | Energy 0.36]`: [Japanese City Pop] Sweeping nocturnal City Pop ballad by Taeko Ohnuki capturing 4:00 A.M. rain-slicked Tokyo streets, existential introspection, and warm acoustic piano & strings. *(Artist Lore: Acclaimed Japanese singer-songwriter blending jazz-inflected City Pop sophistication with cinematic nocturnal arrangements.)* *[Sub-scores: semantic mood synonym 'melancholic' (~'existential dread') (+0.17), energy match (0.36 near target 0.36) (+0.20), acoustic sound match (+0.11), RAG semantic context [existential/dread/somber] (+0.23)]*
+- **#3 "Skinny Love" — Bon Iver** (`68.9%`) 🔬 `[Acoustic Telemetry: 76 BPM | Energy 0.26]`: [Top 100 English] Intimate cabin-recorded resonator acoustic guitar ballad with fragile falsetto and rainy introspection. *[Sub-scores: semantic mood synonym 'melancholic' (~'existential dread') (+0.17), energy match (0.26 near target 0.36) (+0.18), acoustic sound match (+0.13), RAG semantic context [somber/night/acoustic] (+0.21)]*
+- **#4 "Nocturne Op. 9 No. 2" — Frédéric Chopin** (`65.8%`) 🔬 `[Acoustic Telemetry: 68 BPM | Energy 0.06]`: [Top 100 English] Expressive solo piano nocturne with lyrical rubato melody ideal for late-night reading and introspection. *[Sub-scores: semantic mood synonym 'melancholic' (~'existential dread') (+0.17), acoustic sound match (+0.15), RAG semantic context [somber/late/night] (+0.20)]*
+- **#5 "Snowfall" — Øneheart & reidenshi** (`64.4%`) 🔬 `[Acoustic Telemetry: 70 BPM | Energy 0.12]`: [Top 100 English] Atmospheric late-night ambient and lofi soundscape for rainy coding, solitude, and quiet reflection. *[Sub-scores: semantic mood synonym 'melancholic' (~'existential dread') (+0.17), acoustic sound match (+0.14), RAG semantic context [somber/late/night] (+0.18)]*
+----------------------------------------------------------------------------------------------------------------------
+
+
+==================================================================================================================================
+       🧪 MUSE-IC 2.0 AUTOMATED EVALUATION HARNESS & CONFIDENCE SCORECARD
+       Catalog: 117 Enriched Songs | RAG Sources: 3 Active
+==================================================================================================================================
++-----+----------------------------------------+------------------------------------+------------+-----------+-------------------+--------+
+| ID  | Scenario Name                          | Top-1 Recommended Track            | Top-1 Conf | Mean Conf | Agent / Guardrail | Status |
++=====+========================================+====================================+============+===========+===================+========+
+| S1  | Japanese City Pop Night Drive          | Plastic Love (city pop)            |     91.2%  |    81.8%  | Pass #1 Verified  | PASS   |
+| S2  | Sophisti-pop Study & Lounge            | Paradise (sophisti-pop)            |     92.4%  |    80.8%  | Pass #1 Verified  | PASS   |
+| S3  | High-Energy City Pop Workout           | Fly-day Chinatown (city pop)       |     92.3%  |    82.6%  | Pass #1 Verified  | PASS   |
+| S4  | Adversarial: OOD Zero-Match Trap       | The Night We Met (folk)            |     73.5%  |    68.8%  | Agent Pass #2     | PASS   |
+| S5  | Adversarial: Max-Energy Classical      | Viva La Gloria / Boulevard of Brok |     60.9%  |    57.6%  | Agent Pass #2     | PASS   |
+| S6  | Adversarial: Zero-Bound Minimalist     | Weightless (ambient)               |     83.8%  |    81.6%  | Agent Pass #2     | PASS   |
+| S7  | Multi-Source Pomodoro & Debugging      | Paradise (sophisti-pop)            |     87.0%  |    76.5%  | Pass #1 Verified  | PASS   |
+| S8  | Guardrail: Injection & Weight Overflow | Plastic Love (city pop)            |     86.8%  |    77.9%  | Guardrail Clamped | PASS   |
++-----+----------------------------------------+------------------------------------+------------+-----------+-------------------+--------+
+🏆 OVERALL SUMMARY: 8/8 Scenarios Passed (100.0%) | Avg Top-1 Confidence: 83.5% | Avg Top-5 Confidence: 76.0% | Hallucinations: 0
+==================================================================================================================================
+

@@ -124,87 +124,46 @@ Below are **three real interactions** demonstrating natural-language Semantic RA
 ### Interaction 1: Activity-Based Natural Language RAG Query (Late-Night Coding)
 * **Input Command:**
   ```bash
-  python -m src.main --query "calm rainy night coding music with warm acoustic piano"
+  python -m src.main --query "80s Japanese City Pop night drive groove with Mariya Takeuchi and Anri"
   ```
-* **Resulting AI Output:**
+* **Resulting AI Output (Full log saved in [`logs/reproducible_execution_evidence.txt`](logs/reproducible_execution_evidence.txt)):**
   ```text
   ======================================================================================================================
-  👤 PROFILE: AI DJ Intent: calm rainy night coding music with warm acoustic
-     Preferences -> Genre: lofi | Mood: chill | Target Energy: 0.32 | Likes Acoustic: True
-     Semantic RAG Query -> "calm rainy night coding music with warm acoustic piano"
-     Guardrails -> Passed: True | Low-Confidence Alert: False | RAG Synthesis: Local Grounded RAG Synthesizer (Offline-Ready)
+  👤 PROFILE: AI DJ Intent: 80s Japanese City Pop night drive groove with Ma
+     Preferences -> Genre: city pop | Mood: groovy | Target Energy: 0.80 | Likes Acoustic: False
+     Semantic RAG Query -> "80s Japanese City Pop night drive groove with Mariya Takeuchi and Anri"
+     Guardrails -> Passed: True | Agent Self-Corrected: False | RAG Synthesis: Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default))
   ======================================================================================================================
 
   🎧 Top 5 Recommendations Summary Table:
 
-  +------+-----------------------------------+----------------------+--------+--------------+---------------------------------------------------------+
-  | Rank | Song (Artist)                     | Genre / Mood         | Energy | Score        | Reasons (Why Recommended)                               |
-  +======+===================================+======================+========+==============+=========================================================+
-  | #1   | Library Rain (Paper Lanterns)     | lofi / chill         | 0.35   | 0.90 (89.5%) | • genre match 'lofi' (+0.25)                            |
-  |      |                                   |                      |        |              | • mood match 'chill' (+0.20)                            |
-  |      |                                   |                      |        |              | • energy match (0.35 near target 0.32) (+0.17)          |
-  |      |                                   |                      |        |              | • acoustic sound match (+0.13)                          |
-  |      |                                   |                      |        |              | • RAG semantic context [calm/night/acoustic] (+0.15)    |
-  +------+-----------------------------------+----------------------+--------+--------------+---------------------------------------------------------+
-  | #2   | Midnight Coding (LoRoom)          | lofi / chill         | 0.42   | 0.88 (88.0%) | • genre match 'lofi' (+0.25)                            |
-  |      |                                   |                      |        |              | • mood match 'chill' (+0.20)                            |
-  |      |                                   |                      |        |              | • energy match (0.42 near target 0.32) (+0.17)          |
-  |      |                                   |                      |        |              | • acoustic sound match (+0.11)                          |
-  |      |                                   |                      |        |              | • RAG semantic context [calm/night/coding] (+0.16)      |
-  +------+-----------------------------------+----------------------+--------+--------------+---------------------------------------------------------+
-  | #3   | Afterhours Espresso (Slow Stereo) | jazz / chill         | 0.34   | 0.78 (77.6%) | • semantic genre affinity 'jazz' (~'lofi') (+0.12)      |
-  |      |                                   |                      |        |              | • mood match 'chill' (+0.20)                            |
-  |      |                                   |                      |        |              | • energy match (0.34 near target 0.32) (+0.17)          |
-  |      |                                   |                      |        |              | • acoustic sound match (+0.14)                          |
-  |      |                                   |                      |        |              | • RAG semantic context [night/acoustic/piano] (+0.15)   |
-  +------+-----------------------------------+----------------------+--------+--------------+---------------------------------------------------------+
-
-  🤖 Grounded RAG AI DJ Synthesis:
-  ----------------------------------------------------------------------------------------------------------------------
-  **🎧 Grounded RAG Curation for _calm rainy night coding music with warm acoustic piano_:** Retrieved and ranked **5 catalog tracks** by combining dense semantic vector retrieval over song descriptions/themes with multi-attribute audio telemetry. Anchored by **"Library Rain"** by *Paper Lanterns* (89.5% match), this sequence balances vibe alignment with artist and genre diversity:
-
-  - **#1 "Library Rain" — Paper Lanterns** (`89.5%`): Delicate acoustic piano and fingerpicked guitar accompanied by gentle rain ambiance and soft brush drums for quiet reading and peaceful reflection. *[Telemetry: genre match 'lofi' (+0.25), mood match 'chill' (+0.20), energy match (0.35 near target 0.32) (+0.17), acoustic sound match (+0.13), RAG semantic context [calm/night/acoustic] (+0.15)]*
-  - **#2 "Midnight Coding" — LoRoom** (`88.0%`): Warm Rhodes electric piano chords layered over dusty vinyl crackle, mellow boom-bap percussion, and a steady bassline crafted for deep late-night programming sessions. *[Telemetry: genre match 'lofi' (+0.25), mood match 'chill' (+0.20), energy match (0.42 near target 0.32) (+0.17), acoustic sound match (+0.11), RAG semantic context [calm/night/coding] (+0.16)]*
-  - **#3 "Afterhours Espresso" — Slow Stereo** (`77.6%`): Cool-jazz piano chords and whispered brushwork over a walking acoustic bassline for tranquil late-night lounging and quiet conversation. *[Telemetry: semantic genre affinity 'jazz' (~'lofi') (+0.12), mood match 'chill' (+0.20), energy match (0.34 near target 0.32) (+0.17), acoustic sound match (+0.14), RAG semantic context [night/acoustic/piano] (+0.15)]*
+  +------+-------------------------------------------+-------------------+--------+--------------+--------------------------------------------------------+
+  | Rank | Song (Artist)                             | Genre / Mood      | Energy | Score        | Reasons (Why Recommended)                              |
+  +======+===========================================+===================+========+==============+========================================================+
+  | #1   | Plastic Love (Mariya Takeuchi)            | city pop / groovy | 0.80   | 0.89 (88.5%) | • genre match 'city pop' (+0.25)                       |
+  |      |                                           |                   |        |              | • mood match 'groovy' (+0.20)                          |
+  |      |                                           |                   |        |              | • energy match (0.80 near target 0.80) (+0.17)         |
+  |      |                                           |                   |        |              | • electronic/non-acoustic match (+0.11)                |
+  |      |                                           |                   |        |              | • RAG semantic context [80s/japanese/city] (+0.15)     |
+  +------+-------------------------------------------+-------------------+--------+--------------+--------------------------------------------------------+
+  | #2   | 真夜中のドア〜stay with me (Miki Matsubara)      | city pop / happy  | 0.84   | 0.80 (80.3%) | • genre match 'city pop' (+0.25)                       |
+  |      |                                           |                   |        |              | • semantic mood synonym 'happy' (~'groovy') (+0.13)    |
+  |      |                                           |                   |        |              | • energy match (0.84 near target 0.80) (+0.17)         |
+  |      |                                           |                   |        |              | • electronic/non-acoustic match (+0.12)                |
+  |      |                                           |                   |        |              | • RAG semantic context [80s/japanese/city] (+0.14)     |
+  +------+-------------------------------------------+-------------------+--------+--------------+--------------------------------------------------------+
+  | #3   | Don't Start Now (Dua Lipa)                | pop / groovy      | 0.79   | 0.79 (78.7%) | • related genre 'pop' (+0.12)                          |
+  |      |                                           |                   |        |              | • mood match 'groovy' (+0.20)                          |
+  |      |                                           |                   |        |              | • energy match (0.79 near target 0.80) (+0.19)         |
+  |      |                                           |                   |        |              | • electronic/non-acoustic match (+0.15)                |
+  |      |                                           |                   |        |              | • RAG semantic context [80s/japanese/city] (+0.12)     |
+  +------+-------------------------------------------+-------------------+--------+--------------+--------------------------------------------------------+
   ```
 
 ---
 
-### Interaction 2: High-Energy Atmosphere Query (80s Cyberpunk Highway Night Drive)
-* **Input Command:**
-  ```bash
-  python -m src.main --query "high energy 80s neon cyberpunk synthwave highway night drive"
-  ```
-* **Resulting AI Output:**
-  ```text
-  ======================================================================================================================
-  👤 PROFILE: AI DJ Intent: high energy 80s neon cyberpunk synthwave highway
-     Preferences -> Genre: synthwave | Mood: moody | Target Energy: 0.86 | Likes Acoustic: False
-     Semantic RAG Query -> "high energy 80s neon cyberpunk synthwave highway night drive"
-     Guardrails -> Passed: True | Low-Confidence Alert: False | RAG Synthesis: Local Grounded RAG Synthesizer (Offline-Ready)
-  ======================================================================================================================
-
-  +------+--------------------------------+---------------------+--------+--------------+-----------------------------------------------------------+
-  | Rank | Song (Artist)                  | Genre / Mood        | Energy | Score        | Reasons (Why Recommended)                                 |
-  +======+================================+=====================+========+==============+===========================================================+
-  | #1   | Night Drive Loop (Neon Echo)   | synthwave / moody   | 0.75   | 0.91 (91.3%) | • genre match 'synthwave' (+0.25)                         |
-  |      |                                |                     |        |              | • mood match 'moody' (+0.20)                              |
-  |      |                                |                     |        |              | • energy match (0.75 near target 0.86) (+0.18)            |
-  |      |                                |                     |        |              | • electronic/non-acoustic match (+0.12)                   |
-  |      |                                |                     |        |              | • RAG semantic context [high/80s/neon] (+0.17)            |
-  +------+--------------------------------+---------------------+--------+--------------+-----------------------------------------------------------+
-  | #2   | Cybernetic Pulse (Overdrive X) | synthwave / intense | 0.89   | 0.77 (77.4%) | • genre match 'synthwave' (+0.25)                         |
-  |      |                                |                     |        |              | • semantic mood synonym 'intense' (~'moody') (+0.09)      |
-  |      |                                |                     |        |              | • energy match (0.89 near target 0.86) (+0.18)            |
-  |      |                                |                     |        |              | • electronic/non-acoustic match (+0.14)                   |
-  |      |                                |                     |        |              | • RAG semantic context [high/cyberpunk/synthwave] (+0.12) |
-  +------+--------------------------------+---------------------+--------+--------------+-----------------------------------------------------------+
-  ```
-
----
-
-### Interaction 3: Adversarial Out-of-Distribution Synonym Rescue
-In Module 3, asking for `"deathcore polka"` and `"existential dread"` scored $\le 32.8\%$ because neither string appeared in the CSV. In **Muse-ic 2.0**, Semantic Mood Synonyms and RAG theme retrieval automatically connect `"existential dread"` to `"sorrowful"` blues and `"melancholic"` classical/lofi tracks:
+### Interaction 2: Adversarial Out-of-Distribution Synonym Rescue & Agentic Self-Correction
+In Module 3, asking for `"deathcore polka"` and `"existential dread"` scored $\le 32.8\%$ because neither string appeared in the CSV. In **Muse-ic 2.0**, Semantic Mood Synonyms, RAG theme retrieval, and Agentic Pass #2 Self-Correction automatically rescue the query (`60.4% -> 73.5%`):
 * **Input Command:**
   ```bash
   python -m src.main out_of_distribution
@@ -213,26 +172,31 @@ In Module 3, asking for `"deathcore polka"` and `"existential dread"` scored $\l
   ```text
   ======================================================================================================================
   👤 PROFILE: Adversarial: Unknown Genre/Mood (Zero-Match Trap)
-     Preferences -> Genre: deathcore polka | Mood: existential dread | Target Energy: 0.50 | Likes Acoustic: True
-     Semantic RAG Query -> "existential dread somber late night acoustic introspection"
-     Guardrails -> Passed: True | Low-Confidence Alert: False | RAG Synthesis: Local Grounded RAG Synthesizer (Offline-Ready)
+     Preferences -> Genre: deathcore polka | Mood: existential dread | Target Energy: 0.36 | Likes Acoustic: True
+     Semantic RAG Query -> "existential dread somber 4:00 A.M. late night acoustic introspection"
+     Guardrails -> Passed: True | Agent Self-Corrected: True | RAG Synthesis: Local Grounded Multi-Source RAG (Psychoacoustic Musicologist (Specialized Default))
   ======================================================================================================================
+
+  🧠 Multi-Step Agentic Workflow Trace (Plan -> Tool Call -> Critique/Decide -> Synthesize):
+     [Step 1 | PLAN & GUARDRAILS] Tool: parse_natural_language_request + sanitize_user_profile
+       • Observation : Parsed target genre='deathcore polka' (0 exact tracks in catalog), mood='existential dread', energy=0.36.
+       • Decision    : Flagged potential OOD/Contradiction risk for Critic inspection after Pass #1.
+     [Step 3 | CRITIQUE & SELF-CORRECTION (TOOL CALL #2)] Tool: adaptive_weight_rebalancer + recommend_songs (Pass 2)
+       • Observation : Re-ran `recommend_songs` with adaptive weights (genre=0.05, mood=0.25, energy=0.20, rag=0.35). Top-1 Score shifted 60.4% -> 73.5% (Mean 56.4% -> 68.8%).
+       • Decision    : SELF_CORRECTED: Adopted Pass #2 adaptive ranking.
 
   +------+----------------------------------------+-------------------------+--------+--------------+----------------------------------------------------------------------+
   | Rank | Song (Artist)                          | Genre / Mood            | Energy | Score        | Reasons (Why Recommended)                                            |
   +======+========================================+=========================+========+==============+======================================================================+
-  | #1   | Midnight Delta Blues (Blind River Sam) | blues / sorrowful       | 0.39   | 0.56 (56.0%) | • semantic mood synonym 'sorrowful' (~'existential dread') (+0.13)   |
-  |      |                                        |                         |        |              | • energy match (0.39 near target 0.50) (+0.18)                       |
-  |      |                                        |                         |        |              | • acoustic sound match (+0.12)                                       |
-  |      |                                        |                         |        |              | • RAG semantic context [existential/dread/late] (+0.13)              |
-  +------+----------------------------------------+-------------------------+--------+--------------+----------------------------------------------------------------------+
-  | #2   | Moonlight Sonata Flow (Clara Vane)     | classical / melancholic | 0.22   | 0.56 (55.8%) | • semantic mood synonym 'melancholic' (~'existential dread') (+0.14) |
+  | #1   | The Night We Met (Lord Huron)          | folk / sorrowful        | 0.37   | 0.73 (73.5%) | • semantic mood synonym 'sorrowful' (~'existential dread') (+0.16)   |
+  |      |                                        |                         |        |              | • energy match (0.37 near target 0.36) (+0.20)                       |
   |      |                                        |                         |        |              | • acoustic sound match (+0.15)                                       |
-  |      |                                        |                         |        |              | • RAG semantic context [existential/dread/somber] (+0.13)            |
+  |      |                                        |                         |        |              | • RAG semantic context [existential/dread/somber] (+0.23)            |
   +------+----------------------------------------+-------------------------+--------+--------------+----------------------------------------------------------------------+
-  | #3   | Rainy Windowpane (Paper Lanterns)      | lofi / melancholic      | 0.31   | 0.55 (55.0%) | • semantic mood synonym 'melancholic' (~'existential dread') (+0.14) |
-  |      |                                        |                         |        |              | • acoustic sound match (+0.13)                                       |
-  |      |                                        |                         |        |              | • RAG semantic context [night/acoustic/introspection] (+0.12)        |
+  | #2   | 4:00 A.M. (Taeko Ohnuki)               | city pop / melancholic  | 0.36   | 0.71 (71.3%) | • semantic mood synonym 'melancholic' (~'existential dread') (+0.17) |
+  |      |                                        |                         |        |              | • energy match (0.36 near target 0.36) (+0.20)                       |
+  |      |                                        |                         |        |              | • acoustic sound match (+0.11)                                       |
+  |      |                                        |                         |        |              | • RAG semantic context [existential/dread/somber] (+0.23)            |
   +------+----------------------------------------+-------------------------+--------+--------------+----------------------------------------------------------------------+
   ```
 
@@ -326,21 +290,21 @@ Running `python -m src.evaluate` (or `python -m src.main --eval`) executes our *
 ```text
 ==================================================================================================================================
        🧪 MUSE-IC 2.0 AUTOMATED EVALUATION HARNESS & CONFIDENCE SCORECARD
-       Catalog: 30 Enriched Songs | RAG Sources: 3 Active
+       Catalog: 117 Enriched Songs | RAG Sources: 3 Active
 ==================================================================================================================================
 +-----+----------------------------------------+------------------------------------+------------+-----------+-------------------+--------+
 | ID  | Scenario Name                          | Top-1 Recommended Track            | Top-1 Conf | Mean Conf | Agent / Guardrail | Status |
 +=====+========================================+====================================+============+===========+===================+========+
-| S1  | High-Energy Pop Workout                | Electric Carnival (pop)            |     92.2%  |    77.3%  | Pass #1 Verified  | PASS   |
-| S2  | Late-Night Chill Lofi Study            | Library Rain (lofi)                |     94.7%  |    80.7%  | Pass #1 Verified  | PASS   |
-| S3  | Deep Intense Rock / Metal              | Storm Runner (rock)                |     93.9%  |    76.2%  | Pass #1 Verified  | PASS   |
-| S4  | Adversarial: OOD Zero-Match Trap       | Midnight Delta Blues (blues)       |     70.1%  |    57.2%  | Agent Pass #2     | PASS   |
-| S5  | Adversarial: Max-Energy Classical      | Moonlight Sonata Flow (classical)  |     55.3%  |    49.4%  | Agent Pass #2     | PASS   |
-| S6  | Adversarial: Zero-Bound Minimalist     | Spacewalk Thoughts (ambient)       |     91.1%  |    70.7%  | Pass #1 Verified  | PASS   |
-| S7  | Multi-Source Pomodoro & Debugging      | Library Rain (lofi)                |     95.3%  |    80.3%  | Pass #1 Verified  | PASS   |
-| S8  | Guardrail: Injection & Weight Overflow | Electric Carnival (pop)            |     91.0%  |    75.3%  | Guardrail Clamped | PASS   |
+| S1  | Japanese City Pop Night Drive          | Plastic Love (city pop)            |     91.2%  |    81.8%  | Pass #1 Verified  | PASS   |
+| S2  | Sophisti-pop Study & Lounge            | Paradise (sophisti-pop)            |     92.4%  |    80.8%  | Pass #1 Verified  | PASS   |
+| S3  | High-Energy City Pop Workout           | Fly-day Chinatown (city pop)       |     92.3%  |    82.6%  | Pass #1 Verified  | PASS   |
+| S4  | Adversarial: OOD Zero-Match Trap       | The Night We Met (folk)            |     73.5%  |    68.8%  | Agent Pass #2     | PASS   |
+| S5  | Adversarial: Max-Energy Classical      | Viva La Gloria / Boulevard of Brok |     60.9%  |    57.6%  | Agent Pass #2     | PASS   |
+| S6  | Adversarial: Zero-Bound Minimalist     | Weightless (ambient)               |     83.8%  |    81.6%  | Agent Pass #2     | PASS   |
+| S7  | Multi-Source Pomodoro & Debugging      | Paradise (sophisti-pop)            |     87.0%  |    76.5%  | Pass #1 Verified  | PASS   |
+| S8  | Guardrail: Injection & Weight Overflow | Plastic Love (city pop)            |     86.8%  |    77.9%  | Guardrail Clamped | PASS   |
 +-----+----------------------------------------+------------------------------------+------------+-----------+-------------------+--------+
-🏆 OVERALL SUMMARY: 8/8 Scenarios Passed (100.0%) | Avg Top-1 Confidence: 85.5% | Avg Top-5 Confidence: 70.9% | Hallucinations: 0
+🏆 OVERALL SUMMARY: 8/8 Scenarios Passed (100.0%) | Avg Top-1 Confidence: 83.5% | Avg Top-5 Confidence: 76.0% | Hallucinations: 0
 ==================================================================================================================================
 ```
 
