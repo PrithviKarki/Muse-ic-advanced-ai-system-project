@@ -80,6 +80,11 @@ GENRE_AFFINITY_CLUSTERS: Dict[str, Dict[str, float]] = {
     "funk": {"funk": 1.0, "pop": 0.70, "r&b": 0.70, "latin": 0.65, "hip hop": 0.65, "indie pop": 0.60},
     "latin": {"latin": 1.0, "reggae": 0.70, "funk": 0.65, "pop": 0.60, "jazz": 0.55},
     "reggae": {"reggae": 1.0, "latin": 0.70, "folk": 0.55, "r&b": 0.55, "lofi": 0.50},
+    "city pop": {"city pop": 1.0, "funk": 0.85, "synthwave": 0.80, "sophisti-pop": 0.80, "pop": 0.75, "indie pop": 0.70},
+    "sophisti-pop": {"sophisti-pop": 1.0, "city pop": 0.80, "jazz": 0.80, "indie pop": 0.75, "r&b": 0.75, "pop": 0.70},
+    "nepali indie": {"nepali indie": 1.0, "folk": 0.80, "indie pop": 0.80, "nepali rock": 0.75, "hindi indie": 0.70},
+    "nepali rock": {"nepali rock": 1.0, "rock": 0.85, "nepali indie": 0.75, "pop": 0.65, "hip hop": 0.60},
+    "hindi indie": {"hindi indie": 1.0, "indie pop": 0.80, "folk": 0.75, "nepali indie": 0.70, "r&b": 0.65},
 }
 
 MUSICAL_CONCEPT_DIMENSIONS: List[Tuple[str, List[str]]] = [
@@ -93,11 +98,11 @@ MUSICAL_CONCEPT_DIMENSIONS: List[Tuple[str, List[str]]] = [
     ("party_dance", ["party", "dance", "dancing", "disco", "funk", "groovy", "festive", "celebration", "rooftop", "carnival", "social", "friends"]),
     ("workout_cardio", ["workout", "gym", "cardio", "running", "sprint", "hiit", "fitness", "training", "sweat", "motivation", "commute", "cadence"]),
     ("heavy_power", ["intense", "aggressive", "powerlifting", "weightlifting", "adrenaline", "heavy", "metal", "thrash", "blast", "rage", "extreme", "thunder"]),
-    ("cyber_retro", ["cyberpunk", "synthwave", "retro", "80s", "neon", "highway", "drive", "gaming", "sci-fi", "arpeggio", "laser", "darksynth"]),
-    ("acoustic_organic", ["acoustic", "piano", "guitar", "strings", "cello", "violin", "fiddle", "harmonica", "saxophone", "upright", "wood", "organic", "unplugged", "rhodes", "felt"]),
+    ("cyber_retro", ["cyberpunk", "synthwave", "retro", "80s", "neon", "highway", "drive", "gaming", "sci-fi", "arpeggio", "laser", "darksynth", "city pop", "japanese", "tokyo"]),
+    ("acoustic_organic", ["acoustic", "piano", "guitar", "strings", "cello", "violin", "fiddle", "harmonica", "saxophone", "upright", "wood", "organic", "unplugged", "rhodes", "felt", "sophisti-pop"]),
     ("electronic_synth", ["electronic", "synth", "synthesizer", "edm", "rave", "festival", "sub-bass", "drop", "808", "electro", "digital"]),
     ("urban_groove", ["hip hop", "boom-bap", "cypher", "swagger", "confident", "hustle", "street", "basketball", "beats", "sample", "soul", "r&b"]),
-    ("nature_folk", ["folk", "campfire", "rustic", "mountain", "forest", "pine", "hiking", "autumn", "trail", "coastal", "beach", "tropical", "reggae"]),
+    ("nature_folk", ["folk", "campfire", "rustic", "mountain", "forest", "pine", "hiking", "autumn", "trail", "coastal", "beach", "tropical", "reggae", "nepali", "hindi", "bollywood", "himalayan"]),
 ]
 
 
@@ -575,7 +580,7 @@ def parse_natural_language_request(
             "You are a specialized music recommendation intent parser. Follow the few-shot examples below to extract "
             "a JSON object from the user's request with keys:\n"
             '- "label": short descriptive persona title (string)\n'
-            '- "genre": primary genre from [pop, lofi, rock, ambient, jazz, synthwave, indie pop, reggae, classical, edm, folk, r&b, hip hop, metal, latin, blues, funk] (string)\n'
+            '- "genre": primary genre from [pop, lofi, rock, ambient, jazz, synthwave, indie pop, reggae, classical, edm, folk, r&b, hip hop, metal, latin, blues, funk, city pop, sophisti-pop, nepali indie, nepali rock, hindi indie] (string)\n'
             '- "mood": primary mood from [happy, chill, intense, relaxed, moody, focused, peaceful, melancholic, euphoric, nostalgic, romantic, confident, aggressive, festive, sorrowful, groovy] (string)\n'
             '- "energy": target energy float between 0.0 and 1.0\n'
             '- "likes_acoustic": boolean (true if acoustic/organic/piano/guitar/strings preferred, false if electronic/synth/heavy amplification preferred)\n'
@@ -599,6 +604,11 @@ def parse_natural_language_request(
     # 1. Detect genre
     genre = "lofi"
     genre_keywords = [
+        ("city pop", ["city pop", "japanese", "tokyo", "mariya", "anri", "matsubara", "80s japanese"]),
+        ("sophisti-pop", ["sophisti-pop", "sophistipop", "smooth pop", "sade"]),
+        ("nepali rock", ["nepali hype", "nepali rock", "nepali party", "nepali workout"]),
+        ("nepali indie", ["nepali", "nepal", "sabin rai", "axix", "kta haru", "kathmandu"]),
+        ("hindi indie", ["hindi", "bollywood", "tasteful hindi", "desi", "urdu"]),
         ("synthwave", ["synthwave", "cyberpunk", "retro 80s", "night drive", "darksynth", "neon"]),
         ("lofi", ["lofi", "lo-fi", "study", "coding", "programming", "homework", "library", "pomodoro", "debugging", "exam"]),
         ("ambient", ["ambient", "meditation", "sleep", "spacewalk", "stargazing", "weightless", "anxiety"]),
@@ -633,12 +643,12 @@ def parse_natural_language_request(
         ("aggressive", ["aggressive", "rage", "powerlifting", "heavy", "metal", "extreme"]),
         ("intense", ["intense", "workout", "gym", "sprint", "hiit", "action", "adrenaline", "fast"]),
         ("euphoric", ["euphoric", "rave", "festival", "ecstatic"]),
-        ("groovy", ["groovy", "disco", "funk", "dancefloor"]),
+        ("groovy", ["groovy", "disco", "funk", "dancefloor", "city pop", "japanese", "mariya", "anri"]),
         ("festive", ["festive", "party", "celebration", "carnival", "latin"]),
-        ("romantic", ["romantic", "date", "love", "velvet", "smooth"]),
+        ("romantic", ["romantic", "date", "love", "velvet", "smooth", "hindi", "bollywood", "tasteful hindi"]),
         ("confident", ["confident", "swagger", "hustle", "basketball"]),
         ("moody", ["moody", "night drive", "dark", "cyberpunk"]),
-        ("nostalgic", ["nostalgic", "campfire", "autumn", "memories"]),
+        ("nostalgic", ["nostalgic", "campfire", "autumn", "memories", "nepali fav", "nepali", "sabin rai", "axix"]),
         ("happy", ["happy", "upbeat", "joyful", "cheerful", "sunny", "summer", "morning"]),
     ]
     for m_name, kw_list in mood_keywords:
@@ -646,18 +656,18 @@ def parse_natural_language_request(
             mood = m_name
             break
 
-    high_energy_terms = ["workout", "gym", "intense", "fast", "running", "cardio", "party", "dance", "heavy", "metal", "edm", "rave", "energetic", "high energy", "power"]
-    low_energy_terms = ["sleep", "calm", "quiet", "peaceful", "study", "coding", "library", "rain", "rainy", "meditation", "chill", "relaxed", "slow", "low energy", "late night", "pomodoro", "debugging"]
+    high_energy_terms = ["workout", "gym", "intense", "fast", "running", "cardio", "party", "dance", "heavy", "metal", "edm", "rave", "energetic", "high energy", "power", "hype", "city pop"]
+    low_energy_terms = ["sleep", "calm", "quiet", "peaceful", "study", "coding", "library", "rain", "rainy", "meditation", "chill", "relaxed", "slow", "low energy", "late night", "pomodoro", "debugging", "hindi", "nepali fav"]
 
     if any(t in text for t in high_energy_terms):
-        energy = 0.86
+        energy = 0.80 if "city pop" in text else 0.86
     elif any(t in text for t in low_energy_terms):
-        energy = 0.32
+        energy = 0.48 if ("hindi" in text or "nepali" in text) else 0.32
     else:
         energy = 0.55
 
-    electronic_terms = ["electronic", "synth", "synthwave", "edm", "cyberpunk", "80s", "rave", "disco", "electric", "metal", "rock", "808", "gym"]
-    acoustic_terms = ["acoustic", "piano", "guitar", "organic", "strings", "unplugged", "rain", "coffee", "folk", "classical", "jazz", "lofi", "campfire"]
+    electronic_terms = ["electronic", "synth", "synthwave", "edm", "cyberpunk", "80s", "rave", "disco", "electric", "metal", "rock", "808", "gym", "city pop", "hype"]
+    acoustic_terms = ["acoustic", "piano", "guitar", "organic", "strings", "unplugged", "rain", "coffee", "folk", "classical", "jazz", "lofi", "campfire", "nepali", "hindi", "bollywood", "sophisti-pop"]
 
     if any(t in text for t in electronic_terms) and not any(t in text for t in ["acoustic", "piano"]):
         likes_acoustic = False

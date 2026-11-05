@@ -15,12 +15,14 @@ try:
     from src.main import USER_PROFILES
     from src.rag_engine import _resolve_gemini_api_key
     from src.recommender import Recommender, load_songs
+    from src.ytm_importer import build_ytm_catalog
 except ModuleNotFoundError:
     from guardrails import validate_and_normalize_weights
     from logger import read_recent_logs
     from main import USER_PROFILES
     from rag_engine import _resolve_gemini_api_key
     from recommender import Recommender, load_songs
+    from ytm_importer import build_ytm_catalog
 
 
 st.set_page_config(
@@ -189,17 +191,39 @@ SPOTIFY_CSS = """
         font-size: 0.78rem;
         font-weight: 700;
     }
+    .ytm-play-btn {
+        background-color: #242424;
+        color: #1DB954 !important;
+        text-decoration: none !important;
+        border: 1px solid #333333;
+        border-radius: 500px;
+        padding: 0.2rem 0.65rem;
+        font-size: 0.74rem;
+        font-weight: 600;
+        transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .ytm-play-btn:hover {
+        background-color: #1DB954;
+        color: #000000 !important;
+        border-color: #1DB954;
+    }
 </style>
 """
 
 
 @st.cache_resource
-def get_recommender_engine() -> tuple[Recommender, list[dict]]:
+def get_recommender_engine(include_ytm: bool = True, playlist_filter: str = "All") -> tuple[Recommender, list[dict], int]:
     csv_path = Path(__file__).resolve().parent.parent / "data" / "songs.csv"
     if not csv_path.exists():
         csv_path = Path("data/songs.csv")
-    songs = load_songs(str(csv_path))
-    return Recommender(songs), songs
+    base_songs = load_songs(str(csv_path))
+    ytm_songs = build_ytm_catalog(resolve_online=False, max_per_playlist=60) if include_ytm else []
+    if playlist_filter != "All":
+        ytm_songs = [s for s in ytm_songs if s.get("playlist") == playlist_filter]
+        songs = ytm_songs if ytm_songs else base_songs
+    else:
+        songs = base_songs + ytm_songs
+    return Recommender(songs), songs, len(ytm_songs)
 
 
 def _extract_short_dj_summary(rag_explanation: str) -> str:
@@ -256,7 +280,15 @@ def render_spotify_playlist(result: dict, songs: list[dict]) -> None:
         genre = song.get("genre", "")
         mood = song.get("mood", "")
         bpm = int(float(song.get("tempo_bpm", 100)))
+        yt_url = song.get("youtube_url", "")
+        playlist_tag = song.get("playlist", "")
         short_reasons = " · ".join(r.strip() for r in reasons.split(", ")[:3])
+        source_badge = f" · 🎵 {playlist_tag}" if playlist_tag else ""
+        play_html = (
+            f'<a class="ytm-play-btn" href="{yt_url}" target="_blank" rel="noopener noreferrer">▶ Play</a>'
+            if yt_url
+            else ""
+        )
 
         st.markdown(
             f"""
@@ -265,11 +297,12 @@ def render_spotify_playlist(result: dict, songs: list[dict]) -> None:
                     <div class="track-num">{rank}</div>
                     <div class="track-meta">
                         <div class="track-title">{title}</div>
-                        <div class="track-artist">{artist}</div>
+                        <div class="track-artist">{artist}{source_badge}</div>
                         <div class="track-why">{short_reasons}</div>
                     </div>
                 </div>
                 <div class="track-right">
+                    {play_html}
                     <span class="tag-chip">{genre} · {mood} · {bpm} BPM</span>
                     <span class="score-badge">{score * 100:.0f}%</span>
                 </div>
@@ -304,13 +337,22 @@ def render_spotify_playlist(result: dict, songs: list[dict]) -> None:
 
 def main() -> None:
     st.markdown(SPOTIFY_CSS, unsafe_allow_html=True)
-    engine, songs = get_recommender_engine()
 
     # -------------------------------------------------------------------------
     # Sidebar: Tucked-Away Studio Controls
     # -------------------------------------------------------------------------
     with st.sidebar:
         st.markdown("### ⚙️ Studio Controls")
+        include_ytm = st.toggle("🎵 Include My YouTube Music", value=True)
+        playlist_filter = st.selectbox(
+            "Filter by YTM Playlist",
+            ["All", "Japanese City Pop", "Sophisti-pop", "Nepali favs", "Nepali hype", "Tasteful hindi"],
+            disabled=not include_ytm,
+        )
+        engine, songs, ytm_count = get_recommender_engine(include_ytm=include_ytm, playlist_filter=playlist_filter)
+        st.caption(f"📚 Active Catalog: **{len(songs)} tracks** ({ytm_count} from YouTube Music)")
+
+        st.divider()
         api_key = st.text_input("Gemini API Key (Optional)", type="password")
         effective_key = _resolve_gemini_api_key(api_key)
         st.caption("🟢 Gemini Active" if effective_key else "⚪ Local RAG Active")
@@ -368,7 +410,11 @@ def main() -> None:
     # Centered Mode Toggle: Prompt vs. Preset Persona
     # -------------------------------------------------------------------------
     presets = {
-        "Custom Prompt": "calm rainy night coding music with warm acoustic piano",
+        "🌃 Japanese City Pop (My YTM)": "80s Japanese City Pop night drive groove with Mariya Takeuchi and Anri",
+        "🏔️ Nepali Favs & Indie (My YTM)": "nostalgic heartfelt Nepali indie acoustic songs by Sabin Rai, AXIX, and Kta Haru",
+        "🔥 Nepali Hype Anthem (My YTM)": "high energy Nepali hype rock and party workout motivation",
+        "🎷 Sophisti-pop Lounge (My YTM)": "smooth sophisti-pop evening lounge with Sade and velvet saxophone",
+        "🎶 Tasteful Hindi (My YTM)": "romantic soulful tasteful Hindi indie and acoustic Bollywood evening vibes",
         "🌧️ Rainy Night Coding": "pomodoro exam week debugging session with felt piano and rain foley",
         "🌆 80s Night Drive": "high energy 80s neon cyberpunk synthwave highway night drive",
         "⚡ Peak Gym Workout": "explosive gym workout cardio and heavy adrenaline motivation",

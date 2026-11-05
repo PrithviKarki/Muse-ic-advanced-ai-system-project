@@ -1,4 +1,8 @@
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from src.evaluate import run_evaluation_suite
 from src.guardrails import (
     sanitize_user_profile,
@@ -19,6 +23,7 @@ from src.recommender import (
     recommend_songs,
     score_song,
 )
+from src.ytm_importer import build_ytm_catalog
 
 
 def make_small_recommender() -> Recommender:
@@ -274,6 +279,20 @@ def test_evaluation_harness_runs_all_scenarios_with_100_percent_pass_rate():
     assert summary["passed_scenarios"] == 8
     assert summary["pass_rate"] == 100.0
     assert summary["avg_top_confidence"] >= 0.75
+
+
+def test_youtube_music_playlist_import_and_recommendation():
+    """Verify YouTube Music Takeout CSV importer resolves tracks and curates City Pop & Nepali Indie sets."""
+    ytm_tracks = build_ytm_catalog(resolve_online=False, max_per_playlist=60)
+    assert len(ytm_tracks) >= 50
+    assert any("Plastic Love" in t["title"] for t in ytm_tracks)
+
+    rec = Recommender(ytm_tracks)
+    city_pop_res = rec.recommend_with_rag("80s Japanese City Pop night drive groove", k=5)
+    top_song = city_pop_res["recommendations"][0][0]
+    assert top_song["genre"] == "city pop"
+    assert top_song["youtube_url"].startswith("https://music.youtube.com/watch?v=")
+
 
 
 
