@@ -323,3 +323,1015 @@
 2026-11-03 17:04:59 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
 2026-11-03 17:04:59 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.2750 -> 1.0000).
 2026-11-03 17:04:59 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.2750 -> 1.0000).
+2026-11-04 14:01:36 | INFO    | muse_ic.recommender | Loaded 30 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-04 14:01:36 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'High-Energy Pop Workout' (genre='pop', mood='happy') -> #1 'Electric Carnival' (0.9215) | warnings=0
+2026-11-04 14:01:36 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:01:36 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-04 14:06:50 | INFO    | muse_ic.recommender | Loaded 30 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-04 14:06:51 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:06:51 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-04 14:06:51 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: calm rainy night coding music with warm acoustic' (genre='lofi', mood='chill') -> #1 'Library Rain' (0.9125) | warnings=0
+2026-11-04 14:06:51 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:06:51 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-04 14:12:49 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Lofi · Chill' (genre='lofi', mood='chill') -> #1 'Library Rain' (0.8937) | warnings=0
+2026-11-04 14:12:49 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:12:49 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-04 14:12:59 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:12:59 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-04 14:12:59 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: calm rainy night coding music with warm acoustic' (genre='lofi', mood='chill') -> #1 'Library Rain' (0.9125) | warnings=0
+2026-11-04 14:12:59 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:12:59 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-04 14:13:01 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Lofi · Chill' (genre='lofi', mood='chill') -> #1 'Library Rain' (0.8937) | warnings=0
+2026-11-04 14:13:01 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:13:01 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-04 14:13:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Lofi · Aggressive' (genre='lofi', mood='aggressive') -> #1 'Rainy Windowpane' (0.6524) | warnings=0
+2026-11-04 14:13:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:13:07 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-04 14:13:09 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:13:09 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-04 14:13:09 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: calm rainy night coding music with warm acoustic' (genre='lofi', mood='chill') -> #1 'Library Rain' (0.9125) | warnings=0
+2026-11-04 14:13:09 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:13:09 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-04 14:14:51 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:14:51 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='jazz', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-04 14:14:51 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: Very jazzy, late night sophisticated' (genre='jazz', mood='chill') -> #1 'Afterhours Espresso' (0.9070) | warnings=0
+2026-11-04 14:14:51 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:14:51 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-04 14:14:57 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:14:57 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='jazz', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-04 14:14:57 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: Very jazzy, late night sophisticated' (genre='jazz', mood='chill') -> #1 'Afterhours Espresso' (0.9070) | warnings=0
+2026-11-04 14:14:57 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:14:57 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-04 14:14:59 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:14:59 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='jazz', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-04 14:14:59 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: Very jazzy, late night sophisticated' (genre='jazz', mood='chill') -> #1 'Afterhours Espresso' (0.9070) | warnings=0
+2026-11-04 14:14:59 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:14:59 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-04 14:15:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:15:07 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='jazz', mood='melancholic', energy=0.32, likes_acoustic=True
+2026-11-04 14:15:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: Very jazzy, late night sophisticated, sade like' (genre='jazz', mood='melancholic') -> #1 'Rainy Windowpane' (0.7551) | warnings=0
+2026-11-04 14:15:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:15:07 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-04 14:15:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:15:07 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='jazz', mood='melancholic', energy=0.32, likes_acoustic=True
+2026-11-04 14:15:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: Very jazzy, late night sophisticated, sade like' (genre='jazz', mood='melancholic') -> #1 'Rainy Windowpane' (0.7551) | warnings=0
+2026-11-04 14:15:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:15:07 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-04 14:54:01 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:54:01 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-04 14:54:01 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: calm rainy night coding music with warm acoustic' (genre='lofi', mood='chill') -> #1 'Library Rain' (0.9125) | warnings=0
+2026-11-04 14:54:01 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-04 14:54:01 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 2 tracks for profile 'Custom Listener' (genre='pop', mood='happy') -> #1 'Test Pop Track' (0.9190) | warnings=0
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Loaded 30 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: I need calm rainy night coding music with warm a' (genre='lofi', mood='chill') -> #1 'Library Rain' (0.9118) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:23:31 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.2750 -> 1.0000).
+2026-11-05 15:23:31 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.2750 -> 1.0000).
+2026-11-05 15:23:31 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.75 to 1.00.
+2026-11-05 15:23:31 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 15:23:31 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Loaded 30 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Filtered out track by excluded artist 'loroom'.
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Filtered out track by excluded artist 'loroom'.
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Custom Listener' (genre='lofi', mood='chill') -> #1 'Library Rain' (0.8967) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='pop', mood='intense', energy=0.86, likes_acoustic=False
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 2 tracks for profile 'AI DJ Intent: upbeat morning workout pop' (genre='pop', mood='intense') -> #1 'Test Pop Track' (0.7420) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Loaded 30 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Re-indexed Multi-Source RAG Knowledge Base with updated custom user notes.
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with felt p' (genre='lofi', mood='chill') -> #1 'Library Rain' (0.9545) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Loaded 30 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood (Zero-Match Trap)' (genre='deathcore polka', mood='existential dread') -> #1 'Midnight Delta Blues' (0.5657) | warnings=0
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood (Zero-Match Trap)' (genre='deathcore polka', mood='existential dread') -> #1 'Midnight Delta Blues' (0.7014) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Loaded 30 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Library Rain' (0.9076) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Library Rain' (0.9076) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=late_night_radio).
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Library Rain' (0.9076) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=hype_coach).
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Library Rain' (0.9076) | warnings=0
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Loaded 30 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'High-Energy Pop Workout' (genre='pop', mood='happy') -> #1 'Electric Carnival' (0.9215) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Late-Night Chill Lofi Study' (genre='lofi', mood='chill') -> #1 'Library Rain' (0.9466) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Deep Intense Rock / Metal' (genre='rock', mood='intense') -> #1 'Storm Runner' (0.9392) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 'Midnight Delta Blues' (0.5657) | warnings=0
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 'Midnight Delta Blues' (0.7014) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Moonlight Sonata Flow' (0.5796) | warnings=0
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Moonlight Sonata Flow' (0.5526) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='ambient', mood='chill') -> #1 'Spacewalk Thoughts' (0.9115) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with felt p' (genre='lofi', mood='chill') -> #1 'Library Rain' (0.9535) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:23:31 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.85 to 1.00.
+2026-11-05 15:23:31 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 15:23:31 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 15:23:31 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.8000 -> 1.0000).
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Guardrail Stress Test' (genre='pop', mood='happy') -> #1 'Electric Carnival' (0.9104) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='city pop', mood='groovy', energy=0.80, likes_acoustic=False
+2026-11-05 15:23:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: 80s Japanese City Pop night drive groove' (genre='city pop', mood='groovy') -> #1 'Midnight Pretenders' (0.9058) | warnings=0
+2026-11-05 15:23:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:23:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:31:35 | INFO    | muse_ic.recommender | Loaded 30 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:31:35 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:31:35 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='city pop', mood='groovy', energy=0.80, likes_acoustic=False
+2026-11-05 15:31:35 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: 80s Japanese City Pop night drive groove with Ma' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.9050) | warnings=0
+2026-11-05 15:31:35 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:31:35 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:33:43 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:33:43 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='city pop', mood='groovy', energy=0.80, likes_acoustic=False
+2026-11-05 15:33:44 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: 80s Japanese City Pop night drive groove with Ma' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.9050) | warnings=0
+2026-11-05 15:33:44 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:33:44 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:33:59 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:33:59 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='synthwave', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:33:59 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: late night drive around the city' (genre='synthwave', mood='chill') -> #1 'Afterhours Espresso' (0.6089) | warnings=0
+2026-11-05 15:33:59 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: late night drive around the city' (genre='synthwave', mood='chill') -> #1 'Library Rain' (0.6619) | warnings=0
+2026-11-05 15:33:59 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:33:59 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:33:59 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:33:59 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='synthwave', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:33:59 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: late night drive around the city' (genre='synthwave', mood='chill') -> #1 'Afterhours Espresso' (0.6089) | warnings=0
+2026-11-05 15:33:59 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: late night drive around the city' (genre='synthwave', mood='chill') -> #1 'Library Rain' (0.6619) | warnings=0
+2026-11-05 15:33:59 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:33:59 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:46:47 | INFO    | muse_ic.recommender | Recommended 2 tracks for profile 'Custom Listener' (genre='pop', mood='happy') -> #1 'Test Pop Track' (0.8723) | warnings=0
+2026-11-05 15:46:47 | INFO    | muse_ic.recommender | Loaded 94 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:46:47 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:47 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:46:47 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: I need calm rainy night coding music with warm a' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7456) | warnings=0
+2026-11-05 15:46:47 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: I need calm rainy night coding music with warm a' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7846) | warnings=0
+2026-11-05 15:46:47 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:47 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:46:47 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.2750 -> 1.0000).
+2026-11-05 15:46:47 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.2750 -> 1.0000).
+2026-11-05 15:46:47 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.75 to 1.00.
+2026-11-05 15:46:47 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 15:46:47 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 15:46:47 | INFO    | muse_ic.recommender | Loaded 94 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:46:47 | INFO    | muse_ic.recommender | Filtered out track by excluded artist 'sabin rai'.
+2026-11-05 15:46:47 | INFO    | muse_ic.recommender | Filtered out track by excluded artist 'sabin rai'.
+2026-11-05 15:46:47 | INFO    | muse_ic.recommender | Filtered out track by excluded artist 'sabin rai'.
+2026-11-05 15:46:47 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Custom Listener' (genre='nepali indie', mood='nostalgic') -> #1 'Khaseka Tara' (0.8882) | warnings=0
+2026-11-05 15:46:47 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:47 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='pop', mood='intense', energy=0.86, likes_acoustic=False
+2026-11-05 15:46:47 | INFO    | muse_ic.recommender | Recommended 2 tracks for profile 'AI DJ Intent: upbeat morning workout pop' (genre='pop', mood='intense') -> #1 'Test Pop Track' (0.6949) | warnings=0
+2026-11-05 15:46:47 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:47 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:46:47 | INFO    | muse_ic.recommender | Loaded 94 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Re-indexed Multi-Source RAG Knowledge Base with updated custom user notes.
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='melancholic', energy=0.32, likes_acoustic=True
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with Bipul' (genre='sophisti-pop', mood='melancholic') -> #1 'Paradise' (0.7280) | warnings=0
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Loaded 94 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood (Zero-Match Trap)' (genre='deathcore polka', mood='existential dread') -> #1 'Choo Lo' (0.5611) | warnings=0
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood (Zero-Match Trap)' (genre='deathcore polka', mood='existential dread') -> #1 'Gauthali' (0.6876) | warnings=0
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Loaded 94 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7471) | warnings=0
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7873) | warnings=0
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7471) | warnings=0
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7873) | warnings=0
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=late_night_radio).
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7471) | warnings=0
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7873) | warnings=0
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=hype_coach).
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7471) | warnings=0
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7873) | warnings=0
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Loaded 94 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Japanese City Pop Night Drive' (genre='city pop', mood='groovy') -> #1 'Fly-day Chinatown' (0.9353) | warnings=0
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Nepali Indie & Acoustic Study' (genre='nepali indie', mood='peaceful') -> #1 'Deorali Darah' (0.9315) | warnings=0
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Nepali Hype & Workout Anthem' (genre='nepali rock', mood='intense') -> #1 'BASANTI / HEARTBREAKER' (0.9378) | warnings=0
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 'Gauthali' (0.5830) | warnings=0
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 'Gauthali' (0.7116) | warnings=0
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Chiya Barima' (0.4754) | warnings=0
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Midnight Pretenders' (0.5357) | warnings=0
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='nepali indie', mood='chill') -> #1 'Aakhako Bato' (0.8080) | warnings=0
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='melancholic', energy=0.32, likes_acoustic=True
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with Bipul' (genre='sophisti-pop', mood='melancholic') -> #1 'Paradise' (0.7280) | warnings=0
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:46:48 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.85 to 1.00.
+2026-11-05 15:46:48 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 15:46:48 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 15:46:48 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.8000 -> 1.0000).
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Guardrail Stress Test' (genre='city pop', mood='groovy') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.9113) | warnings=0
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='city pop', mood='groovy', energy=0.80, likes_acoustic=False
+2026-11-05 15:46:48 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: 80s Japanese City Pop night drive groove' (genre='city pop', mood='groovy') -> #1 'Fly-day Chinatown' (0.9157) | warnings=0
+2026-11-05 15:46:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:46:48 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:46 | INFO    | muse_ic.recommender | Loaded 94 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:47:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Japanese City Pop Night Drive' (genre='city pop', mood='groovy') -> #1 'Fly-day Chinatown' (0.9353) | warnings=0
+2026-11-05 15:47:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Nepali Indie & Acoustic Study' (genre='nepali indie', mood='peaceful') -> #1 'Deorali Darah' (0.9315) | warnings=0
+2026-11-05 15:47:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Nepali Hype & Workout Anthem' (genre='nepali rock', mood='intense') -> #1 'BASANTI / HEARTBREAKER' (0.9378) | warnings=0
+2026-11-05 15:47:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 'Gauthali' (0.5830) | warnings=0
+2026-11-05 15:47:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 'Gauthali' (0.7116) | warnings=0
+2026-11-05 15:47:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Chiya Barima' (0.4754) | warnings=0
+2026-11-05 15:47:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Midnight Pretenders' (0.5357) | warnings=0
+2026-11-05 15:47:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='nepali indie', mood='chill') -> #1 'Aakhako Bato' (0.8080) | warnings=0
+2026-11-05 15:47:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:46 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:47:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with Bipul' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8603) | warnings=0
+2026-11-05 15:47:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:46 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.85 to 1.00.
+2026-11-05 15:47:46 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 15:47:46 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 15:47:46 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.8000 -> 1.0000).
+2026-11-05 15:47:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Guardrail Stress Test' (genre='city pop', mood='groovy') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.9113) | warnings=0
+2026-11-05 15:47:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 2 tracks for profile 'Custom Listener' (genre='pop', mood='happy') -> #1 'Test Pop Track' (0.8723) | warnings=0
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Loaded 94 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: I need calm rainy night coding music with warm a' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7456) | warnings=0
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: I need calm rainy night coding music with warm a' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7846) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:55 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.2750 -> 1.0000).
+2026-11-05 15:47:55 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.2750 -> 1.0000).
+2026-11-05 15:47:55 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.75 to 1.00.
+2026-11-05 15:47:55 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 15:47:55 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Loaded 94 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Filtered out track by excluded artist 'sabin rai'.
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Filtered out track by excluded artist 'sabin rai'.
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Filtered out track by excluded artist 'sabin rai'.
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Custom Listener' (genre='nepali indie', mood='nostalgic') -> #1 'Khaseka Tara' (0.8882) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='pop', mood='intense', energy=0.86, likes_acoustic=False
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 2 tracks for profile 'AI DJ Intent: upbeat morning workout pop' (genre='pop', mood='intense') -> #1 'Test Pop Track' (0.6949) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Loaded 94 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Re-indexed Multi-Source RAG Knowledge Base with updated custom user notes.
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with Bipul' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8603) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Loaded 94 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood (Zero-Match Trap)' (genre='deathcore polka', mood='existential dread') -> #1 'Gauthali' (0.5830) | warnings=0
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood (Zero-Match Trap)' (genre='deathcore polka', mood='existential dread') -> #1 'Gauthali' (0.7116) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Loaded 94 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7471) | warnings=0
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7873) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7471) | warnings=0
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7873) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=late_night_radio).
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7471) | warnings=0
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7873) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=hype_coach).
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7471) | warnings=0
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'K Yo Maya Ho' (0.7873) | warnings=0
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Loaded 94 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Japanese City Pop Night Drive' (genre='city pop', mood='groovy') -> #1 'Fly-day Chinatown' (0.9353) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Nepali Indie & Acoustic Study' (genre='nepali indie', mood='peaceful') -> #1 'Deorali Darah' (0.9315) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Nepali Hype & Workout Anthem' (genre='nepali rock', mood='intense') -> #1 'BASANTI / HEARTBREAKER' (0.9378) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 'Gauthali' (0.5830) | warnings=0
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 'Gauthali' (0.7116) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Chiya Barima' (0.4754) | warnings=0
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Midnight Pretenders' (0.5357) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='nepali indie', mood='chill') -> #1 'Aakhako Bato' (0.8080) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with Bipul' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8603) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:55 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.85 to 1.00.
+2026-11-05 15:47:55 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 15:47:55 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 15:47:55 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.8000 -> 1.0000).
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Guardrail Stress Test' (genre='city pop', mood='groovy') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.9113) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='city pop', mood='groovy', energy=0.80, likes_acoustic=False
+2026-11-05 15:47:55 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: 80s Japanese City Pop night drive groove' (genre='city pop', mood='groovy') -> #1 'Fly-day Chinatown' (0.9157) | warnings=0
+2026-11-05 15:47:55 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 15:47:55 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:48:13 | INFO    | muse_ic.recommender | Loaded 94 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 15:48:13 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:48:13 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='city pop', mood='groovy', energy=0.80, likes_acoustic=False
+2026-11-05 15:48:13 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: 80s Japanese City Pop night drive groove with Ma' (genre='city pop', mood='groovy') -> #1 '悲しみがとまらない　I CAN'T STOP THE LONELINESS' (0.9134) | warnings=0
+2026-11-05 15:48:13 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:48:13 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:48:18 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:48:18 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.55, likes_acoustic=False
+2026-11-05 15:48:18 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: late' (genre='lofi', mood='chill') -> #1 'Eauta Pari Basthyo' (0.4847) | warnings=0
+2026-11-05 15:48:18 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: late' (genre='lofi', mood='chill') -> #1 'Eauta Pari Basthyo' (0.5723) | warnings=0
+2026-11-05 15:48:18 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:48:18 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:50:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:50:31 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='city pop', mood='groovy', energy=0.80, likes_acoustic=False
+2026-11-05 15:50:31 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: 80s Japanese City Pop night drive groove with Ma' (genre='city pop', mood='groovy') -> #1 '悲しみがとまらない　I CAN'T STOP THE LONELINESS' (0.9134) | warnings=0
+2026-11-05 15:50:31 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:50:31 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:52:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:52:23 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='synthwave', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:52:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: late night drive around the city' (genre='synthwave', mood='chill') -> #1 'K Yo Maya Ho' (0.5794) | warnings=0
+2026-11-05 15:52:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: late night drive around the city' (genre='synthwave', mood='chill') -> #1 'K Yo Maya Ho' (0.6848) | warnings=0
+2026-11-05 15:52:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:52:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:52:24 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:52:24 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='synthwave', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:52:24 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: late night drive around the city' (genre='synthwave', mood='chill') -> #1 'K Yo Maya Ho' (0.5794) | warnings=0
+2026-11-05 15:52:24 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: late night drive around the city' (genre='synthwave', mood='chill') -> #1 'K Yo Maya Ho' (0.6848) | warnings=0
+2026-11-05 15:52:24 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:52:24 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:52:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:52:46 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='synthwave', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:52:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: late night drive around the woods' (genre='synthwave', mood='chill') -> #1 'K Yo Maya Ho' (0.5873) | warnings=0
+2026-11-05 15:52:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: late night drive around the woods' (genre='synthwave', mood='chill') -> #1 'K Yo Maya Ho' (0.6987) | warnings=0
+2026-11-05 15:52:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:52:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 15:52:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:52:46 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='synthwave', mood='chill', energy=0.32, likes_acoustic=True
+2026-11-05 15:52:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: late night drive around the woods' (genre='synthwave', mood='chill') -> #1 'K Yo Maya Ho' (0.5873) | warnings=0
+2026-11-05 15:52:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: late night drive around the woods' (genre='synthwave', mood='chill') -> #1 'K Yo Maya Ho' (0.6987) | warnings=0
+2026-11-05 15:52:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 15:52:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:14:10 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:10 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='city pop', mood='groovy', energy=0.80, likes_acoustic=False
+2026-11-05 16:14:10 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: 80s Japanese City Pop night drive groove with Ma' (genre='city pop', mood='groovy') -> #1 '悲しみがとまらない　I CAN'T STOP THE LONELINESS' (0.9134) | warnings=0
+2026-11-05 16:14:10 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:10 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:14:18 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:18 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='nepali indie', mood='nostalgic', energy=0.55, likes_acoustic=True
+2026-11-05 16:14:18 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: nepali pop' (genre='nepali indie', mood='nostalgic') -> #1 'Nihita' (0.8943) | warnings=0
+2026-11-05 16:14:18 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:18 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:14:18 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:18 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='nepali indie', mood='nostalgic', energy=0.55, likes_acoustic=True
+2026-11-05 16:14:18 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: nepali pop' (genre='nepali indie', mood='nostalgic') -> #1 'Nihita' (0.8943) | warnings=0
+2026-11-05 16:14:18 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:18 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:14:25 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:25 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='nepali indie', mood='nostalgic', energy=0.55, likes_acoustic=True
+2026-11-05 16:14:25 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: folk nepali' (genre='nepali indie', mood='nostalgic') -> #1 'Nihita' (0.8930) | warnings=0
+2026-11-05 16:14:25 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:25 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:14:26 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:26 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='nepali indie', mood='nostalgic', energy=0.55, likes_acoustic=True
+2026-11-05 16:14:26 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: folk nepali' (genre='nepali indie', mood='nostalgic') -> #1 'Nihita' (0.8930) | warnings=0
+2026-11-05 16:14:26 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:26 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:14:28 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:28 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='nepali indie', mood='nostalgic', energy=0.55, likes_acoustic=True
+2026-11-05 16:14:28 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: folk nepali' (genre='nepali indie', mood='nostalgic') -> #1 'Nihita' (0.8930) | warnings=0
+2026-11-05 16:14:28 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:28 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:14:29 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:29 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='nepali indie', mood='nostalgic', energy=0.55, likes_acoustic=True
+2026-11-05 16:14:29 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: folk nepali' (genre='nepali indie', mood='nostalgic') -> #1 'Nihita' (0.8930) | warnings=0
+2026-11-05 16:14:29 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:29 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:14:30 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:30 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='nepali indie', mood='nostalgic', energy=0.55, likes_acoustic=True
+2026-11-05 16:14:30 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: folk nepali' (genre='nepali indie', mood='nostalgic') -> #1 'Nihita' (0.8930) | warnings=0
+2026-11-05 16:14:30 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:30 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:14:38 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:38 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='nepali rock', mood='nostalgic', energy=0.55, likes_acoustic=False
+2026-11-05 16:14:38 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: nepali rock' (genre='nepali rock', mood='nostalgic') -> #1 'BHATBHATEY MA' (0.6315) | warnings=0
+2026-11-05 16:14:38 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: nepali rock' (genre='nepali rock', mood='nostalgic') -> #1 'Naam K Ho' (0.6526) | warnings=0
+2026-11-05 16:14:38 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:38 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:14:38 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:38 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='nepali rock', mood='nostalgic', energy=0.55, likes_acoustic=False
+2026-11-05 16:14:38 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: nepali rock' (genre='nepali rock', mood='nostalgic') -> #1 'BHATBHATEY MA' (0.6315) | warnings=0
+2026-11-05 16:14:38 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: nepali rock' (genre='nepali rock', mood='nostalgic') -> #1 'Naam K Ho' (0.6526) | warnings=0
+2026-11-05 16:14:38 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:38 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:14:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:48 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='nepali indie', mood='nostalgic', energy=0.55, likes_acoustic=True
+2026-11-05 16:14:48 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: nepali rap' (genre='nepali indie', mood='nostalgic') -> #1 'Nihita' (0.8932) | warnings=0
+2026-11-05 16:14:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:48 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:14:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:48 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='nepali indie', mood='nostalgic', energy=0.55, likes_acoustic=True
+2026-11-05 16:14:48 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: nepali rap' (genre='nepali indie', mood='nostalgic') -> #1 'Nihita' (0.8932) | warnings=0
+2026-11-05 16:14:48 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:14:48 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:20:02 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:20:02 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='jazz', mood='chill', energy=0.55, likes_acoustic=True
+2026-11-05 16:20:02 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: jazz' (genre='jazz', mood='chill') -> #1 'K Yo Maya Ho' (0.5925) | warnings=0
+2026-11-05 16:20:02 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: jazz' (genre='jazz', mood='chill') -> #1 'K Yo Maya Ho' (0.7055) | warnings=0
+2026-11-05 16:20:02 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:20:02 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:20:02 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:20:02 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='jazz', mood='chill', energy=0.55, likes_acoustic=True
+2026-11-05 16:20:02 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: jazz' (genre='jazz', mood='chill') -> #1 'K Yo Maya Ho' (0.5925) | warnings=0
+2026-11-05 16:20:02 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: jazz' (genre='jazz', mood='chill') -> #1 'K Yo Maya Ho' (0.7055) | warnings=0
+2026-11-05 16:20:02 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:20:02 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:20:04 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:20:04 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='jazz', mood='chill', energy=0.55, likes_acoustic=True
+2026-11-05 16:20:04 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: jazz' (genre='jazz', mood='chill') -> #1 'K Yo Maya Ho' (0.5925) | warnings=0
+2026-11-05 16:20:04 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: jazz' (genre='jazz', mood='chill') -> #1 'K Yo Maya Ho' (0.7055) | warnings=0
+2026-11-05 16:20:04 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:20:04 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:20:10 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:20:10 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='melancholic', energy=0.55, likes_acoustic=True
+2026-11-05 16:20:10 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: smooth sophisti-pop evening lounge with Sade and' (genre='sophisti-pop', mood='melancholic') -> #1 'Paradise' (0.7132) | warnings=0
+2026-11-05 16:20:10 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:20:10 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:20:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:20:20 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='jazz', mood='romantic', energy=0.55, likes_acoustic=True
+2026-11-05 16:20:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: smooth jazz evening' (genre='jazz', mood='romantic') -> #1 'Just the Two of Us' (0.6156) | warnings=0
+2026-11-05 16:20:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: smooth jazz evening' (genre='jazz', mood='romantic') -> #1 'Just the Two of Us' (0.7539) | warnings=0
+2026-11-05 16:20:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:20:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:46 | INFO    | muse_ic.recommender | Loaded 17 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:26:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Japanese City Pop Night Drive' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.9085) | warnings=0
+2026-11-05 16:26:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Sophisti-pop Study & Lounge' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.9257) | warnings=0
+2026-11-05 16:26:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'High-Energy City Pop Workout' (genre='city pop', mood='intense') -> #1 'Fly-day Chinatown' (0.9254) | warnings=0
+2026-11-05 16:26:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 '4:00 A.M.' (0.5816) | warnings=0
+2026-11-05 16:26:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 '4:00 A.M.' (0.7143) | warnings=0
+2026-11-05 16:26:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Remember Summer Days' (0.5640) | warnings=0
+2026-11-05 16:26:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Remember Summer Days' (0.5670) | warnings=0
+2026-11-05 16:26:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='sophisti-pop', mood='peaceful') -> #1 'The Sweetest Taboo' (0.8508) | warnings=0
+2026-11-05 16:26:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='sophisti-pop', mood='peaceful') -> #1 'The Sweetest Taboo' (0.8278) | warnings=0
+2026-11-05 16:26:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:46 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:26:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with Sade s' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8646) | warnings=0
+2026-11-05 16:26:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:46 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.85 to 1.00.
+2026-11-05 16:26:46 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:26:46 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:26:46 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.8000 -> 1.0000).
+2026-11-05 16:26:46 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Guardrail Stress Test' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.8604) | warnings=0
+2026-11-05 16:26:46 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:46 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 2 tracks for profile 'Custom Listener' (genre='pop', mood='happy') -> #1 'Test Pop Track' (0.8765) | warnings=0
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Loaded 17 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: I need calm rainy night coding music with warm a' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.7522) | warnings=0
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: I need calm rainy night coding music with warm a' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.8070) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:54 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.2750 -> 1.0000).
+2026-11-05 16:26:54 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.2750 -> 1.0000).
+2026-11-05 16:26:54 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.75 to 1.00.
+2026-11-05 16:26:54 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:26:54 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Loaded 17 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Filtered out track by excluded artist 'mariya takeuchi'.
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Custom Listener' (genre='city pop', mood='groovy') -> #1 '真夜中のドア〜stay with me' (0.7878) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='pop', mood='intense', energy=0.86, likes_acoustic=False
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 2 tracks for profile 'AI DJ Intent: upbeat morning workout pop' (genre='pop', mood='intense') -> #1 'Test Pop Track' (0.6989) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Loaded 17 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Re-indexed Multi-Source RAG Knowledge Base with updated custom user notes.
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with Sade s' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8649) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Loaded 17 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood (Zero-Match Trap)' (genre='deathcore polka', mood='existential dread') -> #1 '4:00 A.M.' (0.5488) | warnings=0
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood (Zero-Match Trap)' (genre='deathcore polka', mood='existential dread') -> #1 '4:00 A.M.' (0.6599) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Loaded 17 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.7536) | warnings=0
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.8094) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.7536) | warnings=0
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.8094) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=late_night_radio).
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.7536) | warnings=0
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.8094) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=hype_coach).
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.7536) | warnings=0
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.8094) | warnings=0
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Loaded 17 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Japanese City Pop Night Drive' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.9085) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Sophisti-pop Study & Lounge' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.9257) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'High-Energy City Pop Workout' (genre='city pop', mood='intense') -> #1 'Fly-day Chinatown' (0.9254) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 '4:00 A.M.' (0.5816) | warnings=0
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 '4:00 A.M.' (0.7143) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Remember Summer Days' (0.5640) | warnings=0
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Remember Summer Days' (0.5670) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='sophisti-pop', mood='peaceful') -> #1 'The Sweetest Taboo' (0.8508) | warnings=0
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='sophisti-pop', mood='peaceful') -> #1 'The Sweetest Taboo' (0.8278) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with Sade s' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8646) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:54 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.85 to 1.00.
+2026-11-05 16:26:54 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:26:54 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:26:54 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.8000 -> 1.0000).
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Guardrail Stress Test' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.8604) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='city pop', mood='groovy', energy=0.80, likes_acoustic=False
+2026-11-05 16:26:54 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: 80s Japanese City Pop night drive groove' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.8729) | warnings=0
+2026-11-05 16:26:54 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:26:54 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 2 tracks for profile 'Custom Listener' (genre='pop', mood='happy') -> #1 'Test Pop Track' (0.8765) | warnings=0
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Loaded 17 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: I need calm rainy night coding music with warm a' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.7522) | warnings=0
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: I need calm rainy night coding music with warm a' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.8070) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:27:23 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.2750 -> 1.0000).
+2026-11-05 16:27:23 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.2750 -> 1.0000).
+2026-11-05 16:27:23 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.75 to 1.00.
+2026-11-05 16:27:23 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:27:23 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Loaded 17 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Filtered out track by excluded artist 'mariya takeuchi'.
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Custom Listener' (genre='city pop', mood='groovy') -> #1 '真夜中のドア〜stay with me' (0.7878) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='pop', mood='intense', energy=0.86, likes_acoustic=False
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 2 tracks for profile 'AI DJ Intent: upbeat morning workout pop' (genre='pop', mood='intense') -> #1 'Test Pop Track' (0.6989) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Loaded 17 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Re-indexed Multi-Source RAG Knowledge Base with updated custom user notes.
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with Sade s' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8649) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Loaded 17 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood (Zero-Match Trap)' (genre='deathcore polka', mood='existential dread') -> #1 '4:00 A.M.' (0.5488) | warnings=0
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood (Zero-Match Trap)' (genre='deathcore polka', mood='existential dread') -> #1 '4:00 A.M.' (0.6599) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Loaded 17 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.7536) | warnings=0
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.8094) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.7536) | warnings=0
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.8094) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=late_night_radio).
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.7536) | warnings=0
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.8094) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=hype_coach).
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.7536) | warnings=0
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Shibuya After Rain（渋谷アフター・レイン）' (0.8094) | warnings=0
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Loaded 17 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Japanese City Pop Night Drive' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.9085) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Sophisti-pop Study & Lounge' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.9257) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'High-Energy City Pop Workout' (genre='city pop', mood='intense') -> #1 'Fly-day Chinatown' (0.9254) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 '4:00 A.M.' (0.5816) | warnings=0
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 '4:00 A.M.' (0.7143) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Remember Summer Days' (0.5640) | warnings=0
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Remember Summer Days' (0.5670) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='sophisti-pop', mood='peaceful') -> #1 'The Sweetest Taboo' (0.8508) | warnings=0
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='sophisti-pop', mood='peaceful') -> #1 'The Sweetest Taboo' (0.8278) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with Sade s' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8646) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:27:23 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.85 to 1.00.
+2026-11-05 16:27:23 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:27:23 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:27:23 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.8000 -> 1.0000).
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Guardrail Stress Test' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.8604) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='city pop', mood='groovy', energy=0.80, likes_acoustic=False
+2026-11-05 16:27:23 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: 80s Japanese City Pop night drive groove' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.8729) | warnings=0
+2026-11-05 16:27:23 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:27:23 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:33:49 | INFO    | muse_ic.recommender | Loaded 117 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:33:49 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Japanese City Pop Night Drive' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.9120) | warnings=0
+2026-11-05 16:33:49 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:33:49 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:33:49 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Sophisti-pop Study & Lounge' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.9239) | warnings=0
+2026-11-05 16:33:49 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:33:49 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:33:49 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'High-Energy City Pop Workout' (genre='city pop', mood='intense') -> #1 'Fly-day Chinatown' (0.9227) | warnings=0
+2026-11-05 16:33:49 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:33:49 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:33:49 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 'The Night We Met' (0.6035) | warnings=0
+2026-11-05 16:33:49 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 'The Night We Met' (0.7345) | warnings=0
+2026-11-05 16:33:49 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:33:49 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:33:49 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Viva La Gloria / Boulevard of Broken Dreams' (0.5886) | warnings=0
+2026-11-05 16:33:49 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Viva La Gloria / Boulevard of Broken Dreams' (0.6091) | warnings=0
+2026-11-05 16:33:49 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:33:49 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:33:49 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='sophisti-pop', mood='peaceful') -> #1 'The Sweetest Taboo' (0.8455) | warnings=0
+2026-11-05 16:33:49 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='sophisti-pop', mood='peaceful') -> #1 'Weightless' (0.8376) | warnings=0
+2026-11-05 16:33:49 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:33:49 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:33:49 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:33:49 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:33:49 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with Sade s' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8700) | warnings=0
+2026-11-05 16:33:49 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:33:49 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:33:49 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.85 to 1.00.
+2026-11-05 16:33:49 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:33:49 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:33:49 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.8000 -> 1.0000).
+2026-11-05 16:33:49 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Guardrail Stress Test' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.8681) | warnings=0
+2026-11-05 16:33:49 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:33:49 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Loaded 117 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Japanese City Pop Night Drive' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.9120) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Sophisti-pop Study & Lounge' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.9239) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'High-Energy City Pop Workout' (genre='city pop', mood='intense') -> #1 'Fly-day Chinatown' (0.9227) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 'The Night We Met' (0.6035) | warnings=0
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 'The Night We Met' (0.7345) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Viva La Gloria / Boulevard of Broken Dreams' (0.5886) | warnings=0
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Viva La Gloria / Boulevard of Broken Dreams' (0.6091) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='sophisti-pop', mood='peaceful') -> #1 'The Sweetest Taboo' (0.8455) | warnings=0
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='sophisti-pop', mood='peaceful') -> #1 'Weightless' (0.8376) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with Sade s' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8700) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.85 to 1.00.
+2026-11-05 16:34:20 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:34:20 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:34:20 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.8000 -> 1.0000).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Guardrail Stress Test' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.8681) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 2 tracks for profile 'Custom Listener' (genre='pop', mood='happy') -> #1 'Test Pop Track' (0.8765) | warnings=0
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Loaded 117 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: I need calm rainy night coding music with warm a' (genre='lofi', mood='chill') -> #1 'Coffee Breath' (0.9090) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.2750 -> 1.0000).
+2026-11-05 16:34:20 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.2750 -> 1.0000).
+2026-11-05 16:34:20 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.75 to 1.00.
+2026-11-05 16:34:20 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:34:20 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Loaded 117 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Filtered out track by excluded artist 'mariya takeuchi'.
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Custom Listener' (genre='city pop', mood='groovy') -> #1 '真夜中のドア〜stay with me' (0.8000) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='pop', mood='intense', energy=0.86, likes_acoustic=False
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 2 tracks for profile 'AI DJ Intent: upbeat morning workout pop' (genre='pop', mood='intense') -> #1 'Test Pop Track' (0.6989) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Loaded 117 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Re-indexed Multi-Source RAG Knowledge Base with updated custom user notes.
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with Sade s' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8705) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Loaded 117 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood (Zero-Match Trap)' (genre='deathcore polka', mood='existential dread') -> #1 'The Night We Met' (0.6077) | warnings=0
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood (Zero-Match Trap)' (genre='deathcore polka', mood='existential dread') -> #1 'The Night We Met' (0.7419) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Loaded 117 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Coffee Breath' (0.9058) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Coffee Breath' (0.9058) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=late_night_radio).
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Coffee Breath' (0.9058) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=hype_coach).
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='lofi', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 3 tracks for profile 'AI DJ Intent: late night rainy coding session with warm acoust' (genre='lofi', mood='chill') -> #1 'Coffee Breath' (0.9058) | warnings=0
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Loaded 117 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Japanese City Pop Night Drive' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.9120) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Sophisti-pop Study & Lounge' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.9239) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'High-Energy City Pop Workout' (genre='city pop', mood='intense') -> #1 'Fly-day Chinatown' (0.9227) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 'The Night We Met' (0.6035) | warnings=0
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 'The Night We Met' (0.7345) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Viva La Gloria / Boulevard of Broken Dreams' (0.5886) | warnings=0
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Viva La Gloria / Boulevard of Broken Dreams' (0.6091) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='sophisti-pop', mood='peaceful') -> #1 'The Sweetest Taboo' (0.8455) | warnings=0
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='sophisti-pop', mood='peaceful') -> #1 'Weightless' (0.8376) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with Sade s' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8700) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.85 to 1.00.
+2026-11-05 16:34:20 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:34:20 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:34:20 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.8000 -> 1.0000).
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Guardrail Stress Test' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.8681) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='city pop', mood='groovy', energy=0.80, likes_acoustic=False
+2026-11-05 16:34:20 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: 80s Japanese City Pop night drive groove' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.8729) | warnings=0
+2026-11-05 16:34:20 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:34:20 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:38:42 | INFO    | muse_ic.recommender | Loaded 117 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:38:42 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:38:42 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='city pop', mood='groovy', energy=0.80, likes_acoustic=False
+2026-11-05 16:38:42 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: 80s Japanese City Pop night drive groove with Ma' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.8851) | warnings=0
+2026-11-05 16:38:42 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:38:42 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:39:17 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:17 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:39:17 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: Late night chill' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8752) | warnings=0
+2026-11-05 16:39:17 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:17 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:39:18 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:18 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:39:18 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: Late night chill' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8752) | warnings=0
+2026-11-05 16:39:18 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:18 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:39:28 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:28 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='folk', mood='chill', energy=0.55, likes_acoustic=True
+2026-11-05 16:39:28 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: Folk' (genre='folk', mood='chill') -> #1 'Holocene' (0.7889) | warnings=0
+2026-11-05 16:39:28 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:28 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:39:28 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:28 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='folk', mood='chill', energy=0.55, likes_acoustic=True
+2026-11-05 16:39:28 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: Folk' (genre='folk', mood='chill') -> #1 'Holocene' (0.7889) | warnings=0
+2026-11-05 16:39:28 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:28 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:39:37 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:37 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='rock', mood='chill', energy=0.55, likes_acoustic=False
+2026-11-05 16:39:37 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: Hard rock' (genre='rock', mood='chill') -> #1 'Dreams' (0.8663) | warnings=0
+2026-11-05 16:39:37 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:37 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:39:37 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:37 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='rock', mood='chill', energy=0.55, likes_acoustic=False
+2026-11-05 16:39:37 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: Hard rock' (genre='rock', mood='chill') -> #1 'Dreams' (0.8663) | warnings=0
+2026-11-05 16:39:38 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:38 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:39:45 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:45 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='metal', mood='aggressive', energy=0.86, likes_acoustic=False
+2026-11-05 16:39:45 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: Metal' (genre='metal', mood='aggressive') -> #1 'Enter Sandman' (0.9489) | warnings=0
+2026-11-05 16:39:45 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:45 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:39:45 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:45 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='metal', mood='aggressive', energy=0.86, likes_acoustic=False
+2026-11-05 16:39:45 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: Metal' (genre='metal', mood='aggressive') -> #1 'Enter Sandman' (0.9489) | warnings=0
+2026-11-05 16:39:45 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:45 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:39:50 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:50 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:39:50 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: Rainy day' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8411) | warnings=0
+2026-11-05 16:39:50 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:50 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:39:50 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:50 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:39:51 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: Rainy day' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8411) | warnings=0
+2026-11-05 16:39:51 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>
+2026-11-05 16:39:51 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Loaded 117 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:45:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:45:07 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='city pop', mood='groovy', energy=0.80, likes_acoustic=False
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: 80s Japanese City Pop night drive groove with Ma' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.8851) | warnings=0
+2026-11-05 16:45:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:45:07 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Loaded 117 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood (Zero-Match Trap)' (genre='deathcore polka', mood='existential dread') -> #1 'The Night We Met' (0.6035) | warnings=0
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood (Zero-Match Trap)' (genre='deathcore polka', mood='existential dread') -> #1 'The Night We Met' (0.7345) | warnings=0
+2026-11-05 16:45:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:45:07 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Loaded 117 songs from '/Users/prithvikarki/Documents/CS Projects/AI proj4/ai110-module3show-musicrecommendersimulation-starter/data/songs.csv'.
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Japanese City Pop Night Drive' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.9120) | warnings=0
+2026-11-05 16:45:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:45:07 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Sophisti-pop Study & Lounge' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.9239) | warnings=0
+2026-11-05 16:45:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:45:07 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'High-Energy City Pop Workout' (genre='city pop', mood='intense') -> #1 'Fly-day Chinatown' (0.9227) | warnings=0
+2026-11-05 16:45:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:45:07 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 'The Night We Met' (0.6035) | warnings=0
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Unknown Genre/Mood' (genre='deathcore polka', mood='existential dread') -> #1 'The Night We Met' (0.7345) | warnings=0
+2026-11-05 16:45:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:45:07 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Viva La Gloria / Boulevard of Broken Dreams' (0.5886) | warnings=0
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: The Contradiction' (genre='classical', mood='melancholic') -> #1 'Viva La Gloria / Boulevard of Broken Dreams' (0.6091) | warnings=0
+2026-11-05 16:45:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:45:07 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='sophisti-pop', mood='peaceful') -> #1 'The Sweetest Taboo' (0.8455) | warnings=0
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Adversarial: Zero-Bound Minimalist' (genre='sophisti-pop', mood='peaceful') -> #1 'Weightless' (0.8376) | warnings=0
+2026-11-05 16:45:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:45:07 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:45:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:45:07 | INFO    | muse_ic.rag | Parsed natural query via Local Semantic Parser: genre='sophisti-pop', mood='chill', energy=0.34, likes_acoustic=True
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'AI DJ Intent: pomodoro exam week debugging session with Sade s' (genre='sophisti-pop', mood='chill') -> #1 'Paradise' (0.8700) | warnings=0
+2026-11-05 16:45:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:45:07 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
+2026-11-05 16:45:07 | WARNING | muse_ic.guardrails | Guardrail clamped target_energy from 1.85 to 1.00.
+2026-11-05 16:45:07 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:45:07 | WARNING | muse_ic.guardrails | Guardrail blocked potential prompt-injection pattern in natural query.
+2026-11-05 16:45:07 | WARNING | muse_ic.guardrails | Guardrail normalized scoring weights (sum was 1.8000 -> 1.0000).
+2026-11-05 16:45:07 | INFO    | muse_ic.recommender | Recommended 5 tracks for profile 'Guardrail Stress Test' (genre='city pop', mood='groovy') -> #1 'Plastic Love' (0.8681) | warnings=0
+2026-11-05 16:45:07 | WARNING | muse_ic.rag | Gemini API call fell back to local engine: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+2026-11-05 16:45:07 | INFO    | muse_ic.rag | Synthesized grounded Multi-Source RAG explanation via Local Synthesizer (style=musicologist).
