@@ -8,12 +8,22 @@
     "Taeko Ohnuki": {
       "bio": "Acclaimed Japanese singer-songwriter blending jazz-inflected City Pop sophistication with cinematic nocturnal arrangements.",
       "signature_sound": "warm electric piano, sweeping strings, moody nocturnal synth pads",
-      "recommended_moments": "4:00 A.M. rainy night reflection, late-night city walks, atmospheric listening"
+      "recommended_moments": "4:00 A.M. rainy night reflection, late-night introspection, atmospheric listening"
     },
     "Miki Matsubara": {
       "bio": "Iconic Japanese City Pop vocalist celebrated for fusing jazz-funk horn sections with soaring melodic hooks.",
       "signature_sound": "disco-funk basslines, brass stabs, electric guitar solos, upbeat groove",
       "recommended_moments": "energetic night drives, feel-good upbeat sessions, retro party vibes"
+    },
+    "Yasuha": {
+      "bio": "Japanese City Pop singer-composer renowned for high-tempo slap-bass arrangements and infectious brass-driven hooks.",
+      "signature_sound": "rapid slap bass, punchy horn stabs, bright clavinet, high-BPM groove",
+      "recommended_moments": "high-energy cardio workouts, highway driving, upbeat motivation"
+    },
+    "Anri": {
+      "bio": "Defining voice of summery Japanese City Pop, blending Toshiki Kadomatsu's funk-horn production with breezy coastal melodies.",
+      "signature_sound": "horn section stabs, slap bass, synth-brass chords, coastal groove",
+      "recommended_moments": "summer drives, upbeat workouts, feel-good nostalgia"
     },
     "Sade Adu": {
       "bio": "Frontwoman of Sade and the defining voice of sophisti-pop, merging cool jazz saxophone, brushed percussion, and velvet soul-pop.",
@@ -25,35 +35,10 @@
       "signature_sound": "soprano and tenor saxophone, Fender Rhodes electric piano, rain-like percussion",
       "recommended_moments": "Sunday morning coffee, rainy windowpane focus, romantic evening unwinding"
     },
-    "Sabin Rai": {
-      "bio": "Legendary Nepali pop-rock singer-songwriter known for emotive raspy vocals, unplugged acoustic guitar balladry, and timeless Himalayan anthems.",
-      "signature_sound": "unplugged acoustic guitar, soulful rock vocals, melodic folk-rock phrasing",
-      "recommended_moments": "nostalgic evening listening, acoustic reflection, campfire singalongs"
-    },
-    "Bipul Chettri": {
-      "bio": "Himalayan folk-indie singer-songwriter who weaves traditional Nepali पहाडी (hill) melodies with intimate fingerpicked acoustic guitar.",
-      "signature_sound": "fingerstyle acoustic guitar, resonant cello, mountain folk storytelling",
-      "recommended_moments": "peaceful study sessions, rainy night coding, calm meditation, travel"
-    },
-    "Pahenlo Batti Muni": {
-      "bio": "Introspective Kathmandu alternative/indie band crafting deeply poetic, melancholic, and existential Nepali rock ballads.",
-      "signature_sound": "clean reverberant guitar, somber basslines, philosophical Nepali lyricism",
-      "recommended_moments": "late-night existential introspection, quiet solitude, melancholic catharsis"
-    },
-    "VZN": {
-      "bio": "High-energy Nepali hip-hop/R&B hitmaker delivering infectious festival bounce, driving 808 percussion, and hype party anthems.",
-      "signature_sound": "punchy 808 bass, modern trap-pop percussion, high-cadence vocal hooks",
-      "recommended_moments": "peak gym workouts, cardio sprints, pre-game hype, festive parties"
-    },
-    "The Local Train": {
-      "bio": "Acclaimed Hindi indie rock band blending raw acoustic guitar strumming with soaring, emotionally charged Urdu/Hindi poetry.",
-      "signature_sound": "acoustic-electric guitar crescendos, heartfelt Hindi rock vocals, warm bass",
-      "recommended_moments": "late-night heartache, nostalgic long drives, soulful acoustic listening"
-    },
-    "Pritam": {
-      "bio": "Prolific Indian composer blending Sufi folk, acoustic guitar, and lush contemporary Bollywood romance.",
-      "signature_sound": "acoustic guitar, warm orchestral strings, soulful Sufi-pop melodies",
-      "recommended_moments": "romantic evenings, peaceful unwinding, nostalgic Hindi melody sessions"
+    "Stevie Wonder": {
+      "bio": "Legendary soul, R&B, and synth-pop innovator combining virtuosic synthesizer harmonies with infectious rhythmic bounce.",
+      "signature_sound": "analog synth leads, harmonica, driving R&B percussion, upbeat hooks",
+      "recommended_moments": "high-energy cardio workouts, upbeat party sessions, morning motivation"
     }
   },
   "activity_guides": [
@@ -61,29 +46,29 @@
       "id": "guide_coding_study",
       "title": "Cognitive Flow & Coding Acoustics Guide",
       "keywords": ["coding", "programming", "study", "studying", "focus", "pomodoro", "reading", "library", "rain", "homework", "deep work", "debugging"],
-      "genre_recommendations": ["sophisti-pop", "nepali indie", "hindi indie"],
-      "insight": "Psychoacoustic research shows that tracks between 70–96 BPM with high acoustic warmth (fingerpicked guitar, Fender Rhodes, or velvet saxophone like Bipul Chettri and Sade Adu) maintain steady cognitive flow during coding and debugging."
+      "genre_recommendations": ["sophisti-pop", "city pop"],
+      "insight": "Psychoacoustic research shows that tracks between 74–96 BPM with high acoustic warmth (Fender Rhodes, rain foley, and velvet saxophone like Sade Adu's Paradise and Shibuya After Rain) maintain steady cognitive flow during coding and debugging."
     },
     {
       "id": "guide_night_drive",
       "title": "Night Drive & 80s Japanese City Pop Guide",
       "keywords": ["night drive", "highway", "city pop", "japanese", "tokyo", "80s", "neon", "synthwave", "groovy", "retro"],
       "genre_recommendations": ["city pop", "sophisti-pop"],
-      "insight": "Steady 105–122 BPM slap-bass grooves and lush Rhodes synth-brass chords (Mariya Takeuchi, Miki Matsubara, Anri) provide rhythmic optic-flow synchronization ideal for nocturnal highway drives."
+      "insight": "Steady 105–126 BPM slap-bass grooves and lush Rhodes synth-brass chords (Mariya Takeuchi, Miki Matsubara, Anri) provide rhythmic optic-flow synchronization ideal for nocturnal highway drives."
     },
     {
       "id": "guide_workout_hiit",
-      "title": "Peak Workout & Nepali Hype Cadence Guide",
-      "keywords": ["workout", "gym", "cardio", "running", "sprint", "hiit", "hype", "party", "intense", "adrenaline"],
-      "genre_recommendations": ["nepali rock", "city pop"],
-      "insight": "Tracks with energy above 0.80 and tempos between 120–145 BPM (VZN, Jamesy, PURPLE) synchronize with running stride cadence and recruit motor-cortex arousal during heavy workouts."
+      "title": "Peak Workout & Upbeat Cadence Guide",
+      "keywords": ["workout", "gym", "cardio", "running", "sprint", "hiit", "party", "intense", "adrenaline"],
+      "genre_recommendations": ["city pop", "sophisti-pop"],
+      "insight": "Tracks with energy above 0.85 and tempos between 124–136 BPM (Yasuha's Fly-day Chinatown, Stevie Wonder's Part-Time Lover, Billy Ocean's Caribbean Queen) synchronize with running stride cadence."
     },
     {
       "id": "guide_introspection_melancholy",
-      "title": "Late-Night Introspection & Acoustic Catharsis Guide",
-      "keywords": ["existential", "dread", "melancholic", "sad", "sorrowful", "lonely", "heartache", "somber", "introspection", "nepali", "hindi"],
-      "genre_recommendations": ["nepali indie", "hindi indie"],
-      "insight": "Low-valence, high-acousticness arrangements (Pahenlo Batti Muni's Gauthali, The Local Train's Choo Lo, and Bipul Chettri's Deorali Darah) support emotional catharsis and quiet midnight reflection."
+      "title": "Late-Night Introspection & 4:00 A.M. Guide",
+      "keywords": ["existential", "dread", "melancholic", "sad", "sorrowful", "lonely", "heartache", "somber", "introspection"],
+      "genre_recommendations": ["city pop", "sophisti-pop"],
+      "insight": "Low-valence, atmospheric nocturnal arrangements (Taeko Ohnuki's 4:00 A.M. and Tomoko Aran's Midnight Pretenders) support emotional catharsis and quiet late-night reflection."
     }
   ]
 }

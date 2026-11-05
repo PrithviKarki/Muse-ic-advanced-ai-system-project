@@ -325,7 +325,7 @@ def main() -> None:
         st.markdown("### ⚙️ Studio Controls")
         playlist_filter = st.selectbox(
             "Filter by YTM Playlist",
-            ["All", "Japanese City Pop", "Sophisti-pop", "Nepali favs", "Nepali hype", "Tasteful hindi"],
+            ["All", "Japanese City Pop", "Sophisti-pop"],
         )
         engine, songs = get_recommender_engine(playlist_filter=playlist_filter)
         st.caption(f"🎵 YouTube Music Library: **{len(songs)} tracks**")
@@ -389,15 +389,12 @@ def main() -> None:
     # -------------------------------------------------------------------------
     presets = {
         "🌃 Japanese City Pop (My YTM)": "80s Japanese City Pop night drive groove with Mariya Takeuchi and Anri",
-        "🏔️ Nepali Favs & Indie (My YTM)": "nostalgic heartfelt Nepali indie acoustic songs by Sabin Rai, AXIX, and Kta Haru",
-        "🔥 Nepali Hype Anthem (My YTM)": "high energy Nepali hype rock and party workout motivation",
         "🎷 Sophisti-pop Lounge (My YTM)": "smooth sophisti-pop evening lounge with Sade and velvet saxophone",
-        "🎶 Tasteful Hindi (My YTM)": "romantic soulful tasteful Hindi indie and acoustic Bollywood evening vibes",
-        "🌧️ Rainy Night Coding": "pomodoro exam week debugging session with felt piano and rain foley",
-        "🌆 80s Night Drive": "high energy 80s neon cyberpunk synthwave highway night drive",
-        "⚡ Peak Gym Workout": "explosive gym workout cardio and heavy adrenaline motivation",
-        "☕ Sunday Morning Jazz": "cozy Sunday morning coffee shop reading with relaxed upright bass and jazz",
-        "🌑 Existential Introspection (OOD Test)": "existential dread somber late night acoustic introspection",
+        "🌧️ Rainy Night Coding": "pomodoro exam week debugging session with Rhodes piano and rain foley",
+        "🌆 80s Night Drive": "high energy 80s neon Tokyo highway night drive groove",
+        "⚡ Peak Gym Workout": "explosive gym workout cardio and high energy upbeat tempo",
+        "☕ Sunday Morning Jazz": "cozy Sunday morning coffee shop reading with smooth saxophone and Rhodes",
+        "🌑 4:00 A.M. Introspection (OOD Test)": "existential dread somber 4:00 A.M. late night acoustic introspection",
     }
 
     c_preset, c_mode = st.columns([2, 1])

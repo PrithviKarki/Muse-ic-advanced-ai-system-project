@@ -80,11 +80,8 @@ GENRE_AFFINITY_CLUSTERS: Dict[str, Dict[str, float]] = {
     "funk": {"funk": 1.0, "pop": 0.70, "r&b": 0.70, "latin": 0.65, "hip hop": 0.65, "indie pop": 0.60},
     "latin": {"latin": 1.0, "reggae": 0.70, "funk": 0.65, "pop": 0.60, "jazz": 0.55},
     "reggae": {"reggae": 1.0, "latin": 0.70, "folk": 0.55, "r&b": 0.55, "lofi": 0.50},
-    "city pop": {"city pop": 1.0, "funk": 0.85, "synthwave": 0.85, "sophisti-pop": 0.80, "pop": 0.85, "indie pop": 0.75, "edm": 0.70},
-    "sophisti-pop": {"sophisti-pop": 1.0, "city pop": 0.80, "jazz": 0.85, "lofi": 0.80, "ambient": 0.75, "indie pop": 0.75, "r&b": 0.80, "pop": 0.75},
-    "nepali indie": {"nepali indie": 1.0, "folk": 0.85, "lofi": 0.80, "ambient": 0.75, "indie pop": 0.80, "nepali rock": 0.75, "hindi indie": 0.75, "blues": 0.70, "classical": 0.65},
-    "nepali rock": {"nepali rock": 1.0, "rock": 0.90, "metal": 0.80, "nepali indie": 0.75, "pop": 0.70, "hip hop": 0.75, "edm": 0.65},
-    "hindi indie": {"hindi indie": 1.0, "indie pop": 0.80, "folk": 0.80, "nepali indie": 0.75, "r&b": 0.75, "lofi": 0.75, "ambient": 0.75, "blues": 0.70, "classical": 0.65},
+    "city pop": {"city pop": 1.0, "funk": 0.85, "synthwave": 0.85, "sophisti-pop": 0.80, "pop": 0.85, "indie pop": 0.75, "edm": 0.75, "rock": 0.70, "lofi": 0.75, "classical": 0.65, "blues": 0.65},
+    "sophisti-pop": {"sophisti-pop": 1.0, "city pop": 0.80, "jazz": 0.85, "lofi": 0.85, "ambient": 0.80, "indie pop": 0.75, "r&b": 0.85, "pop": 0.80, "blues": 0.75, "classical": 0.70},
 }
 
 MUSICAL_CONCEPT_DIMENSIONS: List[Tuple[str, List[str]]] = [
@@ -102,7 +99,7 @@ MUSICAL_CONCEPT_DIMENSIONS: List[Tuple[str, List[str]]] = [
     ("acoustic_organic", ["acoustic", "piano", "guitar", "strings", "cello", "violin", "fiddle", "harmonica", "saxophone", "upright", "wood", "organic", "unplugged", "rhodes", "felt", "sophisti-pop"]),
     ("electronic_synth", ["electronic", "synth", "synthesizer", "edm", "rave", "festival", "sub-bass", "drop", "808", "electro", "digital"]),
     ("urban_groove", ["hip hop", "boom-bap", "cypher", "swagger", "confident", "hustle", "street", "basketball", "beats", "sample", "soul", "r&b"]),
-    ("nature_folk", ["folk", "campfire", "rustic", "mountain", "forest", "pine", "hiking", "autumn", "trail", "coastal", "beach", "tropical", "reggae", "nepali", "hindi", "bollywood", "himalayan"]),
+    ("nature_folk", ["folk", "campfire", "rustic", "mountain", "forest", "pine", "hiking", "autumn", "trail", "coastal", "beach", "tropical", "reggae"]),
 ]
 
 
@@ -465,11 +462,11 @@ SPECIALIZED_DJ_STYLES: Dict[str, Dict[str, str]] = {
         "name": "Psychoacoustic Musicologist (Specialized Default)",
         "instruction": (
             "Write in a precise, analytical psychoacoustic musicologist tone. Cite BPM tempo ranges, "
-            "harmonic timbre (acoustic guitar, Rhodes, slap bass), and cognitive/physiological entrainment."
+            "harmonic timbre (Fender Rhodes, saxophone, slap bass), and cognitive/physiological entrainment."
         ),
         "few_shot_example": (
-            "Exemplar: '[Psychoacoustic Analysis — 76 BPM Entrainment]: Deorali Darah (Bipul Chettri) pairs "
-            "high acoustic warmth (0.90) with delicate fingerpicked guitar to prevent verbal working-memory interference.'"
+            "Exemplar: '[Psychoacoustic Analysis — 82 BPM Entrainment]: Paradise (Sade Adu) pairs "
+            "high acoustic warmth (0.78) with brushed percussion to prevent verbal working-memory interference.'"
         ),
     },
     "late_night_radio": {
@@ -490,14 +487,14 @@ SPECIALIZED_DJ_STYLES: Dict[str, Dict[str, str]] = {
             "cadence, BPM pacing, and peak power output with [Cadence Zone] markers."
         ),
         "few_shot_example": (
-            "Exemplar: '🔥 [Cadence Zone: 140 BPM Peak Output]: Lock in your pace with BASANTI / HEARTBREAKER (VZN)—"
-            "0.92 energy Nepali hype drive built to push you through your final heavy set!'"
+            "Exemplar: '🔥 [Cadence Zone: 130 BPM Peak Output]: Lock in your pace with Fly-day Chinatown (Yasuha)—"
+            "0.90 energy slap-bass City Pop drive built to push you through your final set!'"
         ),
     },
     "baseline": {
         "name": "Unspecialized Baseline (Plain Checklist)",
         "instruction": "Output a plain, unstyled list of recommended songs and their raw numeric scores without domain persona.",
-        "few_shot_example": "Exemplar: '1. Deorali Darah by Bipul Chettri (Score: 0.93) - genre match, mood match.'",
+        "few_shot_example": "Exemplar: '1. Paradise by Sade Adu (Score: 0.91) - genre match, mood match.'",
     },
 }
 
@@ -582,7 +579,7 @@ def parse_natural_language_request(
             "You are a specialized music recommendation intent parser. Follow the few-shot examples below to extract "
             "a JSON object from the user's request with keys:\n"
             '- "label": short descriptive persona title (string)\n'
-            '- "genre": primary genre from [pop, lofi, rock, ambient, jazz, synthwave, indie pop, reggae, classical, edm, folk, r&b, hip hop, metal, latin, blues, funk, city pop, sophisti-pop, nepali indie, nepali rock, hindi indie] (string)\n'
+            '- "genre": primary genre from [city pop, sophisti-pop, pop, lofi, rock, ambient, jazz, synthwave, indie pop, reggae, classical, edm, folk, r&b, hip hop, metal, latin, blues, funk] (string)\n'
             '- "mood": primary mood from [happy, chill, intense, relaxed, moody, focused, peaceful, melancholic, euphoric, nostalgic, romantic, confident, aggressive, festive, sorrowful, groovy] (string)\n'
             '- "energy": target energy float between 0.0 and 1.0\n'
             '- "likes_acoustic": boolean (true if acoustic/organic/piano/guitar/strings preferred, false if electronic/synth/heavy amplification preferred)\n'
@@ -604,13 +601,10 @@ def parse_natural_language_request(
     text = cleaned_prompt.lower()
 
     # 1. Detect genre
-    genre = "lofi"
+    genre = "sophisti-pop"
     genre_keywords = [
-        ("city pop", ["city pop", "japanese", "tokyo", "mariya", "anri", "matsubara", "80s japanese"]),
-        ("sophisti-pop", ["sophisti-pop", "sophistipop", "smooth pop", "sade"]),
-        ("nepali rock", ["nepali hype", "nepali rock", "nepali party", "nepali workout"]),
-        ("nepali indie", ["nepali", "nepal", "sabin rai", "axix", "kta haru", "kathmandu"]),
-        ("hindi indie", ["hindi", "bollywood", "tasteful hindi", "desi", "urdu"]),
+        ("city pop", ["city pop", "japanese", "tokyo", "mariya", "anri", "matsubara", "yasuha", "ohnuki", "80s japanese", "shibuya"]),
+        ("sophisti-pop", ["sophisti-pop", "sophistipop", "smooth pop", "sade", "stevie wonder", "billy ocean", "grover washington"]),
         ("synthwave", ["synthwave", "cyberpunk", "retro 80s", "night drive", "darksynth", "neon"]),
         ("lofi", ["lofi", "lo-fi", "study", "coding", "programming", "homework", "library", "pomodoro", "debugging", "exam"]),
         ("ambient", ["ambient", "meditation", "sleep", "spacewalk", "stargazing", "weightless", "anxiety"]),
@@ -638,20 +632,20 @@ def parse_natural_language_request(
     mood = "chill"
     text_words = set(_tokenize(text))
     mood_keywords = [
-        ("melancholic", ["melancholic", "sad", "sorrow", "existential", "dread", "lonely", "somber", "heartache"]),
-        ("chill", ["chill", "rainy", "rain", "late night", "study", "lofi", "pomodoro"]),
+        ("melancholic", ["melancholic", "sad", "sorrow", "existential", "dread", "lonely", "somber", "heartache", "4:00"]),
+        ("chill", ["chill", "rainy", "rain", "late night", "study", "lofi", "pomodoro", "shibuya"]),
         ("focused", ["focus", "focused", "coding", "programming", "productive", "deep work", "concentration", "debugging", "exam"]),
-        ("peaceful", ["peaceful", "sleep", "meditation", "serene", "calm", "tranquil", "nature", "sunrise", "bipul"]),
+        ("peaceful", ["peaceful", "sleep", "meditation", "serene", "calm", "tranquil", "nature", "sunrise", "sunset"]),
         ("relaxed", ["relaxed", "coffee", "cafe", "sunday", "lounge", "cozy", "sade", "sophisti-pop"]),
         ("aggressive", ["aggressive", "rage", "powerlifting", "heavy", "metal", "extreme"]),
-        ("intense", ["intense", "workout", "gym", "sprint", "hiit", "action", "adrenaline", "fast", "hype"]),
+        ("intense", ["intense", "workout", "gym", "sprint", "hiit", "action", "adrenaline", "fast", "chinatown"]),
         ("euphoric", ["euphoric", "rave", "festival", "ecstatic"]),
         ("groovy", ["groovy", "disco", "funk", "dancefloor", "city pop", "japanese", "mariya", "anri"]),
         ("festive", ["festive", "party", "celebration", "carnival", "latin"]),
-        ("romantic", ["romantic", "date", "love", "velvet", "smooth", "hindi", "bollywood", "tasteful hindi"]),
+        ("romantic", ["romantic", "date", "love", "velvet", "smooth"]),
         ("confident", ["confident", "swagger", "hustle", "basketball"]),
-        ("moody", ["moody", "night drive", "dark", "cyberpunk"]),
-        ("nostalgic", ["nostalgic", "campfire", "autumn", "memories", "nepali fav", "nepali", "sabin rai", "axix"]),
+        ("moody", ["moody", "night drive", "dark", "cyberpunk", "pretenders"]),
+        ("nostalgic", ["nostalgic", "campfire", "autumn", "memories", "summer days"]),
         ("happy", ["happy", "upbeat", "joyful", "cheerful", "sunny", "summer", "morning"]),
     ]
     for m_name, kw_list in mood_keywords:
@@ -659,18 +653,18 @@ def parse_natural_language_request(
             mood = m_name
             break
 
-    high_energy_terms = ["workout", "gym", "intense", "fast", "running", "cardio", "party", "dance", "heavy", "metal", "edm", "rave", "energetic", "high energy", "power", "hype", "city pop"]
-    low_energy_terms = ["sleep", "calm", "quiet", "peaceful", "study", "coding", "library", "rain", "rainy", "meditation", "chill", "relaxed", "slow", "low energy", "late night", "pomodoro", "debugging", "hindi", "nepali fav"]
+    high_energy_terms = ["workout", "gym", "intense", "fast", "running", "cardio", "party", "dance", "heavy", "metal", "edm", "rave", "energetic", "high energy", "power", "city pop"]
+    low_energy_terms = ["sleep", "calm", "quiet", "peaceful", "study", "coding", "library", "rain", "rainy", "meditation", "chill", "relaxed", "slow", "low energy", "late night", "pomodoro", "debugging"]
 
-    if any(t in text for t in high_energy_terms):
+    if any(t in text for t in high_energy_terms) and not any(t in text for t in ["rain", "study", "coding", "pomodoro", "4:00"]):
         energy = 0.80 if "city pop" in text else 0.86
     elif any(t in text for t in low_energy_terms):
-        energy = 0.48 if ("hindi" in text or "nepali" in text) else 0.32
+        energy = 0.34
     else:
         energy = 0.55
 
-    electronic_terms = ["electronic", "synth", "synthwave", "edm", "cyberpunk", "80s", "rave", "disco", "electric", "metal", "rock", "808", "gym", "city pop", "hype"]
-    acoustic_terms = ["acoustic", "piano", "guitar", "organic", "strings", "unplugged", "rain", "coffee", "folk", "classical", "jazz", "lofi", "campfire", "nepali", "hindi", "bollywood", "sophisti-pop"]
+    electronic_terms = ["electronic", "synth", "synthwave", "edm", "cyberpunk", "80s", "rave", "disco", "electric", "metal", "rock", "808", "gym", "city pop"]
+    acoustic_terms = ["acoustic", "piano", "guitar", "organic", "strings", "unplugged", "rain", "coffee", "folk", "classical", "jazz", "lofi", "campfire", "sophisti-pop"]
 
     if any(t in text for t in electronic_terms) and not any(t in text for t in ["acoustic", "piano"]):
         likes_acoustic = False

@@ -2,11 +2,10 @@
 YouTube Music Google Takeout Importer & Metadata Enricher for Muse-ic 2.0.
 
 Reads Google Takeout playlist CSVs (`Video ID,Playlist Video Creation Timestamp`)
-from `data/youtube_music/`, resolves track titles and artists via YouTube's
-public oEmbed endpoint (cached in `data/youtube_music/resolved_ytm_tracks.json`),
-enriches audio telemetry and RAG descriptions from the playlist taxonomy, and
-writes the project's primary `data/songs.csv` catalog exclusively from the user's
-YouTube Music playlists.
+from `data/youtube_music/` (`Japanese City Pop` and `Sophisti-pop`), resolves track
+titles and artists via YouTube's public oEmbed endpoint (cached in
+`data/youtube_music/resolved_ytm_tracks.json`), enriches audio telemetry and RAG
+descriptions, and exports `data/songs.csv`.
 """
 
 import csv
@@ -24,150 +23,186 @@ YTM_DIR = DATA_DIR / "youtube_music"
 CACHE_JSON = YTM_DIR / "resolved_ytm_tracks.json"
 SONGS_CSV = DATA_DIR / "songs.csv"
 
-# Playlist-level musical profile priors based on user's actual YouTube Music playlists
+# Playlist-level musical profile priors for Japanese City Pop & Sophisti-pop
 PLAYLIST_PROFILES: Dict[str, Dict[str, Any]] = {
     "Japanese City Pop": {
         "genre": "city pop",
         "moods": ["groovy", "happy", "nostalgic", "moody"],
         "base_energy": 0.78,
-        "base_bpm": 118,
-        "base_valence": 0.86,
-        "base_danceability": 0.85,
-        "base_acousticness": 0.22,
+        "base_bpm": 116,
+        "base_valence": 0.84,
+        "base_danceability": 0.84,
+        "base_acousticness": 0.24,
         "desc_template": "80s Japanese City Pop groove featuring slap bass, lush Rhodes synth-brass chords, and breezy nocturnal Tokyo highway nostalgia.",
-        "themes": "japanese city pop, 80s retro, night drive, groovy, upbeat, funk, synthwave, pop, nostalgic, tokyo, cardio, party",
+        "themes": "japanese city pop, 80s retro, night drive, groovy, upbeat, funk, synthwave, pop, nostalgic, tokyo",
     },
     "Sophisti-pop": {
         "genre": "sophisti-pop",
         "moods": ["relaxed", "romantic", "chill", "focused"],
         "base_energy": 0.44,
-        "base_bpm": 96,
+        "base_bpm": 94,
         "base_valence": 0.72,
         "base_danceability": 0.68,
-        "base_acousticness": 0.68,
+        "base_acousticness": 0.72,
         "desc_template": "Polished sophisti-pop arrangement blending smooth jazz saxophone, velvet electric piano chords, and refined late-night lounge warmth.",
         "themes": "sophisti-pop, smooth jazz, lounge, coffee, study, coding, relaxed, chill, date night, romantic, evening, piano, saxophone",
     },
-    "Nepali favs": {
-        "genre": "nepali indie",
-        "moods": ["nostalgic", "chill", "peaceful", "melancholic", "focused"],
-        "base_energy": 0.42,
-        "base_bpm": 88,
-        "base_valence": 0.58,
-        "base_danceability": 0.54,
-        "base_acousticness": 0.78,
-        "desc_template": "Heartfelt Nepali folk-pop and indie acoustic balladry rich with warm guitar strumming, unplugged vocals, and Himalayan rainy-night nostalgia.",
-        "themes": "nepali favs, nepali indie, folk, acoustic, guitar, piano, rain, rainy night, study, coding, pomodoro, debugging, chill, peaceful, nostalgic, melancholic, introspection",
-    },
-    "Nepali hype": {
-        "genre": "nepali rock",
-        "moods": ["intense", "festive", "confident", "happy"],
-        "base_energy": 0.90,
-        "base_bpm": 136,
-        "base_valence": 0.82,
-        "base_danceability": 0.82,
-        "base_acousticness": 0.16,
-        "desc_template": "High-voltage Nepali hype anthem combining driving percussion, electric rock and hip-hop bounce, and peak workout/party adrenaline.",
-        "themes": "nepali hype, nepali rock, workout, gym, cardio, party, intense, aggressive, happy, energetic, rock, hip hop, festive, celebration",
-    },
-    "Tasteful hindi": {
-        "genre": "hindi indie",
-        "moods": ["romantic", "melancholic", "peaceful", "relaxed", "sorrowful"],
-        "base_energy": 0.38,
-        "base_bpm": 84,
-        "base_valence": 0.52,
-        "base_danceability": 0.52,
-        "base_acousticness": 0.80,
-        "desc_template": "Soulful Hindi indie and poetic Bollywood acoustic melody featuring intimate vocals, warm strings, and late-night emotional introspection.",
-        "themes": "tasteful hindi, hindi indie, bollywood acoustic, romantic, soulful, relaxed, melancholic, sorrowful, existential, peaceful, late night, rain, sleep, meditation, guitar, piano",
-    },
 }
 
-# Specific track overrides for standout songs in the user's YouTube Music library
+# Rich per-track profiles for all 17 tracks across Japanese City Pop & Sophisti-pop
 TRACK_SPECIFIC_OVERRIDES: Dict[str, Dict[str, Any]] = {
     "u6y5NSiRPOw": {  # Plastic Love — Mariya Takeuchi
         "mood": "groovy",
-        "energy": 0.78,
+        "energy": 0.80,
         "tempo_bpm": 106.0,
+        "valence": 0.86,
         "acousticness": 0.24,
         "description": "[Japanese City Pop] Iconic 1984 Tokyo City Pop masterpiece by Mariya Takeuchi driven by infectious slap-bass funk, shimmering Rhodes chords, and neon night-drive euphoria.",
+        "themes": "japanese city pop, night drive, groovy, funk, 80s retro, tokyo, upbeat, pop, synthwave",
     },
     "_sOKkON_UnQ": {  # 4:00 A.M. — Taeko Ohnuki
-        "mood": "moody",
-        "energy": 0.68,
-        "tempo_bpm": 102.0,
-        "acousticness": 0.35,
-        "description": "[Japanese City Pop] Sweeping nocturnal City Pop arrangement by Taeko Ohnuki capturing 4:00 A.M. rain-slicked Tokyo streets with lush strings and analog synth warmth.",
+        "mood": "melancholic",
+        "energy": 0.36,
+        "tempo_bpm": 78.0,
+        "valence": 0.34,
+        "acousticness": 0.76,
+        "description": "[Japanese City Pop] Sweeping nocturnal City Pop ballad by Taeko Ohnuki capturing 4:00 A.M. rain-slicked Tokyo streets, existential introspection, and warm acoustic piano & strings.",
+        "themes": "japanese city pop, melancholic, sorrowful, existential dread, somber, late night, rain, introspection, acoustic, piano, strings",
     },
-    "ZS6p32gX_yk": {  # Stay With Me — Miki Matsubara
-        "mood": "groovy",
-        "energy": 0.82,
+    "ZS6p32gX_yk": {  # 真夜中のドア〜stay with me — Miki Matsubara
+        "mood": "happy",
+        "energy": 0.84,
         "tempo_bpm": 114.0,
-        "acousticness": 0.22,
+        "valence": 0.88,
+        "acousticness": 0.20,
         "description": "[Japanese City Pop] Soaring disco-funk City Pop classic by Miki Matsubara featuring brassy horn stabs, upbeat groove, and timeless 80s retro sparkle.",
+        "themes": "japanese city pop, happy, groovy, upbeat, disco, funk, party, night drive, 80s",
+    },
+    "hci81q8Q49Q": {  # Fly-day Chinatown — Yasuha
+        "mood": "intense",
+        "energy": 0.90,
+        "tempo_bpm": 130.0,
+        "valence": 0.88,
+        "acousticness": 0.16,
+        "description": "[Japanese City Pop] High-voltage 1981 City Pop anthem by Yasuha propelled by rapid slap-bass riffs, punchy brass hits, and adrenaline-charged workout & highway momentum.",
+        "themes": "japanese city pop, intense, workout, gym, cardio, running, high energy, fast, night drive, upbeat",
+    },
+    "3agC6do-624": {  # Remember Summer Days — Anri
+        "mood": "nostalgic",
+        "energy": 0.76,
+        "tempo_bpm": 118.0,
+        "valence": 0.82,
+        "acousticness": 0.26,
+        "description": "[Japanese City Pop] Breezy coastal City Pop gem by Anri blending warm horns, nostalgic summer memories, and shimmering synth-funk rhythm.",
+        "themes": "japanese city pop, nostalgic, summer, beach, groovy, happy, night drive, pop",
+    },
+    "7pPb5fmumNo": {  # Midnight Pretenders — Tomoko Aran
+        "mood": "moody",
+        "energy": 0.64,
+        "tempo_bpm": 100.0,
+        "valence": 0.48,
+        "acousticness": 0.42,
+        "description": "[Japanese City Pop] Atmospheric midnight synth-funk groove by Tomoko Aran with velvet analog pads, melancholic saxophone, and late-night Tokyo cruising.",
+        "themes": "japanese city pop, moody, melancholic, midnight, night drive, synthwave, saxophone, retro",
+    },
+    "QLHMhVonF-s": {  # 黄昏のBAY CITY — Junko Yagami
+        "mood": "intense",
+        "energy": 0.86,
+        "tempo_bpm": 124.0,
+        "valence": 0.80,
+        "acousticness": 0.18,
+        "description": "[Japanese City Pop] Driving twilight Bay City synth-funk anthem by Junko Yagami with powerful vocals, electronic basslines, and high-energy pace.",
+        "themes": "japanese city pop, intense, high energy, workout, cardio, night drive, synth, upbeat",
+    },
+    "CnMzjiYVXYo": {  # サンセット・ロード — Reiko Takahashi
+        "mood": "peaceful",
+        "energy": 0.34,
+        "tempo_bpm": 76.0,
+        "valence": 0.68,
+        "acousticness": 0.80,
+        "description": "[Japanese City Pop] Serene sunset coastal ballad by Reiko Takahashi featuring gentle Rhodes electric piano, warm acoustic guitar, and weightless evening calm.",
+        "themes": "japanese city pop, peaceful, chill, calm, sleep, meditation, sunset, acoustic, piano, study",
+    },
+    "H9R1Hl6sJeE": {  # 悲しみがとまらない I CAN'T STOP THE LONELINESS — Anri
+        "mood": "happy",
+        "energy": 0.88,
+        "tempo_bpm": 126.0,
+        "valence": 0.85,
+        "acousticness": 0.20,
+        "description": "[Japanese City Pop] Exuberant horn-driven City Pop hit by Anri pairing dramatic melody with infectious high-tempo disco-pop energy.",
+        "themes": "japanese city pop, happy, upbeat, workout, cardio, party, groovy, disco, pop",
+    },
+    "ytZd9n6ODGw": {  # Shibuya After Rain（渋谷アフター・レイン） — Japanese City Pop
+        "mood": "chill",
+        "energy": 0.32,
+        "tempo_bpm": 74.0,
+        "valence": 0.62,
+        "acousticness": 0.84,
+        "description": "[Japanese City Pop] Rainy-night Shibuya instrumental & warm Rhodes piano study groove crafted for late-night coding, pomodoro focus, and quiet rain foley.",
+        "themes": "japanese city pop, chill, rain, rainy night, coding, study, pomodoro, debugging, piano, lofi, calm",
     },
     "SLbvyz_Hk9E": {  # Paradise — Sade Adu
         "mood": "chill",
-        "energy": 0.36,
+        "energy": 0.35,
         "tempo_bpm": 82.0,
-        "acousticness": 0.76,
-        "description": "[Sophisti-pop] Velvet sophisti-pop groove by Sade Adu pairing warm basslines, brushed percussion, and calm late-night coding & lounge focus.",
+        "valence": 0.68,
+        "acousticness": 0.78,
+        "description": "[Sophisti-pop] Velvet sophisti-pop groove by Sade Adu pairing warm basslines, brushed percussion, and calm late-night coding & pomodoro study focus.",
+        "themes": "sophisti-pop, chill, study, coding, pomodoro, debugging, exam, calm, piano, lounge, focus",
     },
-    "mRNcPbCJNJ8": {  # Smooth Operator — Sade Adu
+    "mRNcPbCJNJ8": {  # Smooth Operator (Single Version) — Sade Adu
         "mood": "relaxed",
-        "energy": 0.42,
+        "energy": 0.44,
         "tempo_bpm": 92.0,
-        "acousticness": 0.72,
-        "description": "[Sophisti-pop] Signature sophisti-pop classic by Sade Adu featuring silky tenor saxophone solos, Rhodes piano chords, and effortless coffee-lounge cool.",
-    },
-    "gelwwYuYGn0": {  # Just the Two of Us — Grover Washington, Jr.
-        "mood": "romantic",
-        "energy": 0.46,
-        "tempo_bpm": 96.0,
+        "valence": 0.70,
         "acousticness": 0.74,
-        "description": "[Sophisti-pop] Warm jazz-soul classic by Grover Washington, Jr. with Fender Rhodes electric piano, rain-on-windowpane lyricism, and smooth saxophone.",
+        "description": "[Sophisti-pop] Signature sophisti-pop classic by Sade Adu featuring silky tenor saxophone solos, Rhodes piano chords, and effortless coffee-lounge cool.",
+        "themes": "sophisti-pop, relaxed, jazz, saxophone, coffee, cafe, lounge, smooth, evening, piano",
     },
-    "0lPdE7F31yI": {  # Deorali Darah — Bipul Chettri
+    "RcejfvTXusM": {  # The Sweetest Taboo — Sade Adu
         "mood": "peaceful",
         "energy": 0.30,
         "tempo_bpm": 76.0,
-        "acousticness": 0.90,
-        "description": "[Nepali favs] Intimate Himalayan acoustic folk storytelling by Bipul Chettri built on delicate fingerpicked guitar, mountain breeze calm, and peaceful study focus.",
-    },
-    "cwxiCWAI7wc": {  # Gauthali — Pahenlo Batti Muni
-        "mood": "melancholic",
-        "energy": 0.34,
-        "tempo_bpm": 74.0,
+        "valence": 0.66,
         "acousticness": 0.86,
-        "description": "[Nepali favs] Contemplative Nepali indie ballad by Pahenlo Batti Muni exploring existential introspection, somber late-night stillness, and warm acoustic guitar.",
+        "description": "[Sophisti-pop] Quiet storm sophisti-pop arrangement by Sade Adu opening with real rain foley, gentle acoustic guitar, and tranquil late-night warmth.",
+        "themes": "sophisti-pop, peaceful, chill, rain, rainy night, acoustic, guitar, sleep, meditation, study, coding",
     },
-    "bTqGacqoIvU": {  # Malai Angali Deu — Sabin Rai
-        "mood": "nostalgic",
-        "energy": 0.44,
-        "tempo_bpm": 84.0,
-        "acousticness": 0.80,
-        "description": "[Nepali favs] Soul-stirring Nepali acoustic rock ballad by Sabin Rai combining raspy emotive vocals with warm unplugged guitar melodies.",
-    },
-    "opwZ_PJ-F_E": {  # Choo Lo — The Local Train
-        "mood": "melancholic",
+    "z2t9RmOe4K0": {  # Hang On to Your Love (Long Version) — Sade Adu
+        "mood": "focused",
         "energy": 0.48,
-        "tempo_bpm": 86.0,
-        "acousticness": 0.78,
-        "description": "[Tasteful hindi] Poetic Hindi indie rock ballad by The Local Train blending raw acoustic strumming with late-night heartache and cathartic crescendo.",
-    },
-    "D395bK70m3w": {  # Masakali — Mohit Chauhan
-        "mood": "happy",
-        "energy": 0.64,
-        "tempo_bpm": 108.0,
+        "tempo_bpm": 96.0,
+        "valence": 0.64,
         "acousticness": 0.68,
-        "description": "[Tasteful hindi] Uplifting A.R. Rahman & Mohit Chauhan Hindi melody with breezy accordion, acoustic rhythm guitar, and carefree morning warmth.",
+        "description": "[Sophisti-pop] Hypnotic mid-tempo sophisti-pop groove by Sade Adu built on steady bass pulse and warm electric piano ideal for deep work and concentration.",
+        "themes": "sophisti-pop, focused, focus, coding, programming, deep work, study, piano, smooth",
     },
-    "k6qo1PU2ipk": {  # BASANTI / HEARTBREAKER — VZN
+    "MpDM6ygsb20": {  # Part-Time Lover — Stevie Wonder
         "mood": "intense",
         "energy": 0.92,
-        "tempo_bpm": 140.0,
-        "acousticness": 0.12,
-        "description": "[Nepali hype] Explosive Nepali hype anthem by VZN engineered with heavy bass drops, rapid cadence, and peak gym/party adrenaline.",
+        "tempo_bpm": 136.0,
+        "valence": 0.90,
+        "acousticness": 0.15,
+        "description": "[Sophisti-pop] High-energy 1985 synth-pop and R&B powerhouse by Stevie Wonder with driving electronic percussion and peak cardio workout cadence.",
+        "themes": "sophisti-pop, intense, happy, workout, gym, cardio, running, upbeat, party, synth, pop",
+    },
+    "VOiZC020nl0": {  # Caribbean Queen (No More Love On the Run) — Billy Ocean
+        "mood": "groovy",
+        "energy": 0.88,
+        "tempo_bpm": 128.0,
+        "valence": 0.86,
+        "acousticness": 0.18,
+        "description": "[Sophisti-pop] Electrifying 80s post-disco sophisti-pop hit by Billy Ocean featuring razor-sharp synth bass, saxophone solo, and high-energy dancefloor momentum.",
+        "themes": "sophisti-pop, groovy, intense, workout, party, dance, 80s, synth, saxophone, upbeat",
+    },
+    "gelwwYuYGn0": {  # Just the Two of Us — Grover Washington, Jr.
+        "mood": "romantic",
+        "energy": 0.38,
+        "tempo_bpm": 86.0,
+        "valence": 0.76,
+        "acousticness": 0.84,
+        "description": "[Sophisti-pop] Warm jazz-soul classic by Grover Washington, Jr. and Bill Withers with Fender Rhodes electric piano, rain-on-windowpane lyricism, and smooth saxophone.",
+        "themes": "sophisti-pop, romantic, chill, relaxed, jazz, piano, saxophone, rain, coffee, study, coding, pomodoro, acoustic",
     },
 }
 
@@ -218,7 +253,7 @@ def _deterministic_jitter(video_id: str, base_val: float, spread: float = 0.08, 
 
 def build_ytm_catalog(resolve_online: bool = False, max_per_playlist: int = 60) -> List[Dict[str, Any]]:
     """
-    Parse all `*-videos.csv` files in `data/youtube_music/`, resolve titles/artists,
+    Parse `*-videos.csv` files in `data/youtube_music/`, resolve titles/artists,
     and return a list of Muse-ic song dictionaries.
     """
     cached_lookup: Dict[str, Dict[str, str]] = {}
@@ -241,20 +276,9 @@ def build_ytm_catalog(resolve_online: bool = False, max_per_playlist: int = 60) 
 
     for csv_file in csv_files:
         playlist_name = csv_file.name.replace("-videos.csv", "").strip()
-        profile = PLAYLIST_PROFILES.get(
-            playlist_name,
-            {
-                "genre": "city pop",
-                "moods": ["chill"],
-                "base_energy": 0.55,
-                "base_bpm": 100,
-                "base_valence": 0.65,
-                "base_danceability": 0.65,
-                "base_acousticness": 0.50,
-                "desc_template": f"Curated track from YouTube Music playlist '{playlist_name}'.",
-                "themes": f"{playlist_name.lower()}, youtube music, personal library",
-            },
-        )
+        if playlist_name not in PLAYLIST_PROFILES:
+            continue
+        profile = PLAYLIST_PROFILES[playlist_name]
 
         count_in_playlist = 0
         with open(csv_file, mode="r", encoding="utf-8") as f:
@@ -296,14 +320,18 @@ def build_ytm_catalog(resolve_online: bool = False, max_per_playlist: int = 60) 
                 bpm_jitter = int(_deterministic_jitter(vid + "b", 0.5, 0.4, 0.1, 0.9) * 28) - 14
                 bpm = float(max(62, min(176, profile["base_bpm"] + bpm_jitter)))
                 desc = f"[{playlist_name}] {profile['desc_template']}"
+                themes = f"{profile['themes']}, {artist.lower()}, {title.lower()}"
 
                 if vid in TRACK_SPECIFIC_OVERRIDES:
                     ov = TRACK_SPECIFIC_OVERRIDES[vid]
                     mood = ov.get("mood", mood)
                     energy = ov.get("energy", energy)
                     bpm = ov.get("tempo_bpm", bpm)
+                    valence = ov.get("valence", valence)
                     acoustic = ov.get("acousticness", acoustic)
                     desc = ov.get("description", desc)
+                    if "themes" in ov:
+                        themes = f"{ov['themes']}, {artist.lower()}, {title.lower()}"
 
                 tracks.append(
                     {
@@ -318,7 +346,7 @@ def build_ytm_catalog(resolve_online: bool = False, max_per_playlist: int = 60) 
                         "danceability": dance,
                         "acousticness": acoustic,
                         "description": desc,
-                        "themes": f"{profile['themes']}, {artist.lower()}, {title.lower()}",
+                        "themes": themes,
                         "youtube_url": f"https://music.youtube.com/watch?v={vid}",
                         "playlist": playlist_name,
                     }
@@ -336,7 +364,7 @@ def build_ytm_catalog(resolve_online: bool = False, max_per_playlist: int = 60) 
 
 
 def export_ytm_to_songs_csv(csv_path: Path = SONGS_CSV) -> List[Dict[str, Any]]:
-    """Overwrite `data/songs.csv` exclusively with the user's resolved YouTube Music library."""
+    """Overwrite `data/songs.csv` exclusively with the user's Japanese City Pop & Sophisti-pop library."""
     tracks = build_ytm_catalog(resolve_online=False, max_per_playlist=60)
     fieldnames = [
         "id",
@@ -364,4 +392,4 @@ def export_ytm_to_songs_csv(csv_path: Path = SONGS_CSV) -> List[Dict[str, Any]]:
 
 if __name__ == "__main__":
     exported = export_ytm_to_songs_csv()
-    print(f"Wrote {len(exported)} YouTube Music tracks directly to {SONGS_CSV} (0 starter songs remaining).")
+    print(f"Wrote {len(exported)} YouTube Music tracks (Japanese City Pop & Sophisti-pop) to {SONGS_CSV}.")
