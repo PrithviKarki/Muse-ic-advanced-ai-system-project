@@ -146,9 +146,9 @@ def test_natural_language_request_parsing_and_rag_pipeline():
     assert result["guardrail_report"].passed is True
     assert result["guardrail_report"].hallucination_blocked is False
 
-    # Top recommendation should be a calm acoustic/lounge track from the YTM library, and explanation must cite real titles
+    # Top recommendation should be a calm acoustic/lounge track from the library, and explanation must cite real titles
     top_song, top_score, _ = result["recommendations"][0]
-    assert top_song["genre"] in ("sophisti-pop", "city pop")
+    assert top_song["genre"] in ("sophisti-pop", "city pop", "lofi", "classical", "ambient", "jazz", "folk")
     assert 0.0 <= top_score <= 1.0
     assert top_song["title"] in result["rag_explanation"]
 

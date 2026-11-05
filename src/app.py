@@ -324,8 +324,8 @@ def main() -> None:
     with st.sidebar:
         st.markdown("### ⚙️ Studio Controls")
         playlist_filter = st.selectbox(
-            "Filter by YTM Playlist",
-            ["All", "Japanese City Pop", "Sophisti-pop"],
+            "Filter by Playlist",
+            ["All", "Japanese City Pop", "Sophisti-pop", "Top 100 English"],
         )
         engine, songs = get_recommender_engine(playlist_filter=playlist_filter)
         st.caption(f"🎵 YouTube Music Library: **{len(songs)} tracks**")

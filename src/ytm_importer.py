@@ -18,6 +18,11 @@ import urllib.parse
 import urllib.request
 from typing import Any, Dict, List, Optional, Tuple
 
+try:
+    from src.top100_english import build_top_100_english_catalog
+except ModuleNotFoundError:
+    from top100_english import build_top_100_english_catalog
+
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 YTM_DIR = DATA_DIR / "youtube_music"
 CACHE_JSON = YTM_DIR / "resolved_ytm_tracks.json"
@@ -364,8 +369,10 @@ def build_ytm_catalog(resolve_online: bool = False, max_per_playlist: int = 60) 
 
 
 def export_ytm_to_songs_csv(csv_path: Path = SONGS_CSV) -> List[Dict[str, Any]]:
-    """Overwrite `data/songs.csv` exclusively with the user's Japanese City Pop & Sophisti-pop library."""
-    tracks = build_ytm_catalog(resolve_online=False, max_per_playlist=60)
+    """Write `data/songs.csv` combining the user's YTM playlists and the Top 100 English songs."""
+    ytm_tracks = build_ytm_catalog(resolve_online=False, max_per_playlist=60)
+    english_tracks = build_top_100_english_catalog(start_id=len(ytm_tracks) + 1)
+    tracks = ytm_tracks + english_tracks
     fieldnames = [
         "id",
         "title",
@@ -392,4 +399,4 @@ def export_ytm_to_songs_csv(csv_path: Path = SONGS_CSV) -> List[Dict[str, Any]]:
 
 if __name__ == "__main__":
     exported = export_ytm_to_songs_csv()
-    print(f"Wrote {len(exported)} YouTube Music tracks (Japanese City Pop & Sophisti-pop) to {SONGS_CSV}.")
+    print(f"Wrote {len(exported)} tracks (17 YTM + 100 Top English) to {SONGS_CSV}.")
